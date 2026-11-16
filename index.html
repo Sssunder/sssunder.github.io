@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+  <!-- Standard & High-DPI Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Павел Котенев — Инженер веб-разработки & Коммерческие сайты под ключ</title>
+
+    <!-- Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            950: '#07090E',
+                            900: '#0C0F17',
+                            850: '#111622',
+                            800: '#171E2E',
+                            750: '#1F283C',
+                            700: '#28344E',
+                        },
+                        accent: {
+                            cyan: '#00F0FF',
+                            indigo: '#6366F1',
+                            amber: '#F59E0B',
+                            emerald: '#10B981'
+                        }
+                    },
+                    fontFamily: {
+                        tech: ['"Space Grotesk"', 'sans-serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-body: #07090E;
+            --accent: #6366F1;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .studio-card {
+            background: linear-gradient(135deg, rgba(17, 22, 34, 0.85) 0%, rgba(12, 15, 23, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .studio-card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .studio-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: #FFFFFF;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+            transition: all 0.2s ease;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #818CF8 0%, #6366F1 100%);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+            transform: scale(1.02);
+        }
+        .btn-gradient:active {
+            transform: scale(0.98);
+        }
+
+        .ambient-mesh {
+            background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.18), transparent 70%),
+                        radial-gradient(circle at 100% 50%, rgba(0, 240, 255, 0.08), transparent 50%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07090E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F283C;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366F1;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen selection:bg-indigo-500 selection:text-white">
+
+    <!-- TOP NAVIGATION -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-dark-950/85 border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+            
+            <!-- Logo & Title -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl p-0.5 bg-gradient-to-tr from-indigo-500 via-indigo-600 to-cyan-400 shadow-lg flex-shrink-0 flex items-center justify-center font-tech font-bold text-white text-lg tracking-wider group-hover:scale-105 transition-transform">
+                    PK
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-tech text-base sm:text-lg font-bold tracking-tight text-white">
+                            Павел Котенев
+                        </span>
+                        <span class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Открыт к проектам
+                        </span>
+                    </div>
+                    <div class="hidden sm:block text-[11px] text-slate-400 font-medium truncate">
+                        Инженер веб-разработки • Курган & Remote
+                    </div>
+                </div>
+            </a>
+
+            <!-- Right: Actions & Contacts -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <div class="hidden md:flex items-center gap-2 text-xs font-semibold text-slate-300">
+                    <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Проекты</a>
+                    <a href="#niches" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Тематики</a>
+                    <a href="#calculator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Калькулятор</a>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" title="Telegram" class="w-9 h-9 rounded-xl bg-dark-850 hover:bg-[#2AABEE]/20 border border-white/10 text-[#2AABEE] flex items-center justify-center transition-all hover:scale-105" aria-label="Telegram">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://wa.me/79630032657" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="hidden sm:flex w-9 h-9 rounded-xl bg-dark-850 hover:bg-[#25D366]/20 border border-white/10 text-[#25D366] items-center justify-center transition-all hover:scale-105" aria-label="WhatsApp">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.122-.519-1.503-.623-2.482-2.148-2.557-2.247-.075-.1-1.222-1.626-1.222-3.1 0-1.474.773-2.198 1.047-2.497.275-.299.598-.374.798-.374.2 0 .4.002.574.01.187.01.437-.07.687.529.25.6 1.046 2.548 1.046 2.648 0 .1-.025.224-.075.324-.05.1-.125.174-.225.274-.1.1-.225.224-.325.324-.1.1-.225.224-.075.474.15.25.674 1.123 1.447 1.821.998.898 1.847 1.173 2.122 1.298.275.125.424.1.574-.075.15-.175.649-.773.824-1.048.175-.274.349-.224.598-.124.25.1 1.573.748 1.848.873.275.125.45.175.524.299.075.125.075.724-.069 1.129z"/></svg>
+                    </a>
+                </div>
+
+                <a href="#contact" class="btn-gradient px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 whitespace-nowrap">
+                    <span>Обсудить задачу</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-4 sm:px-6 ambient-mesh">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-850 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+                <span>Инженерная веб-разработка & High-Ticket сайты под ключ</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="font-tech text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tight leading-[1.15]">
+                САЙТЫ, КОТОРЫЕ ОКУПАЮТСЯ <br>
+                <span class="bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-300 bg-clip-text text-transparent">С ПЕРВЫХ СДЕЛОК</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                Создаю скоростные коммерческие сайты для услуг и бизнеса за 24–48 часов. Никаких шаблонных конструкторов с абонентской платой: интерактивные калькуляторы, тесты ДО/ПОСЛЕ, личный кабинет владельца с PIN-кодом и прямая запись клиентов в WhatsApp и Telegram.
+            </p>
+
+            <!-- 4 Metrics Bento -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-3xl mx-auto">
+                <div class="studio-card p-3.5 sm:p-4 rounded-2xl text-center">
+                    <div class="font-tech text-xl sm:text-3xl font-bold text-indigo-400">24–48 ч</div>
+                    <div class="text-[11px] text-slate-400 mt-1 leading-tight">Срок запуска под ключ</div>
+                </div>
+                <div class="studio-card p-3.5 sm:p-4 rounded-2xl text-center">
+                    <div class="font-tech text-xl sm:text-3xl font-bold text-cyan-400">0 ₽/мес</div>
+                    <div class="text-[11px] text-slate-400 mt-1 leading-tight">Без абонентки конструктора</div>
+                </div>
+                <div class="studio-card p-3.5 sm:p-4 rounded-2xl text-center">
+                    <div class="font-tech text-xl sm:text-3xl font-bold text-amber-400">PIN 1234</div>
+                    <div class="text-[11px] text-slate-400 mt-1 leading-tight">Личный кабинет мастера</div>
+                </div>
+                <div class="studio-card p-3.5 sm:p-4 rounded-2xl text-center">
+                    <div class="font-tech text-xl sm:text-3xl font-bold text-emerald-400">Supabase</div>
+                    <div class="text-[11px] text-slate-400 mt-1 leading-tight">Облачная база & календарь</div>
+                </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+                <a href="#projects" class="w-full sm:w-auto btn-gradient px-6 py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+                    <span>Смотреть живые работы (5 кейсов)</span>
+                    <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-dark-850 hover:bg-dark-800 border border-white/10 hover:border-indigo-500/40 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
+                    <span>Рассчитать стоимость своего сайта</span>
+                    <i data-lucide="calculator" class="w-4 h-4 text-indigo-400"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE PROJECT SHOWCASE (5 REAL SITES) -->
+    <section id="projects" class="py-16 sm:py-24 px-4 sm:px-6 bg-dark-900 border-y border-white/10">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-850 border border-white/10 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="folder-check" class="w-3.5 h-3.5"></i>
+                        <span>Портфолио реализованных проектов</span>
+                    </div>
+                    <h2 class="font-tech text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight mt-2">
+                        РЕАЛЬНЫЕ САЙТЫ <span class="text-indigo-400">В БОЕВОМ РЕЖИМЕ</span>
+                    </h2>
+                </div>
+                <div class="text-xs text-slate-400 max-w-xs">
+                    Каждый проект работает прямо сейчас: можно открыть с телефона, пощелкать калькулятор и проверить кабинет.
+                </div>
+            </div>
+
+            <!-- PROJECTS GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- CASE 1: DETAILING SHAMAN -->
+                <div class="studio-card studio-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <!-- Preview Image with Badge -->
+                        <div class="relative aspect-[16/9] overflow-hidden group">
+                            <img src="assets/shaman_new_slider_desktop.png" alt="DETAILING SHAMAN" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                                <span>High-Ticket Детейлинг (Курган)</span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-tech text-xl font-bold text-white">DETAILING SHAMAN</h3>
+                                    <div class="text-xs text-slate-400 mt-0.5">Студия детейлинга, полировки и керамики 9H • пр. Машиностроителей 23Е</div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/25 text-xs font-bold whitespace-nowrap">Чек: 25–45 тыс. ₽</span>
+                            </div>
+
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Полный редизайн сайта детейлинга: интерактивный макро-слайдер 50/50 под инспекционным светом Scangrip, конфигуратор услуг по 3 классам кузова с автоматической скидкой 10% на комплекс, карточки устраненных дефектов (BMW и Cadillac) и запись на замер ЛКП.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Тест ЛКП 50/50</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Авто-калькулятор</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Supabase CRM</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Кабинет PIN 1234</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="p-6 pt-0 flex items-center gap-3">
+                        <a href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="btn-gradient w-full py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                            <span>Открыть живой сайт</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CASE 2: YAROSLAVA ERMAKOVA -->
+                <div class="studio-card studio-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <!-- Preview Image with Badge -->
+                        <div class="relative aspect-[16/9] overflow-hidden group">
+                            <img src="assets/yaroslava_preview_1_hero.png" alt="Ярослава Ермакова" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold text-pink-400 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+                                <span>Beauty: Маникюр & Smart-педикюр</span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-tech text-xl font-bold text-white">Ярослава Ермакова</h3>
+                                    <div class="text-xs text-slate-400 mt-0.5">Студия ногтевой эстетики • г. Курган, ул. Советская 148</div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-pink-500/10 text-pink-400 border border-pink-500/25 text-xs font-bold whitespace-nowrap">Услуги красоты</span>
+                            </div>
+
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Эстетичный мобильный сайт для топ-мастера: интерактивная примерка оттенков и дизайнов прямо в шапке, умная онлайн-запись с проверкой свободных слотов в базе данных, календарь графика и моментальная отправка записи в WhatsApp.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Примерка работ</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Онлайн-запись</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Управление слотами</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Favicon монограмма</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="p-6 pt-0 flex items-center gap-3">
+                        <a href="https://sssunder.github.io/yaroslava-beauty/" target="_blank" rel="noopener noreferrer" class="btn-gradient w-full py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                            <span>Открыть живой сайт</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CASE 3: ELIZAVETA NOVAEVA -->
+                <div class="studio-card studio-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <!-- Preview Image with Badge -->
+                        <div class="relative aspect-[16/9] overflow-hidden group">
+                            <img src="assets/novaeva_preview.png" alt="Елизавета Новаева" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+                                <span>Beauty: Перманент & Брови</span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-tech text-xl font-bold text-white">Елизавета Новаева</h3>
+                                    <div class="text-xs text-slate-400 mt-0.5">Студия перманентного макияжа & бровей • Курган</div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/25 text-xs font-bold whitespace-nowrap">4 темы</span>
+                            </div>
+
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Премиальный бутик-лендинг с движком моментальной смены 4 стилей оформления (Onyx, Nude, French, Sage), галереей реальных работ, блоком СанПиН безопасности и кабинетом мастера для редактирования цен.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">4 темы оформления</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">СанПиН протокол</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Галерея заживших работ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="p-6 pt-0 flex items-center gap-3">
+                        <a href="https://sssunder.github.io/novaeva-beauty/" target="_blank" rel="noopener noreferrer" class="btn-gradient w-full py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                            <span>Открыть живой сайт</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CASE 4: NATALIA DRUZHININA (EDTECH) -->
+                <div class="studio-card studio-card-hover rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <!-- Preview Image with Badge -->
+                        <div class="relative aspect-[16/9] overflow-hidden group">
+                            <img src="assets/natalia_preview.png" alt="Наталья Дружинина" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>EdTech: Репетитор ОГЭ/ЕГЭ</span>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-tech text-xl font-bold text-white">Наталья Дружинина</h3>
+                                    <div class="text-xs text-slate-400 mt-0.5">Преподаватель математики высшей категории • ОГЭ & ЕГЭ</div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 text-xs font-bold whitespace-nowrap">Диагностика</span>
+                            </div>
+
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Образовательная платформа с 20-секундным квизом диагностики уровня знаний, автоматическим подбором персонального трека подготовки, калькулятором баллов и интерактивным расписанием занятий.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Диагностический квиз</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Калькулятор баллов</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-850 border border-white/10 text-[11px] text-slate-300">Расписание слотов</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Actions -->
+                    <div class="p-6 pt-0 flex items-center gap-3">
+                        <a href="https://sssunder.github.io/natalia-math/" target="_blank" rel="noopener noreferrer" class="btn-gradient w-full py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                            <span>Открыть живой сайт</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NICHES & CAPABILITIES (ЧТО И КАК УМЕЮ ДЕЛАТЬ) -->
+    <section id="niches" class="py-16 sm:py-24 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="text-center space-y-3">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-850 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Экспертиза и возможности</span>
+                </div>
+                <h2 class="font-tech text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight">
+                    КАКИЕ ТЕМАТИКИ <span class="text-indigo-400">Я ЗАКРЫВАЮ ПОД КЛЮЧ</span>
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto">
+                    Я не делаю «просто визитки с текстом». Я разрабатываю конверсионные инструменты, заточенные под специфику конкретного бизнеса.
+                </p>
+            </div>
+
+            <!-- Bento 4 Niches -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Niche 1: Auto -->
+                <div class="studio-card p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 text-2xl">
+                        🏎️
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white">Автомобильный бизнес & Детейлинг</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Специфика: средний чек от 25 000 до 100 000 ₽. Владельцы премиальных авто не верят шаблонным обещаниям — им нужны наглядные доказательства качества и точный расчет под их кузов.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Интерактивный макро-слайдер 50/50 под инспекционным светом</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Калькулятор стоимости по классам авто (седан / кроссовер / SUV)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Запись на дефектовку ЛКП с замером толщиномером</li>
+                    </ul>
+                </div>
+
+                <!-- Niche 2: Beauty -->
+                <div class="studio-card p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/25 flex items-center justify-center text-pink-400 text-2xl">
+                        💅
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white">Beauty-индустрия & Мастера красоты</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Специфика: визуал решает 90% успеха. Если сайт выглядит дёшево или перегружен формой регистрации, клиентка закрывает страницу и уходит в соцсети конкурента.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Эстетичные темы оформления (Nude, Onyx, French, Sage)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Интерактивная фото-витрина работ с живой фильтрацией</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Запись в 2 клика с прямой переадресацией в WhatsApp/Telegram</li>
+                    </ul>
+                </div>
+
+                <!-- Niche 3: EdTech -->
+                <div class="studio-card p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 text-2xl">
+                        📚
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white">Репетиторы, Эксперты & Онлайн-школы</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Специфика: родители платят за результат и прозрачность. Нужна демонстрация методики, отзывы с подтвержденными баллами и удобный выбор времени занятия.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Диагностические квизы подбора программы за 20 секунд</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Калькуляторы баллов ОГЭ/ЕГЭ и гарантия прогресса</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Личный кабинет преподавателя с управлением расписанием</li>
+                    </ul>
+                </div>
+
+                <!-- Niche 4: Services -->
+                <div class="studio-card p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400 text-2xl">
+                        🛠️
+                    </div>
+                    <h3 class="font-tech text-xl font-bold text-white">Локальные услуги & Частный бизнес</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Ремонт, мебель на заказ, клининг, коворкинги, автосервисы. Создаю технологичные инструменты, которые закрывают возражения клиентов до первого звонка.
+                    </p>
+                    <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Многофакторные калькуляторы стоимости проекта</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Личный кабинет владельца с защитой PIN-кодом (без паролей)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Полная автономность: 0 ₽ расходов в месяц на хостинг</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE COST CALCULATOR (ДЛЯ ЗАКАЗЧИКА САЙТА) -->
+    <section id="calculator" class="py-16 sm:py-24 px-4 sm:px-6 bg-dark-900 border-t border-white/10">
+        <div class="max-w-4xl mx-auto space-y-8">
+            
+            <div class="text-center space-y-3">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-850 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                    <span>Прозрачный конфигуратор проекта</span>
+                </div>
+                <h2 class="font-tech text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight">
+                    СКОЛЬКО СТОИТ <span class="text-indigo-400">ВАШ САЙТ</span>
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto">
+                    Выберите тип проекта и необходимые модули. Стоимость рассчитывается прозрачно, без скрытых платежей.
+                </p>
+            </div>
+
+            <div class="studio-card p-6 sm:p-8 rounded-2xl border border-white/10 space-y-8">
+                
+                <!-- Step 1: Base Tier -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                        1. Выберите формат сайта:
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="siteFormatSelector">
+                        
+                        <button onclick="selectSiteTier(15000, this)" class="tier-btn p-4 rounded-xl bg-dark-950 border-2 border-indigo-500 text-left transition-all">
+                            <div class="font-tech font-bold text-white text-base">Лендинг услуг</div>
+                            <div class="text-xs text-slate-400 mt-1">Идеально для мастера или частного специалиста</div>
+                            <div class="font-tech text-indigo-400 font-bold text-sm mt-2">15 000 ₽</div>
+                        </button>
+
+                        <button onclick="selectSiteTier(20000, this)" class="tier-btn p-4 rounded-xl bg-dark-950 border-2 border-white/10 hover:border-white/20 text-left transition-all">
+                            <div class="font-tech font-bold text-white text-base">Сайт студии / Сервиса</div>
+                            <div class="text-xs text-slate-400 mt-1">Детейлинг, салон красоты, клиника, ремонт</div>
+                            <div class="font-tech text-slate-300 font-bold text-sm mt-2">20 000 ₽</div>
+                        </button>
+
+                        <button onclick="selectSiteTier(25000, this)" class="tier-btn p-4 rounded-xl bg-dark-950 border-2 border-white/10 hover:border-white/20 text-left transition-all">
+                            <div class="font-tech font-bold text-white text-base">Интерактивная платформа</div>
+                            <div class="text-xs text-slate-400 mt-1">Калькуляторы, квизы, CRM и PIN-кабинет</div>
+                            <div class="font-tech text-slate-300 font-bold text-sm mt-2">25 000 ₽</div>
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- Step 2: Add-on Modules -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                        2. Дополнительные конверсионные модули:
+                    </label>
+
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-950 border border-white/10 hover:border-indigo-500/40 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" checked value="3000" data-addon="Интерактивный калькулятор услуг" onchange="calcSiteTotal()" class="addon-checkbox w-4 h-4 rounded text-indigo-500 focus:ring-0">
+                                <div>
+                                    <div class="text-xs sm:text-sm font-bold text-white">Интерактивный онлайн-калькулятор стоимости услуг</div>
+                                    <div class="text-[11px] text-slate-400">Клиент сам считает сумму и отправляет готовый расчет вам в WhatsApp</div>
+                                </div>
+                            </div>
+                            <div class="font-tech text-xs sm:text-sm font-bold text-indigo-400 whitespace-nowrap ml-2">+3 000 ₽</div>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-950 border border-white/10 hover:border-indigo-500/40 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" checked value="3000" data-addon="Слайдер ДО/ПОСЛЕ (50/50)" onchange="calcSiteTotal()" class="addon-checkbox w-4 h-4 rounded text-indigo-500 focus:ring-0">
+                                <div>
+                                    <div class="text-xs sm:text-sm font-bold text-white">Интерактивный слайдер ДО / ПОСЛЕ (Drag 50/50)</div>
+                                    <div class="text-[11px] text-slate-400">Наглядная демонстрация качества работы (для авто, бьюти, ремонта)</div>
+                                </div>
+                            </div>
+                            <div class="font-tech text-xs sm:text-sm font-bold text-indigo-400 whitespace-nowrap ml-2">+3 000 ₽</div>
+                        </label>
+
+                        <label class="flex items-center justify-between p-3.5 rounded-xl bg-dark-950 border border-white/10 hover:border-indigo-500/40 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <input type="checkbox" checked value="4000" data-addon="Кабинет владельца с PIN-кодом" onchange="calcSiteTotal()" class="addon-checkbox w-4 h-4 rounded text-indigo-500 focus:ring-0">
+                                <div>
+                                    <div class="text-xs sm:text-sm font-bold text-white">Личный кабинет владельца с PIN-доступом (Supabase)</div>
+                                    <div class="text-[11px] text-slate-400">Вы сами меняете цены, график и видите все заявки без программиста</div>
+                                </div>
+                            </div>
+                            <div class="font-tech text-xs sm:text-sm font-bold text-indigo-400 whitespace-nowrap ml-2">+4 000 ₽</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Total Summary -->
+                <div class="p-6 rounded-2xl bg-dark-950 border border-indigo-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div>
+                        <div class="text-xs uppercase tracking-wider text-slate-400 font-bold">Итоговая стоимость разработки:</div>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="font-tech text-3xl sm:text-4xl font-extrabold text-white" id="siteTotalAmount">25 000 ₽</span>
+                            <span class="text-xs text-emerald-400 font-semibold">Срок: 48 часов под ключ</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-1">Без ежемесячных подписок. Домен и хостинг настраиваю бесплатно.</div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto">
+                        <button onclick="sendDevInquiry('tg')" class="btn-gradient px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 whitespace-nowrap">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Обсудить в Telegram</span>
+                        </button>
+                        <button onclick="sendDevInquiry('wa')" class="px-5 py-3 rounded-xl bg-dark-850 hover:bg-dark-800 border border-white/15 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                            <span>В WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="py-12 px-4 sm:px-6 bg-dark-950 border-t border-white/10 text-slate-400 text-xs">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center font-tech font-bold text-white text-sm">PK</div>
+                <div>
+                    <div class="font-tech font-bold text-white text-sm">Павел Котенев</div>
+                    <div class="text-[11px] text-slate-400">Курган • Удаленно по всей России • 2026</div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="send" class="w-3.5 h-3.5 text-cyan-400"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/79630032657" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="message-square" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://github.com/Sssunder" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+                    <i data-lucide="github" class="w-3.5 h-3.5 text-white"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        let currentTier = 15000;
+        let selectedAddons = [
+            "Интерактивный калькулятор услуг",
+            "Слайдер ДО/ПОСЛЕ (50/50)",
+            "Кабинет владельца с PIN-кодом"
+        ];
+
+        function selectSiteTier(val, btn) {
+            currentTier = val;
+            document.querySelectorAll('.tier-btn').forEach(b => {
+                b.classList.remove('border-indigo-500');
+                b.classList.add('border-white/10');
+            });
+            btn.classList.remove('border-white/10');
+            btn.classList.add('border-indigo-500');
+            calcSiteTotal();
+        }
+
+        function calcSiteTotal() {
+            let total = currentTier;
+            selectedAddons = [];
+            document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
+                total += parseInt(cb.value);
+                selectedAddons.push(cb.getAttribute('data-addon'));
+            });
+            document.getElementById('siteTotalAmount').innerText = total.toLocaleString('ru-RU') + ' ₽';
+        }
+
+        function sendDevInquiry(type) {
+            const total = document.getElementById('siteTotalAmount').innerText;
+            const addons = selectedAddons.map(a => '• ' + a).join('\n');
+            const msg = `Привет, Павел! Рассчитал разработку сайта на твоем портфолио:\nТариф: ${currentTier.toLocaleString('ru-RU')} ₽\nМодули:\n${addons}\nИтого: ${total}\nХочу обсудить проект для моего бизнеса.`;
+            const encoded = encodeURIComponent(msg);
+            
+            if (type === 'tg') {
+                window.open(`https://t.me/sssunder?text=${encoded}`, '_blank');
+            } else {
+                window.open(`https://wa.me/79630032657?text=${encoded}`, '_blank');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+            calcSiteTotal();
+        });
+    </script>
+</body>
+</html>
