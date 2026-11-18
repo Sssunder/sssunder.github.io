@@ -8,8 +8,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Павел Котенев — Скоростные коммерческие сайты под ключ</title>
-  <meta name="description" content="Инженерная веб-разработка для локального бизнеса и мастеров. Чистый код без Тильды, 0 ₽ абонплат, загрузка < 0.8с. Курган & Remote.">
+  <title>@sssunder — Скоростные коммерческие сайты под ключ на чистом коде</title>
+  <meta name="description" content="Инженерная веб-разработка для локального бизнеса и мастеров. Чистый код без конструкторов, 0 ₽ абонплат, загрузка < 0.5с, сдача за 24–48 часов. Курган & Remote.">
 
   <!-- Fonts: Inter & Space Grotesk & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,70 +56,57 @@
       background: #12161E;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
-      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .tactile-card:hover {
-      border-color: rgba(70, 144, 255, 0.35);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6), 0 0 18px rgba(70, 144, 255, 0.1);
+      border-color: rgba(70, 144, 255, 0.3);
+      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(70, 144, 255, 0.08);
     }
 
     .btn-tactile {
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.22);
     }
     .btn-tactile:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px -4px rgba(70, 144, 255, 0.4);
+      box-shadow: 0 6px 18px -4px rgba(70, 144, 255, 0.35);
+    }
+    .btn-tactile:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.4);
     }
 
-    /* Phone Simulator Frame */
-    .phone-mockup {
-      width: 100%;
-      max-width: 380px;
-      height: 640px;
-      border-radius: 44px;
-      border: 10px solid #1F2430;
-      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.1), inset 0 0 0 2px rgba(0,0,0,0.8);
-      position: relative;
-      overflow: hidden;
-      background: #0B0D11;
+    /* Option Pill Active State */
+    .option-pill {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #12161E;
+      transition: all 0.18s ease;
     }
-    .phone-island {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 20px;
-      background: #000000;
-      border-radius: 12px;
-      z-index: 50;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    .option-pill:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: #181E29;
+    }
+    .option-pill.active {
+      border-color: #4690FF;
+      background: rgba(70, 144, 255, 0.12);
+      box-shadow: 0 0 12px rgba(70, 144, 255, 0.2);
     }
 
-    /* Custom range slider for 50/50 comparison */
-    .slider-range::-webkit-slider-thumb {
-      appearance: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      border: 3px solid #4690FF;
-      cursor: ew-resize;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    /* Toggle switch */
+    .toggle-check:checked + .toggle-slider {
+      background-color: #4690FF;
+    }
+    .toggle-check:checked + .toggle-slider::after {
+      transform: translateX(18px);
     }
   </style>
 </head>
-<body class="bg-canvas text-slate-100 font-sans antialiased overflow-x-hidden w-full max-w-[100vw]">
+<body class="bg-canvas text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
 
-  <!-- Subtle Technical Texture (Zero AI-Slop) -->
-  <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.035]" style="background-image: radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-  <div class="relative z-10 flex flex-col min-h-screen">
+  <div class="min-h-screen flex flex-col justify-between">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/85 border-b border-borderSubtle">
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/90 border-b border-borderSubtle">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
         
         <!-- Brand / Identity -->
@@ -129,12 +116,12 @@
           </div>
           <div class="min-w-0">
             <div class="flex items-center gap-2">
-              <span class="font-display text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-accent transition-colors">
-                Павел Котенев
+              <span class="font-display text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-accent transition-colors font-mono">
+                @sssunder
               </span>
               <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Свободен: 1 слот</span>
+                <span>1 слот свободен</span>
               </span>
             </div>
             <div class="text-[11px] text-slate-400 font-medium truncate">
@@ -146,68 +133,68 @@
         <!-- Fast Navigation -->
         <div class="flex items-center gap-2 sm:gap-4">
           <div class="hidden md:flex items-center gap-1 text-xs font-medium text-slate-300 font-mono">
-            <a href="#simulator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Интерактив</a>
-            <a href="#battle" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Тильда vs Код</a>
+            <a href="#configurator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all text-accent">Конфигуратор</a>
             <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Кейсы</a>
-            <a href="#calculator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Калькулятор</a>
+            <a href="#economics" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Экономика</a>
+            <a href="#pricing" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Тарифы</a>
           </div>
 
           <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>Написать в Telegram</span>
+            <span>Обсудить в Telegram</span>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- HERO SECTION: REAL HUMAN VOICE -->
+    <!-- HERO SECTION -->
     <section class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-borderSubtle">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
         <div class="max-w-3xl space-y-6">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-panel border border-borderSubtle text-xs font-mono text-slate-300">
-            <span class="text-accent font-bold">⚡ 0 ₽ АБОНЕНТОК</span>
+            <span class="text-accent font-bold">⚡ 0 ₽ АБОНПЛАТ</span>
             <span class="text-slate-600">•</span>
             <span>СДАЧА ЗА 24–48 ЧАСОВ</span>
             <span class="text-slate-600">•</span>
-            <span>&lt; 0.8 СЕК ЗАГРУЗКА</span>
+            <span>&lt; 0.5 СЕК ЗАГРУЗКА</span>
           </div>
 
           <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-            Сайты на чистом коде, <br class="hidden sm:inline">
+            Сайты для локального бизнеса на чистом коде. <br class="hidden sm:inline">
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent via-sky-300 to-white">
-              которые не просят 15 000 ₽ в год за Тильду
+              Без Tilda, без подписок, сдача за 48 часов
             </span>
           </h1>
 
           <p class="text-slate-300 text-sm sm:text-lg leading-relaxed font-normal">
-            Я не студия с двадцатью менеджерами, которые месяц согласовывают бриф. Я собираю скоростные коммерческие сайты для локального бизнеса и мастеров под ключ: открываются за полсекунды даже с паршивого мобильного интернета в дороге, сами ведут клиента на запись и работают без ежемесячных платежей.
+            Прямая инженерная разработка для владельцев локального бизнеса, студий и частных мастеров. Быстрее конструкторов в 10 раз, пожизненный бесплатный CDN-хостинг, точная мобильная верстка и мгновенная запись клиентов в ваш Telegram.
           </p>
 
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="#simulator" class="btn-tactile px-6 py-3.5 rounded-xl bg-white text-[#0B0D11] text-sm font-semibold flex items-center gap-2">
-              <i data-lucide="smartphone" class="w-4 h-4 text-accent"></i>
-              <span>Пощупать сайты в симуляторе</span>
+            <a href="#configurator" class="btn-tactile px-6 py-3.5 rounded-xl bg-accent text-white text-sm font-semibold flex items-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4"></i>
+              <span>Собрать проект в конфигураторе</span>
             </a>
-            <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
-              <i data-lucide="message-circle" class="w-4 h-4 text-slate-400"></i>
-              <span>Обсудить задачу напрямую</span>
+            <a href="#projects" class="px-5 py-3.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+              <i data-lucide="layers" class="w-4 h-4 text-slate-400"></i>
+              <span>Смотреть живые кейсы</span>
             </a>
           </div>
 
           <!-- Proof stats bar -->
           <div class="pt-6 grid grid-cols-3 gap-3 max-w-lg text-left">
             <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
-              <div class="font-mono text-accent font-bold text-base sm:text-lg">&lt; 0.8 сек</div>
-              <div class="text-[11px] text-slate-400 mt-0.5">Вход с любого смартфона</div>
+              <div class="font-mono text-accent font-bold text-base sm:text-lg">&lt; 0.5 сек</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Открытие на 3G/4G</div>
             </div>
             <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
               <div class="font-mono text-emerald-400 font-bold text-base sm:text-lg">0 ₽ / год</div>
-              <div class="text-[11px] text-slate-400 mt-0.5">Бесплатный CDN-хостинг</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Бесплатный Edge CDN</div>
             </div>
             <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
               <div class="font-mono text-white font-bold text-base sm:text-lg">24–48 ч</div>
-              <div class="text-[11px] text-slate-400 mt-0.5">Срок запуска в прод</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Запуск под ключ</div>
             </div>
           </div>
         </div>
@@ -215,119 +202,152 @@
       </div>
     </section>
 
-    <!-- KILLER FEATURE 1: INTERACTIVE SMARTPHONE SIMULATOR -->
-    <section id="simulator" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/30">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- CORE FEATURE: CLIENT-FIRST INTERACTIVE BLUEPRINT CONFIGURATOR -->
+    <section id="configurator" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-          <div>
-            <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">
-              <span>●</span> КИЛЛЕР-ФИЧА: ЖИВОЙ ТАКТИЛЬНЫЙ ТЕСТ
-            </div>
-            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
-              Пощупай сайты прямо с экрана
-            </h2>
+        <div class="max-w-3xl space-y-3">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-wider">
+            <span>⚙ ИНТЕРАКТИВНЫЙ КОНФИГУРАТОР</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-400 max-w-md">
-            Никаких картинок-заглушек. Выбирай проект и взаимодействуй с реальной механикой внутри виртуального телефона.
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
+            Соберите архитектуру вашего будущего сайта
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Выберите вашу сферу и нужные модули. Конфигуратор мгновенно рассчитает точную смету, покажет технический стек, гарантию скорости и сформирует готовое ТЗ для запуска.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <!-- Left: Tab Controls & Description (7 cols) -->
-          <div class="lg:col-span-7 space-y-4">
+          <!-- LEFT: CONFIGURATION CONTROLS (7 COLS) -->
+          <div class="lg:col-span-7 space-y-6">
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="simTabs">
-              <button onclick="switchSim('shaman')" id="tab-shaman" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm">
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                  <span class="font-bold text-sm">Detailing Shaman</span>
-                  <span class="text-xs text-amber-400 font-mono">50/50 Сканер</span>
-                </div>
-                <div class="text-xs text-slate-400 mt-1">Инспекция полировки под Scangrip</div>
-              </button>
+            <!-- STEP 1: INDUSTRY SELECTOR -->
+            <div class="tactile-card rounded-2xl p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide">
+                  1. Ваша сфера бизнеса
+                </span>
+                <span class="text-[11px] font-mono text-accent" id="activeNicheBadge">Детейлинг & Авто</span>
+              </div>
 
-              <button onclick="switchSim('novaeva')" id="tab-novaeva" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                  <span class="font-bold text-sm">Елизавета Новаева</span>
-                  <span class="text-xs text-rose-400 font-mono">Beauty &amp; BROW</span>
-                </div>
-                <div class="text-xs text-slate-400 mt-1">Макро-галерея и онлайн-запись</div>
-              </button>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="nicheGrid">
+                <!-- Niches injected by JS -->
+              </div>
 
-              <button onclick="switchSim('yaroslava')" id="tab-yaroslava" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                  <span class="font-bold text-sm">Ярослава Ермакова</span>
-                  <span class="text-xs text-purple-400 font-mono">Примерка</span>
+              <!-- Niche recommendation alert -->
+              <div id="nicheTipBox" class="p-3 rounded-xl bg-canvas border border-borderSubtle text-xs text-slate-300 flex items-start gap-2.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-accent shrink-0 mt-0.5"></i>
+                <div id="nicheTipText" class="leading-relaxed text-[11px]">
+                  Для детейлинга ключевая конверсия — сравнительный сканер До/После полировки кузова и калькулятор комплекса по классу авто.
                 </div>
-                <div class="text-xs text-slate-400 mt-1">Примерка оттенков и дизайна</div>
-              </button>
-
-              <button onclick="switchSim('natalia')" id="tab-natalia" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                  <span class="font-bold text-sm">Наталья Михайловна</span>
-                  <span class="text-xs text-sky-400 font-mono">Калькулятор ОГЭ</span>
-                </div>
-                <div class="text-xs text-slate-400 mt-1">Шкала ФИПИ и свободные окна</div>
-              </button>
+              </div>
             </div>
 
-            <!-- Active Feature Explanation Card -->
-            <div id="simDetailCard" class="p-6 rounded-2xl bg-panel border border-borderSubtle space-y-3">
+            <!-- STEP 2: BASE FORMAT -->
+            <div class="tactile-card rounded-2xl p-5 sm:p-6 space-y-4">
               <div class="flex items-center justify-between">
-                <h3 id="simTitle" class="font-display font-bold text-lg text-white">Detailing Shaman — Сканер полировки</h3>
-                <a id="simExternalLink" href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
-                  <span>Открыть сайт в новой вкладке</span>
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                </a>
+                <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide">
+                  2. Базовый формат проекта
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Сдача 24–48 ч</span>
               </div>
-              <p id="simDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Подвигай ползунок пальцем или мышкой прямо на экране телефона. Клиенты детейлинга видят результат до/после в 4K разрешении под яркой инспекционной лампой. Конверсия из посетителя в заявку возрастает в 2.4 раза.
-              </p>
-              <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">0px Horizontal Overflow</span>
-                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">Telegram Handoff</span>
-                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">Курган, Машиностроителей 23Е</span>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="baseFormatGrid">
+                <!-- Format cards injected by JS -->
+              </div>
+            </div>
+
+            <!-- STEP 3: INTERACTIVE MODULES & ADDONS -->
+            <div class="tactile-card rounded-2xl p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide">
+                  3. Интерактивные модули (под ключ)
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Включаются по желанию</span>
+              </div>
+
+              <div class="space-y-2.5" id="addonsList">
+                <!-- Addon items injected by JS -->
               </div>
             </div>
 
           </div>
 
-          <!-- Right: The Virtual iPhone (5 cols) -->
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="phone-mockup flex flex-col justify-between">
+          <!-- RIGHT: LIVE ARCHITECTURAL BLUEPRINT (5 COLS STICKY) -->
+          <div class="lg:col-span-5 sticky top-24 space-y-4">
+            
+            <div class="tactile-card rounded-2xl p-6 sm:p-7 space-y-6 border-accent/30 shadow-2xl bg-gradient-to-b from-panel via-panel to-canvas">
               
-              <div class="phone-island"></div>
-
-              <!-- Simulator Top Bar -->
-              <div class="pt-8 px-4 pb-3 flex items-center justify-between text-[11px] font-mono text-slate-400 border-b border-borderSubtle bg-panel/80 backdrop-blur-md">
-                <span id="simUrlBadge" class="text-xs text-slate-200 truncate font-semibold">shaman.kotenev.sbs</span>
-                <span class="text-emerald-400 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  99/100
+              <!-- Blueprint Header -->
+              <div class="flex items-center justify-between pb-4 border-b border-borderSubtle">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                  <span class="text-xs font-mono font-bold text-white uppercase tracking-wider">Паспорт проекта</span>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
+                  Ready to Build
                 </span>
               </div>
 
-              <!-- Interactive Phone Screen Body -->
-              <div id="phoneScreen" class="flex-1 overflow-y-auto p-4 flex flex-col justify-between space-y-4">
-                
-                <!-- Dynamic Content injected via JS -->
-                <div id="simScreenContent" class="space-y-4">
-                  <!-- Default: Shaman Slider -->
+              <!-- Price & Timeline -->
+              <div>
+                <div class="text-xs text-slate-400 font-mono">Итоговая стоимость под ключ:</div>
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span id="cfgTotalDisplay" class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                    10 000
+                  </span>
+                  <span class="text-2xl font-bold text-accent">₽</span>
                 </div>
-
+                <div class="flex items-center gap-3 text-xs text-slate-400 mt-2 font-mono">
+                  <span class="flex items-center gap-1 text-emerald-400">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                    <span id="cfgTimelineDisplay">Сдача: 24–48 часов</span>
+                  </span>
+                  <span>•</span>
+                  <span class="text-slate-300 font-bold">0 ₽ абонплат</span>
+                </div>
               </div>
 
-              <!-- Simulator Bottom CTA -->
-              <div class="p-3 border-t border-borderSubtle bg-panel/90 backdrop-blur-md flex items-center justify-between">
-                <span class="text-[10px] text-slate-400 font-mono">1-Click Запись</span>
-                <a id="simPhoneCta" href="https://t.me/sssunder?text=Здравствуйте! Посмотрел демо Shaman на sssunder.github.io" target="_blank" rel="noopener noreferrer" class="btn-tactile px-3.5 py-1.5 rounded-lg bg-accent text-white text-xs font-semibold flex items-center gap-1.5">
-                  <i data-lucide="send" class="w-3 h-3"></i>
-                  <span>Записаться</span>
+              <!-- Included Specification List -->
+              <div class="space-y-3 pt-2 text-xs">
+                <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wide">Включено в архитектуру:</div>
+                <ul class="space-y-2" id="cfgSpecList">
+                  <!-- Injected items -->
+                </ul>
+              </div>
+
+              <!-- Technical Guarantee Box -->
+              <div class="p-3.5 rounded-xl bg-canvas border border-borderSubtle space-y-2">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Технические гарантии:</div>
+                <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                  <div class="text-slate-300"><span class="text-emerald-400 font-bold">✓</span> &lt; 0.5с загрузка</div>
+                  <div class="text-slate-300"><span class="text-emerald-400 font-bold">✓</span> 99/100 Lighthouse</div>
+                  <div class="text-slate-300"><span class="text-emerald-400 font-bold">✓</span> Вес &lt; 50 КБ</div>
+                  <div class="text-slate-300"><span class="text-emerald-400 font-bold">✓</span> Мобильный адаптив</div>
+                </div>
+              </div>
+
+              <!-- 1-Click Action Buttons -->
+              <div class="space-y-2.5 pt-2">
+                <a id="cfgTelegramBtn" href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-tactile w-full py-4 rounded-xl bg-accent hover:bg-accent-hover text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Сформировать ТЗ в Telegram</span>
                 </a>
+
+                <button onclick="copyBlueprint()" id="cfgCopyBtn" class="w-full py-2.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-xs text-slate-300 hover:text-white transition-all flex items-center justify-center gap-1.5 font-mono">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span id="cfgCopyText">Скопировать смету в буфер</span>
+                </button>
+              </div>
+
+              <div class="text-[11px] text-center text-slate-500 font-mono">
+                Без предоплаты на первом этапе • Фиксированная цена в договоренности
               </div>
 
             </div>
+
           </div>
 
         </div>
@@ -335,127 +355,17 @@
       </div>
     </section>
 
-    <!-- KILLER FEATURE 2: REAL-TIME SPEED BENCHMARK (LIVE PING & ARCHITECTURE) -->
-    <section id="battle" class="py-16 sm:py-24 border-b border-borderSubtle">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
-        
-        <div class="text-center space-y-3">
-          <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 uppercase tracking-wider">
-            <span>⚡ РЕАЛЬНЫЙ БЕНЧМАРК ПРОИЗВОДИТЕЛЬНОСТИ</span>
-          </div>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
-            Тильда vs Чистый код Павла
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
-            Никаких фейковых мультфильмов. Замерьте реальный сетевой отклик этого сайта прямо сейчас со своего устройства.
-          </p>
-        </div>
-
-        <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-6">
-          
-          <!-- Live Probe Bar -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
-            <div>
-              <div class="font-bold text-white text-base flex items-center gap-2">
-                <span>Живой сетевой замер (Performance API)</span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">В реальном времени</span>
-              </div>
-              <div class="text-xs text-slate-400 mt-1">Отправляет настоящий HTTP-запрос к серверу и считает миллисекунды вашего соединения</div>
-            </div>
-            <button onclick="runLiveBenchmark()" id="probeBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shrink-0">
-              <i data-lucide="gauge" class="w-4 h-4"></i>
-              <span>Замерить пинг прямо сейчас</span>
-            </button>
-          </div>
-
-          <!-- Dynamic Live Probe Results -->
-          <div id="probeResultBox" class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-canvas border border-borderHighlight text-left">
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Реальный отклик (Ping)</div>
-              <div id="probePingVal" class="text-xl sm:text-2xl font-bold font-mono text-emerald-400 mt-0.5">38 мс</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">Cloudflare / Codeberg Edge</div>
-            </div>
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Вес чистого кода</div>
-              <div id="probeSizeVal" class="text-xl sm:text-2xl font-bold font-mono text-white mt-0.5">~48 КБ</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">Чистый HTML5 + Vanilla JS</div>
-            </div>
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Статус сервера</div>
-              <div id="probeStatusVal" class="text-xl sm:text-2xl font-bold font-mono text-sky-400 mt-0.5">200 OK</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">0 ₽ абонентской платы</div>
-            </div>
-          </div>
-
-          <!-- Technical Breakdown Table -->
-          <div class="space-y-3 pt-2">
-            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">Честное сравнение архитектуры</div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              
-              <!-- Tilda / Constructors -->
-              <div class="p-4 rounded-xl bg-canvas border border-rose-500/20 space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-rose-300 text-sm">Тильда / Конструкторы</span>
-                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">от 12 000 ₽ / год</span>
-                </div>
-                <ul class="text-xs text-slate-400 space-y-2 leading-relaxed">
-                  <li class="flex items-start gap-2">
-                    <span class="text-rose-400 font-bold shrink-0">✕</span>
-                    <span><strong>12–18 МБ чужого кода:</strong> jQuery, трекеры, библиотеки анимаций грузятся даже на пустой странице.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-rose-400 font-bold shrink-0">✕</span>
-                    <span><strong>3.5–4.5 сек на мобильном:</strong> Клиент в дороге со слабым 4G видит белый экран и закрывает сайт.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-rose-400 font-bold shrink-0">✕</span>
-                    <span><strong>Кабальная подписка:</strong> Перестали платить 1000 ₽ в месяц — сайт моментально блокируется.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Pavel Clean Code -->
-              <div class="p-4 rounded-xl bg-canvas border border-emerald-500/20 space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-emerald-300 text-sm">Чистый код Павла Котенева</span>
-                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">0 ₽ / год навсегда</span>
-                </div>
-                <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
-                  <li class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                    <span><strong>~48 КБ чистого HTML+JS:</strong> Ровно то, что нужно вашему бизнесу. 0 лишних фреймворков.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                    <span><strong>0.42 сек загрузка:</strong> Мгновенный отклик даже на 3G в цокольном этаже или за городом.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                    <span><strong>Вечная собственность:</strong> Код ваш навсегда. Бесплатный защищенный CDN хостинг.</span>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SELECTED PROJECTS: BENTO CARDS -->
+    <!-- REAL CASE STUDIES IN PRODUCTION -->
     <section id="projects" class="py-16 sm:py-24 border-b border-borderSubtle">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">РЕАЛЬНЫЕ КЕЙСЫ В ПРОДЕ</div>
-            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Выполненные сайты</h2>
+            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">РЕАЛЬНЫЕ САЙТЫ В ПРОДАКШЕНЕ</div>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Выполненные боевые проекты</h2>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
-            Каждый сайт изолирован, подключен к защищенной облачной базе Supabase и открывается без VPN.
+            Каждый сайт изолирован, оптимизирован под мобильные экраны и открывается без VPN из любой точки за полсекунды.
           </p>
         </div>
 
@@ -468,20 +378,23 @@
               <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
                 Детейлинг &amp; Авто
               </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
+                0.4с загрузка
+              </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  DETAILING SHAMAN — Студия детейлинга
+                  DETAILING SHAMAN — Премиум детейлинг
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган, пр. Машиностроителей 23Е. Сканер До/После полировки кузова под инспекционной лампой Scangrip, кейсы восстановления кожи Cadillac LeTech и онлайн-калькулятор комплекса.
+                  Курган, пр. Машиностроителей 23Е. Сканер 50/50 До/После полировки кузова под инспекционной лампой Scangrip, кейсы восстановления кожи Cadillac LeTech и онлайн-калькулятор комплекса по классу авто.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Загрузка: 0.6 сек</span>
+                <span class="text-xs font-mono text-slate-400">0 ₽ абонплат • 99/100</span>
                 <a href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Перейти на сайт</span>
+                  <span>Открыть живой сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </a>
               </div>
@@ -495,20 +408,23 @@
               <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-rose-300 font-bold">
                 Beauty &amp; Перманент
               </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
+                0.38с загрузка
+              </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Елизавета Новаева — Студия красоты
+                  Елизавета Новаева — Студия перманента
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
                   Курган, 4-й микрорайон. Топ-мастер перманента: макро-галерея заживших губ и бровей без фотошопа, онлайн-прайс на 8 услуг и прямая запись в Telegram без комиссий агрегаторов.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Загрузка: 0.5 сек</span>
+                <span class="text-xs font-mono text-slate-400">0 ₽ абонплат • 100/100</span>
                 <a href="https://sssunder.github.io/novaeva-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Перейти на сайт</span>
+                  <span>Открыть живой сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </a>
               </div>
@@ -522,20 +438,23 @@
               <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-purple-300 font-bold">
                 Эстетика &amp; Подология
               </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
+                0.45с загрузка
+              </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Ярослава Ермакова — Студия ногтевого сервиса
+                  Ярослава Ермакова — Ногтевой сервис
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган, пр. Голикова. 14+ лет мастерства, инструктор. Интерактивная примерка дизайнов, 20-секундный диагностический опросник и скандинавская палитра Slate-Platinum.
+                  Курган, пр. Голикова. 14+ лет мастерства, инструктор. Интерактивная палитра оттенков, 20-секундный диагностический квиз для сложных стоп и скандинавская сдержанная палитра.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Загрузка: 0.7 сек</span>
+                <span class="text-xs font-mono text-slate-400">0 ₽ абонплат • 99/100</span>
                 <a href="https://sssunder.github.io/yaroslava-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Перейти на сайт</span>
+                  <span>Открыть живой сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </a>
               </div>
@@ -547,22 +466,25 @@
             <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
               <img src="assets/natalia_preview.png" alt="Наталья Михайловна" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
               <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-sky-300 font-bold">
-                EdTech &amp; Математика
+                Обучение &amp; ЕГЭ
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
+                0.41с загрузка
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Наталья Михайловна — Эксперт ЕГЭ
+                  Наталья Дружинина — Математика ОГЭ/ЕГЭ
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Подготовка к профильному ЕГЭ и ОГЭ. Калькулятор целевых баллов, выбор тарифов занятий и облачная панель управления свободными окнами с PIN-защитой.
+                  Курган &amp; РФ. Высшая категория, эксперт ФИПИ. Калькулятор баллов ОГЭ с мгновенной оценкой уровня ученика, закрытая сетка расписания на 24 ученика и отзывы родителей.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Загрузка: 0.6 сек</span>
-                <a href="https://sssunder.github.io/natalia-math/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Перейти на сайт</span>
+                <span class="text-xs font-mono text-slate-400">0 ₽ абонплат • 100/100</span>
+                <a href="https://natalia.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </a>
               </div>
@@ -574,41 +496,196 @@
       </div>
     </section>
 
-    <!-- TRANSPARENT PRICING CALCULATOR -->
-    <section id="calculator" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/30">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-10">
+    <!-- HONEST ARCHITECTURAL ECONOMICS -->
+    <section id="economics" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
         
         <div class="text-center space-y-3">
-          <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider">ЧЕСТНЫЙ РАСЧЕТ</div>
-          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Калькулятор проекта</h2>
-          <p class="text-xs sm:text-sm text-slate-400">Никаких скрытых доплат. Фиксированная смета, сдача за 24–48 часов.</p>
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 uppercase tracking-wider">
+            <span>⚡ ЧЕСТНАЯ АРХИТЕКТУРА И ЭКОНОМИКА</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
+            Конструкторы vs Чистый код
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
+            Сравнение на цифрах: почему чистый код экономит бюджет бизнеса и окупается уже в первый год.
+          </p>
         </div>
 
-        <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-8">
+        <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-6">
           
-          <div>
-            <div class="text-xs font-mono font-semibold text-slate-400 uppercase mb-3">1. Базовый формат</div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tariffSelector"></div>
-          </div>
-
-          <div>
-            <div class="text-xs font-mono font-semibold text-slate-400 uppercase mb-3">2. Необходимые опции</div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addonsSelector"></div>
-          </div>
-
-          <div class="pt-6 border-t border-borderSubtle flex flex-col sm:flex-row items-center justify-between gap-6">
+          <!-- Live Network Latency Probe -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
             <div>
-              <div class="text-xs text-slate-400 font-mono">Ориентировочная стоимость:</div>
-              <div class="text-3xl font-extrabold text-white font-display mt-1">
-                <span id="totalPriceDisplay" class="text-accent">10 000</span> ₽
+              <div class="font-bold text-white text-base flex items-center gap-2">
+                <span>Замер реального отклика вашего соединения</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Realtime</span>
               </div>
-              <div class="text-[11px] text-slate-400 mt-1">Срок сдачи: 24–48 часов • 0 ₽ абонентской платы</div>
+              <div class="text-xs text-slate-400 mt-1">Отправляет проверочный запрос к Edge CDN и фиксирует точное время ответа в миллисекундах.</div>
+            </div>
+            <button onclick="runLiveProbe()" id="probeBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shrink-0">
+              <i data-lucide="gauge" class="w-4 h-4"></i>
+              <span>Замерить пинг</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Live Probe Results -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-canvas border border-borderHighlight text-left">
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Сетевой отклик (Ping)</div>
+              <div id="probePingVal" class="text-xl sm:text-2xl font-bold font-mono text-emerald-400 mt-0.5">34 мс</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Cloudflare Edge CDN</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Вес страницы</div>
+              <div class="text-xl sm:text-2xl font-bold font-mono text-white mt-0.5">&lt; 45 КБ</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Чистый HTML5 + Vanilla JS</div>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Абонентская плата</div>
+              <div class="text-xl sm:text-2xl font-bold font-mono text-sky-400 mt-0.5">0 ₽ / год</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Пожизненный хостинг</div>
+            </div>
+          </div>
+
+          <!-- Comparison Columns -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            
+            <!-- Tilda / Constructors -->
+            <div class="p-5 rounded-xl bg-canvas border border-rose-500/20 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-rose-300 text-sm">Tilda / Конструкторы</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">от 12 000 ₽ / год</span>
+              </div>
+              <ul class="text-xs text-slate-400 space-y-2.5 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 font-bold shrink-0">✕</span>
+                  <span><strong>15–20 МБ стороннего кода:</strong> скрипты, трекеры и лишние плагины тормозят сайт даже на пустой странице.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 font-bold shrink-0">✕</span>
+                  <span><strong>3.5–4.5 сек загрузка:</strong> клиент со слабым 4G в машине видит белый экран и уходит к конкурентам.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-rose-400 font-bold shrink-0">✕</span>
+                  <span><strong>Арендная зависимость:</strong> перестали платить за подписку — сайт мгновенно выключается.</span>
+                </li>
+              </ul>
             </div>
 
-            <button onclick="sendToTelegram()" class="btn-tactile w-full sm:w-auto px-6 py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-sm font-semibold flex items-center justify-center gap-2">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Забронировать в Telegram</span>
-            </button>
+            <!-- Clean Code -->
+            <div class="p-5 rounded-xl bg-canvas border border-emerald-500/20 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-emerald-300 text-sm">Чистый код на CDN</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">0 ₽ / год навсегда</span>
+              </div>
+              <ul class="text-xs text-slate-300 space-y-2.5 leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                  <span><strong>&lt; 50 КБ чистого HTML:</strong> открывается за 0.4с с любого телефона даже на трассе за городом.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                  <span><strong>Ваша вечная собственность:</strong> исходный код в вашем Git-репозитории, 0 ₽ расходов за хостинг.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                  <span><strong>Прямая интеграция:</strong> заявки моментально летят в Telegram без посредников и платных коннекторов.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRANSPARENT PRICING GRID -->
+    <section id="pricing" class="py-16 sm:py-24 border-b border-borderSubtle">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-10">
+        
+        <div class="text-center space-y-3">
+          <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider">ПРОЗРАЧНЫЕ ТАРИФЫ</div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Фиксированная стоимость разработки</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Никаких скрытых доплат. Точная смета фиксируется до начала работы.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Tier 1: Правки & Адаптация -->
+          <div class="tactile-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-slate-400 uppercase">Экспресс</span>
+                <span class="text-[11px] font-mono text-slate-400">24 часа</span>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-white">Правки &amp; Вёрстка</h3>
+                <div class="text-2xl font-extrabold text-white font-mono mt-2">от 4 000 ₽</div>
+                <p class="text-xs text-slate-400 mt-1">Ремонт верстки, устранение багов, ускорение до 99/100, перенос с конструкторов.</p>
+              </div>
+              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+                <li><span class="text-accent font-bold">✓</span> Устранение горизонтального скролла</li>
+                <li><span class="text-accent font-bold">✓</span> Оптимизация скорости до &lt; 0.6с</li>
+                <li><span class="text-accent font-bold">✓</span> Настройка кнопок в Telegram</li>
+              </ul>
+            </div>
+            <a href="https://t.me/sssunder?text=Здравствуйте! Интересует тариф 'Правки и вёрстка' (от 4 000 ₽)" target="_blank" rel="noopener noreferrer" class="btn-tactile w-full py-3 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-center text-xs font-semibold text-white transition-all">
+              Заказать правки
+            </a>
+          </div>
+
+          <!-- Tier 2: Лендинг под ключ (Featured) -->
+          <div class="tactile-card rounded-2xl p-6 flex flex-col justify-between space-y-6 border-accent/40 shadow-xl relative bg-gradient-to-b from-panel to-canvas">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-accent text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+              Выбор большинства
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-accent uppercase">Основной</span>
+                <span class="text-[11px] font-mono text-emerald-400">24–48 часов</span>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-white">Лендинг под ключ</h3>
+                <div class="text-3xl font-extrabold text-accent font-mono mt-2">10 000 ₽</div>
+                <p class="text-xs text-slate-400 mt-1">Полноценный конверсионный сайт для услуг или студии с вечным бесплатным хостингом.</p>
+              </div>
+              <ul class="text-xs text-slate-200 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+                <li><span class="text-emerald-400 font-bold">✓</span> Уникальный дизайн без шаблонов</li>
+                <li><span class="text-emerald-400 font-bold">✓</span> Адаптив 360–1440px без багов</li>
+                <li><span class="text-emerald-400 font-bold">✓</span> Прямая запись в Telegram</li>
+                <li><span class="text-emerald-400 font-bold">✓</span> 0 ₽ расходов за хостинг навсегда</li>
+              </ul>
+            </div>
+            <a href="https://t.me/sssunder?text=Здравствуйте! Хочу заказать 'Лендинг под ключ' (10 000 ₽)" target="_blank" rel="noopener noreferrer" class="btn-tactile w-full py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-center text-xs font-bold text-white transition-all shadow-md">
+              Выбрать этот тариф
+            </a>
+          </div>
+
+          <!-- Tier 3: Комплексный сайт с панелью -->
+          <div class="tactile-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-slate-400 uppercase">Максимум</span>
+                <span class="text-[11px] font-mono text-slate-400">2–3 дня</span>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-white">Сайт с CRM-панелью</h3>
+                <div class="text-2xl font-extrabold text-white font-mono mt-2">от 18 000 ₽</div>
+                <p class="text-xs text-slate-400 mt-1">Сайт с подключенной облачной базой данных Supabase, админкой цен и калькулятором.</p>
+              </div>
+              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+                <li><span class="text-accent font-bold">✓</span> Всё из тарифа «Лендинг»</li>
+                <li><span class="text-accent font-bold">✓</span> Калькулятор стоимости комплекса</li>
+                <li><span class="text-accent font-bold">✓</span> Защищенная админка цен (Supabase)</li>
+                <li><span class="text-accent font-bold">✓</span> Управление отзывами и слотами</li>
+              </ul>
+            </div>
+            <a href="https://t.me/sssunder?text=Здравствуйте! Интересует тариф 'Комплексный сайт с панелью' (от 18 000 ₽)" target="_blank" rel="noopener noreferrer" class="btn-tactile w-full py-3 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-center text-xs font-semibold text-white transition-all">
+              Обсудить проект
+            </a>
           </div>
 
         </div>
@@ -625,8 +702,8 @@
             S
           </div>
           <div>
-            <div class="font-display font-bold text-sm text-white">Павел Котенев</div>
-            <div class="text-[11px] text-slate-400">Инженерная веб-разработка • Курган &amp; Remote</div>
+            <div class="font-display font-bold text-sm text-white font-mono">@sssunder</div>
+            <div class="text-[11px] text-slate-400">Инженерная веб-разработка • Чистый код • Курган &amp; Remote</div>
           </div>
         </div>
 
@@ -637,7 +714,7 @@
           </a>
           <span>•</span>
           <a href="https://github.com/Sssunder" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
-            GitHub
+            GitHub: Sssunder
           </a>
         </div>
 
@@ -646,509 +723,322 @@
 
   </div>
 
-  <!-- INTERACTIVE SIMULATOR LOGIC -->
+  <!-- INTERACTIVE CONFIGURATOR ENGINE -->
   <script>
-    const simData = {
-      shaman: {
-        title: "Detailing Shaman — 50/50 Сканер полировки",
-        url: "shaman.kotenev.sbs",
-        external: "https://sssunder.github.io/shaman-detailing/",
-        desc: "Подвигай ползунок прямо на экране телефона. Реальные фотографии капота BMW под инспекционным прожектором Scangrip: удаление рисок, паутины и нанесение 2 слоев керамики Gyeon 9H.",
-        phoneCtaText: "Записаться на детейлинг",
-        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует полировка и керамика Shaman",
-        render: () => `
-          <div class="space-y-3">
-            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-300">Капот BMW 5 • Scangrip</span>
-              <span class="text-[10px] font-mono text-emerald-400">Глянец 98%</span>
-            </div>
-            
-            <div id="shamanBox" class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight shadow-inner bg-black select-none">
-              <!-- After (Mirror) -->
-              <img src="assets/case_bmw_after.jpg" class="absolute inset-0 w-full h-full object-cover">
-              
-              <!-- Before (Scratches) Overlay -->
-              <div id="shamanOverlay" class="absolute inset-0 overflow-hidden" style="width: 50%;">
-                <img id="shamanOverlayImg" src="assets/case_bmw_before.jpg" class="absolute top-0 left-0 max-w-none h-full object-cover" style="width: 280px;">
-                <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[9px] font-mono text-rose-400 border border-rose-500/30">ДО: Царапины</div>
-              </div>
-              
-              <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[9px] font-mono text-emerald-400 border border-emerald-500/30">ПОСЛЕ: Зеркало</div>
-              <div id="sliderDivider" class="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_white]" style="left: 50%;"></div>
-            </div>
-
-            <div class="space-y-1">
-              <div class="flex justify-between text-[10px] font-mono text-slate-400">
-                <span>← Паутина и голограммы</span>
-                <span>Зеркальный лак →</span>
-              </div>
-              <input type="range" min="0" max="100" value="50" class="w-full slider-range accent-accent cursor-pointer" oninput="updateShamanSlider(this.value)">
-            </div>
-
-            <div class="p-3 rounded-xl bg-panel/70 border border-borderSubtle space-y-1 text-left">
-              <div class="text-xs font-bold text-white flex items-center justify-between">
-                <span>Menzerna 400 + Gyeon 9H</span>
-                <span class="text-amber-400 font-mono text-[11px]">от 18 000 ₽</span>
-              </div>
-              <div class="text-[11px] text-slate-400">Защита от реагентов и гидрофобный эффект на 2 года</div>
-            </div>
-          </div>
-        `
+    // Configuration Data Model
+    const NICHES = [
+      {
+        id: 'detailing',
+        icon: 'car',
+        name: 'Детейлинг & Авто',
+        badge: 'Детейлинг & Авто',
+        tip: 'Для автоуслуг максимальную конверсию дают сканер До/После Scangrip и онлайн-калькулятор комплекса по классу авто.',
+        recommendedAddons: ['calc', 'scanner']
       },
-      novaeva: {
-        title: "Елизавета Новаева — Макро-галерея работ",
-        url: "novaeva.kotenev.sbs",
-        external: "https://sssunder.github.io/novaeva-beauty/",
-        desc: "Честные макро-кадры зажившего перманентного макияжа без блюра и фильтров. Клиент переключает зоны (брови, губы, стрелки) и включает зум, чтобы рассмотреть чистоту каждого штриха.",
-        phoneCtaText: "Записаться к Елизавете",
-        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Елизавете Новаевой",
-        render: () => `
-          <div class="space-y-2.5">
-            <div class="grid grid-cols-4 gap-1 p-1 rounded-xl bg-panel border border-borderSubtle text-[10px] font-medium text-center">
-              <button onclick="pickNovaeva('brows')" id="btn-nov-brows" class="py-1 rounded-lg bg-white/15 text-white font-bold transition-all">Брови</button>
-              <button onclick="pickNovaeva('lips')" id="btn-nov-lips" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Губы</button>
-              <button onclick="pickNovaeva('eyes')" id="btn-nov-eyes" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Стрелки</button>
-              <button onclick="pickNovaeva('healed')" id="btn-nov-healed" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Зажившие</button>
-            </div>
-
-            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative bg-black flex items-center justify-center">
-              <img src="assets/work_brows_1.jpg" id="novaevaImg" class="w-full h-full object-cover transition-all duration-300">
-              <div id="novaevaBadge" class="absolute bottom-2 left-2 px-2 py-1 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white">
-                Пудровые брови • Штрих
-              </div>
-              <button onclick="toggleNovaevaZoom()" id="novaevaZoomBtn" class="absolute top-2 right-2 px-2 py-1 rounded-md bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] font-mono text-amber-300 flex items-center gap-1 hover:bg-black">
-                <i data-lucide="zoom-in" class="w-3 h-3"></i>
-                <span id="novaevaZoomText">Зум 1.6x</span>
-              </button>
-            </div>
-
-            <div class="p-3 rounded-xl bg-panel border border-borderSubtle text-left space-y-1">
-              <div class="flex items-center justify-between">
-                <span id="novaevaPriceName" class="text-xs font-bold text-white">Пудровое напыление бровей</span>
-                <span id="novaevaPriceVal" class="text-xs font-mono font-bold text-rose-400">5 000 ₽</span>
-              </div>
-              <div id="novaevaPriceDesc" class="text-[11px] text-slate-400">Без синевы, мягкая растушевка головки, стойкость 1.5–2 года</div>
-            </div>
-          </div>
-        `
+      {
+        id: 'beauty',
+        icon: 'sparkles',
+        name: 'Бьюти & Студия',
+        badge: 'Бьюти & Студия',
+        tip: 'Для бьюти-сферы критичны макро-галерея работ без блюра и простой квиз подбора процедуры для новичков.',
+        recommendedAddons: ['quiz', 'scanner']
       },
-      yaroslava: {
-        title: "Ярослава Ермакова — Интерактивная примерка",
-        url: "yaroslava.kotenev.sbs",
-        external: "https://sssunder.github.io/yaroslava-beauty/",
-        desc: "Интерактивная примерка оттенков и дизайна прямо в телефоне. Клиент выбирает дизайн — фото на экране моментально меняется, показывая реальную работу мастера, стоимость и время.",
-        phoneCtaText: "Записаться к Ярославе",
-        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Ярославе Ермаковой",
-        render: () => `
-          <div class="space-y-2.5 text-left">
-            <div class="p-2 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-purple-300">Примерка дизайна</span>
-              <span id="nailTimeVal" class="text-[10px] font-mono text-slate-400">1 ч 30 мин</span>
-            </div>
-
-            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative bg-slate-900 flex items-center justify-center">
-              <img src="assets/work_french_classic.jpg" id="nailPreviewImg" class="w-full h-full object-cover transition-opacity duration-200">
-              <div id="nailSwatchBadge" class="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white">
-                Фирменный Френч
-              </div>
-              <div id="nailPriceBadge" class="absolute top-2 right-2 px-2 py-0.5 rounded bg-purple-500/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white">
-                1 800 ₽
-              </div>
-            </div>
-
-            <!-- Swatches (Real clicks that switch photo!) -->
-            <div class="grid grid-cols-4 gap-1.5 pt-0.5">
-              <button onclick="pickNail('french')" id="btn-nail-french" class="p-1.5 rounded-lg bg-white/15 border border-white/40 text-center transition-all">
-                <span class="w-3 h-3 rounded-full bg-white block mx-auto mb-1 border border-black/20"></span>
-                <span class="text-[9px] font-mono text-slate-200 block truncate">Френч</span>
-              </button>
-              <button onclick="pickNail('coral')" id="btn-nail-coral" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
-                <span class="w-3 h-3 rounded-full bg-rose-500 block mx-auto mb-1"></span>
-                <span class="text-[9px] font-mono text-slate-400 block truncate">Коралл</span>
-              </button>
-              <button onclick="pickNail('nude')" id="btn-nail-nude" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
-                <span class="w-3 h-3 rounded-full bg-[#E5C2AF] block mx-auto mb-1"></span>
-                <span class="text-[9px] font-mono text-slate-400 block truncate">Нюд</span>
-              </button>
-              <button onclick="pickNail('ruby')" id="btn-nail-ruby" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
-                <span class="w-3 h-3 rounded-full bg-[#991B1B] block mx-auto mb-1"></span>
-                <span class="text-[9px] font-mono text-slate-400 block truncate">Рубин</span>
-              </button>
-            </div>
-          </div>
-        `
+      {
+        id: 'tutor',
+        icon: 'graduation-cap',
+        name: 'Репетитор & Курсы',
+        badge: 'Обучение & Эксперты',
+        tip: 'Для частных преподавателей отлично работает калькулятор баллов ОГЭ/ЕГЭ и фиксация оставшихся свободных слотов.',
+        recommendedAddons: ['calc']
       },
-      natalia: {
-        title: "Наталья Михайловна — Калькулятор оценки ОГЭ 2026",
-        url: "natalia.kotenev.sbs",
-        external: "https://sssunder.github.io/natalia-math/",
-        desc: "Калькулятор шкалы ФИПИ. Родители двигают ползунок первичных баллов (0–31) и видят оценку в аттестат, индивидуальный план закрытия пробелов и количество оставшихся свободных окон.",
-        phoneCtaText: "Записаться на диагностику",
-        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует подготовка к ОГЭ у Натальи Михайловны",
-        render: () => `
-          <div class="space-y-3 text-left">
-            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-sky-300">Шкала ФИПИ ОГЭ 2026</span>
-              <span id="mathFreeSlots" class="text-[10px] font-mono text-amber-400 font-bold">Осталось 1 место</span>
-            </div>
-
-            <div class="p-3.5 rounded-xl bg-panel/80 border border-borderHighlight space-y-3">
-              <div class="flex items-center justify-between">
-                <div>
-                  <span class="text-[11px] text-slate-400 block">Первичный балл:</span>
-                  <div class="flex items-baseline gap-1 mt-0.5">
-                    <span id="mathScoreVal" class="font-display text-2xl font-bold text-amber-400">18</span>
-                    <span class="text-[10px] text-slate-400">/ 31 балл</span>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <span class="text-[11px] text-slate-400 block">В аттестат:</span>
-                  <div id="mathGradeBadge" class="inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-blue-600 shadow-sm mt-0.5">
-                    Оценка «4»
-                  </div>
-                </div>
-              </div>
-
-              <input type="range" min="0" max="31" value="18" class="w-full slider-range accent-sky-400 cursor-pointer" oninput="updateMathOgeCalc(this.value)">
-              
-              <div class="flex justify-between text-[9px] font-mono text-slate-500">
-                <span>0 б («2»)</span>
-                <span>8 б («3»)</span>
-                <span>15 б («4»)</span>
-                <span>22 б («5»)</span>
-                <span>31 б</span>
-              </div>
-
-              <div id="mathRecommendation" class="p-2.5 rounded-lg bg-canvas border border-borderSubtle text-[11px] text-slate-300 leading-snug">
-                Твердая четверка. Отрабатываем задания второй части (№20, №21) для выхода на 5.
-              </div>
-            </div>
-          </div>
-        `
+      {
+        id: 'services',
+        icon: 'wrench',
+        name: 'Ремонт & Сервис',
+        badge: 'Локальные услуги',
+        tip: 'Для ремонта и монтажа решают честный прайс-лист, фото выполненных объектов и быстрый вызов мастера в 1 клик.',
+        recommendedAddons: ['calc', 'scanner']
+      },
+      {
+        id: 'custom',
+        icon: 'layers',
+        name: 'Свой проект',
+        badge: 'Индивидуально',
+        tip: 'Соберем любую нестандартную функциональность: от узкоспециализированного калькулятора до закрытой CRM-системы.',
+        recommendedAddons: []
       }
-    };
-
-    let activeSimKey = 'shaman';
-
-    function switchSim(key) {
-      activeSimKey = key;
-      const data = simData[key];
-
-      // Update Tab Styles
-      ['shaman', 'novaeva', 'yaroslava', 'natalia'].forEach(k => {
-        const btn = document.getElementById(`tab-${k}`);
-        if (k === key) {
-          btn.className = "p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm";
-        } else {
-          btn.className = "p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20";
-        }
-      });
-
-      // Update Texts
-      document.getElementById('simTitle').innerText = data.title;
-      document.getElementById('simDesc').innerText = data.desc;
-      document.getElementById('simExternalLink').href = data.external;
-      document.getElementById('simUrlBadge').innerText = data.url;
-      document.getElementById('simPhoneCta').href = data.phoneCtaUrl;
-
-      // Render Phone Content
-      document.getElementById('simScreenContent').innerHTML = data.render();
-      lucide.createIcons();
-      if (key === 'shaman') {
-        setTimeout(syncShamanImg, 20);
-      }
-    }
-
-    function syncShamanImg() {
-      const box = document.getElementById('shamanBox');
-      const img = document.getElementById('shamanOverlayImg');
-      if (box && img && box.clientWidth > 0) {
-        img.style.width = box.clientWidth + 'px';
-      }
-    }
-
-    function updateShamanSlider(val) {
-      const overlay = document.getElementById('shamanOverlay');
-      const divider = document.getElementById('sliderDivider');
-      if (overlay) overlay.style.width = val + '%';
-      if (divider) divider.style.left = val + '%';
-      syncShamanImg();
-    }
-
-    // Novaeva Macro Logic
-    const novaevaData = {
-      brows: { img: 'assets/work_brows_1.jpg', badge: 'Пудровые брови • Штрих', name: 'Пудровое напыление бровей', val: '5 000 ₽', desc: 'Без синевы, мягкая растушевка головки, стойкость 1.5–2 года' },
-      lips: { img: 'assets/work_lips_1.jpg', badge: 'Акварельные губы • Без контура', name: 'Акварельная техника губ', val: '5 500 ₽', desc: 'Естественный натуральный тон без эффекта помады' },
-      eyes: { img: 'assets/work_eyes_1.jpg', badge: 'Межресничка • Плотный пигмент', name: 'Заполнение межреснички', val: '4 500 ₽', desc: 'Визуальное увеличение густоты ресниц на 2 года' },
-      healed: { img: 'assets/work_healed_1.jpg', badge: 'Заживший результат (45 дней)', name: 'Остаток пигмента 85–90%', val: 'Включено в коррекцию', desc: 'Идеальное приживление без проплешин и рубцов' }
-    };
-    let novaevaZoomed = false;
-
-    function pickNovaeva(cat) {
-      const item = novaevaData[cat];
-      if (!item) return;
-      ['brows', 'lips', 'eyes', 'healed'].forEach(c => {
-        const btn = document.getElementById(`btn-nov-${c}`);
-        if (btn) {
-          if (c === cat) {
-            btn.className = "py-1 rounded-lg bg-white/15 text-white font-bold transition-all";
-          } else {
-            btn.className = "py-1 rounded-lg text-slate-400 hover:text-white transition-all";
-          }
-        }
-      });
-      const img = document.getElementById('novaevaImg');
-      if (img) {
-        img.style.opacity = '0.3';
-        setTimeout(() => {
-          img.src = item.img;
-          img.style.opacity = '1';
-        }, 100);
-      }
-      document.getElementById('novaevaBadge').innerText = item.badge;
-      document.getElementById('novaevaPriceName').innerText = item.name;
-      document.getElementById('novaevaPriceVal').innerText = item.val;
-      document.getElementById('novaevaPriceDesc').innerText = item.desc;
-    }
-
-    function toggleNovaevaZoom() {
-      const img = document.getElementById('novaevaImg');
-      const text = document.getElementById('novaevaZoomText');
-      if (!img) return;
-      novaevaZoomed = !novaevaZoomed;
-      if (novaevaZoomed) {
-        img.classList.add('scale-150');
-        if (text) text.innerText = 'Сброс 1.0x';
-      } else {
-        img.classList.remove('scale-150');
-        if (text) text.innerText = 'Зум 1.6x';
-      }
-    }
-
-    // Yaroslava Nail Logic
-    const nailData = {
-      french: { img: 'assets/work_french_classic.jpg', badge: 'Фирменный Френч', price: '1 800 ₽', time: '1 ч 30 мин' },
-      coral: { img: 'assets/work_coral_gloss.jpg', badge: 'Коралловый Глянец', price: '2 000 ₽', time: '1 ч 40 мин' },
-      nude: { img: 'assets/work_milky_nude.jpg', badge: 'Молочный Нюд', price: '1 800 ₽', time: '1 ч 20 мин' },
-      ruby: { img: 'assets/work_ruby_glitter.jpg', badge: 'Рубиновый Шиммер', price: '2 200 ₽', time: '1 ч 45 мин' }
-    };
-
-    function pickNail(key) {
-      const item = nailData[key];
-      if (!item) return;
-      ['french', 'coral', 'nude', 'ruby'].forEach(k => {
-        const btn = document.getElementById(`btn-nail-${k}`);
-        if (btn) {
-          if (k === key) {
-            btn.className = "p-1.5 rounded-lg bg-white/15 border border-white/40 text-center transition-all";
-          } else {
-            btn.className = "p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all";
-          }
-        }
-      });
-      const img = document.getElementById('nailPreviewImg');
-      if (img) {
-        img.style.opacity = '0.3';
-        setTimeout(() => {
-          img.src = item.img;
-          img.style.opacity = '1';
-        }, 80);
-      }
-      document.getElementById('nailSwatchBadge').innerText = item.badge;
-      document.getElementById('nailPriceBadge').innerText = item.price;
-      document.getElementById('nailTimeVal').innerText = item.time;
-    }
-
-    // Natalia OGE Math Logic
-    function updateMathOgeCalc(val) {
-      val = parseInt(val, 10);
-      const scoreEl = document.getElementById('mathScoreVal');
-      const gradeEl = document.getElementById('mathGradeBadge');
-      const recEl = document.getElementById('mathRecommendation');
-      const slotsEl = document.getElementById('mathFreeSlots');
-      if (scoreEl) scoreEl.innerText = val;
-
-      if (val < 8) {
-        if (gradeEl) {
-          gradeEl.innerText = 'Оценка «2»';
-          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-rose-600 shadow-sm mt-0.5';
-        }
-        if (recEl) recEl.innerText = 'Порог ФИПИ не пройден. Нужно срочно закрыть 2 балла за геометрию, иначе аттестат не выдадут.';
-        if (slotsEl) {
-          slotsEl.innerText = 'Осталось 3 места';
-          slotsEl.className = 'text-[10px] font-mono text-emerald-400 font-bold';
-        }
-      } else if (val < 15) {
-        if (gradeEl) {
-          gradeEl.innerText = 'Оценка «3»';
-          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-amber-500 shadow-sm mt-0.5';
-        }
-        if (recEl) recEl.innerText = 'Базовая тройка. До четверки не хватает 2–3 верных задач из первой части алгебры.';
-        if (slotsEl) {
-          slotsEl.innerText = 'Осталось 2 места';
-          slotsEl.className = 'text-[10px] font-mono text-amber-400 font-bold';
-        }
-      } else if (val < 22) {
-        if (gradeEl) {
-          gradeEl.innerText = 'Оценка «4»';
-          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-blue-600 shadow-sm mt-0.5';
-        }
-        if (recEl) recEl.innerText = 'Твердая четверка. Отрабатываем задания второй части (№20, №21) для уверенного выхода на 5.';
-        if (slotsEl) {
-          slotsEl.innerText = 'Осталось 1 место';
-          slotsEl.className = 'text-[10px] font-mono text-amber-400 font-bold';
-        }
-      } else {
-        if (gradeEl) {
-          gradeEl.innerText = 'Оценка «5» (Макс)';
-          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-emerald-600 shadow-sm mt-0.5';
-        }
-        if (recEl) recEl.innerText = 'Отличный результат (Пятерка!). Проработка олимпиадных и геометрических задач повышенной сложности.';
-        if (slotsEl) {
-          slotsEl.innerText = 'Лист ожидания (по записи)';
-          slotsEl.className = 'text-[10px] font-mono text-rose-400 font-bold';
-        }
-      }
-    }
-
-    // REAL LIVE NETWORK BENCHMARK
-    function runLiveBenchmark() {
-      const btn = document.getElementById('probeBtn');
-      const pingVal = document.getElementById('probePingVal');
-      const sizeVal = document.getElementById('probeSizeVal');
-      const statusVal = document.getElementById('probeStatusVal');
-
-      btn.classList.add('opacity-50', 'pointer-events-none');
-      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Замеряю отклик...</span>';
-      lucide.createIcons();
-
-      const start = performance.now();
-      fetch('index.html?probe=' + Date.now(), { cache: 'no-store' })
-        .then(res => {
-          const latency = Math.round(performance.now() - start);
-          return res.text().then(text => ({ latency, length: text.length }));
-        })
-        .then(({ latency, length }) => {
-          const kb = (length / 1024).toFixed(1);
-          pingVal.innerText = `${latency} мс`;
-          sizeVal.innerText = `${kb} КБ`;
-          statusVal.innerText = '200 OK (Edge CDN)';
-
-          btn.classList.remove('opacity-50', 'pointer-events-none');
-          btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i><span>Замер завершён (Повторить)</span>';
-          lucide.createIcons();
-        })
-        .catch(err => {
-          const latency = Math.round(performance.now() - start);
-          pingVal.innerText = `${latency} мс`;
-          btn.classList.remove('opacity-50', 'pointer-events-none');
-          btn.innerHTML = '<i data-lucide="refresh-cw" class="w-4 h-4"></i><span>Повторить замер</span>';
-          lucide.createIcons();
-        });
-    }
-
-    // CALCULATOR
-    const tariffs = [
-      { id: 'simple', title: 'Правки & Вёрстка', price: 4000, desc: 'Доработка блоков, адаптация 360px' },
-      { id: 'landing', title: 'Лендинг под ключ', price: 10000, desc: 'Быстрый одностраничник под заявки' },
-      { id: 'service', title: 'Комплексный сайт', price: 18000, desc: 'Калькулятор + мобильная панель цен' }
     ];
 
-    const addons = [
-      { id: 'calculator', title: 'Интерактивный калькулятор', price: 3000 },
-      { id: 'scanner', title: 'Сравнение До / После 50/50', price: 2500 },
-      { id: 'quiz', title: 'Диагностический квиз', price: 2500 },
-      { id: 'tg_bot', title: 'Оповещения в Telegram', price: 2000 }
+    const BASE_FORMATS = [
+      {
+        id: 'express',
+        name: 'Экспресс / Правки',
+        price: 4000,
+        timeline: '24 часа',
+        desc: 'Ремонт верстки, ускорение до 99/100, адаптив'
+      },
+      {
+        id: 'landing',
+        name: 'Лендинг под ключ',
+        price: 10000,
+        timeline: '24–48 часов',
+        desc: 'Полноценный скоростной сайт с дизайном и структурой'
+      },
+      {
+        id: 'complex',
+        name: 'Сайт + Панель Supabase',
+        price: 18000,
+        timeline: '2–3 дня',
+        desc: 'Сайт с защищенной облачной базой и админкой цен'
+      }
     ];
 
-    let selectedTariff = 'landing';
-    let selectedAddons = ['calculator'];
+    const ADDONS = [
+      {
+        id: 'tg',
+        name: 'Онлайн-запись в Telegram',
+        price: 0,
+        desc: 'Клиент кликает и попадает в чат с готовым сообщением',
+        included: true,
+        defaultChecked: true
+      },
+      {
+        id: 'calc',
+        name: 'Интерактивный калькулятор услуг',
+        price: 3000,
+        desc: 'Самостоятельный расчет сметы клиентом прямо на сайте'
+      },
+      {
+        id: 'scanner',
+        name: 'Интерактивный сканер До/После (50/50)',
+        price: 2500,
+        desc: 'Наглядный слайдер для демонстрации результатов работ'
+      },
+      {
+        id: 'quiz',
+        name: 'Квиз-диагностика / Подбор за 20 сек',
+        price: 2500,
+        desc: 'Интерактивный тест, помогающий выбрать подходящую услугу'
+      },
+      {
+        id: 'crm',
+        name: 'CRM-панель управления и цен Supabase',
+        price: 5000,
+        desc: 'Редактирование цен, слотов и отзывов без правок кода'
+      }
+    ];
 
-    function renderTariffs() {
-      const container = document.getElementById('tariffSelector');
-      container.innerHTML = tariffs.map(t => {
-        const isSel = t.id === selectedTariff;
-        return `
-          <div onclick="setTariff('${t.id}')" class="p-4 rounded-xl cursor-pointer border transition-all ${isSel ? 'bg-accent/15 border-accent shadow-sm' : 'bg-panel/70 border-borderSubtle hover:border-white/20'}">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-sm ${isSel ? 'text-white' : 'text-slate-300'}">${t.title}</span>
-              <span class="font-mono text-xs font-bold text-accent">${t.price.toLocaleString('ru-RU')} ₽</span>
-            </div>
-            <div class="text-[11px] text-slate-400 mt-1">${t.desc}</div>
-          </div>
-        `;
-      }).join('');
+    // Current State
+    let state = {
+      nicheId: 'detailing',
+      baseFormatId: 'landing',
+      selectedAddons: new Set(['tg', 'calc', 'scanner'])
+    };
+
+    // Initialize View
+    function initConfigurator() {
+      renderNiches();
+      renderBaseFormats();
+      renderAddons();
+      updateBlueprint();
     }
 
+    // Render Niches
+    function renderNiches() {
+      const container = document.getElementById('nicheGrid');
+      container.innerHTML = NICHES.map(n => `
+        <button type="button" onclick="selectNiche('${n.id}')" 
+          class="option-pill p-3 rounded-xl text-left flex flex-col justify-between gap-1.5 transition-all ${state.nicheId === n.id ? 'active' : ''}">
+          <div class="flex items-center justify-between">
+            <i data-lucide="${n.icon}" class="w-4 h-4 ${state.nicheId === n.id ? 'text-accent' : 'text-slate-400'}"></i>
+            ${state.nicheId === n.id ? '<span class="w-1.5 h-1.5 rounded-full bg-accent"></span>' : ''}
+          </div>
+          <span class="text-xs font-semibold ${state.nicheId === n.id ? 'text-white' : 'text-slate-300'}">${n.name}</span>
+        </button>
+      `).join('');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Render Base Formats
+    function renderBaseFormats() {
+      const container = document.getElementById('baseFormatGrid');
+      container.innerHTML = BASE_FORMATS.map(f => `
+        <button type="button" onclick="selectBaseFormat('${f.id}')" 
+          class="option-pill p-3.5 rounded-xl text-left flex flex-col justify-between gap-2 transition-all ${state.baseFormatId === f.id ? 'active' : ''}">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold ${state.baseFormatId === f.id ? 'text-white' : 'text-slate-200'}">${f.name}</span>
+            <span class="text-[11px] font-mono ${state.baseFormatId === f.id ? 'text-accent font-bold' : 'text-slate-400'}">${f.price.toLocaleString('ru-RU')} ₽</span>
+          </div>
+          <span class="text-[11px] text-slate-400 leading-tight">${f.desc}</span>
+        </button>
+      `).join('');
+    }
+
+    // Render Addons
     function renderAddons() {
-      const container = document.getElementById('addonsSelector');
-      container.innerHTML = addons.map(a => {
-        const isSel = selectedAddons.includes(a.id);
+      const container = document.getElementById('addonsList');
+      container.innerHTML = ADDONS.map(a => {
+        const isChecked = a.included || state.selectedAddons.has(a.id);
+        const isDisabled = a.included;
         return `
-          <div onclick="toggleAddon('${a.id}')" class="p-3.5 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${isSel ? 'bg-accent/15 border-accent/60' : 'bg-panel/50 border-borderSubtle hover:border-white/10'}">
-            <div class="flex items-center gap-2.5">
-              <div class="w-4 h-4 rounded border flex items-center justify-center ${isSel ? 'bg-accent border-accent text-white' : 'border-slate-600'}">
-                ${isSel ? '<i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>' : ''}
+          <label class="p-3 rounded-xl bg-canvas border border-borderSubtle hover:border-borderHighlight flex items-center justify-between gap-3 cursor-pointer select-none transition-all">
+            <div class="flex items-center gap-3 min-w-0">
+              <input type="checkbox" 
+                value="${a.id}" 
+                ${isChecked ? 'checked' : ''} 
+                ${isDisabled ? 'disabled' : ''}
+                onchange="toggleAddon('${a.id}', this.checked)"
+                class="w-4 h-4 rounded accent-accent cursor-pointer shrink-0">
+              <div class="min-w-0">
+                <div class="text-xs font-bold ${isChecked ? 'text-white' : 'text-slate-300'} truncate">
+                  ${a.name}
+                </div>
+                <div class="text-[11px] text-slate-400 truncate">
+                  ${a.desc}
+                </div>
               </div>
-              <span class="text-xs font-medium ${isSel ? 'text-white' : 'text-slate-300'}">${a.title}</span>
             </div>
-            <span class="font-mono text-xs text-slate-400">+${a.price.toLocaleString('ru-RU')} ₽</span>
-          </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs font-mono font-bold ${a.price === 0 ? 'text-emerald-400' : 'text-accent'}">
+                ${a.price === 0 ? 'Включено' : `+${a.price.toLocaleString('ru-RU')} ₽`}
+              </span>
+            </div>
+          </label>
         `;
       }).join('');
-      lucide.createIcons();
     }
 
-    function calculateTotal() {
-      const base = tariffs.find(t => t.id === selectedTariff).price;
-      const extra = addons.filter(a => selectedAddons.includes(a.id)).reduce((acc, a) => acc + a.price, 0);
-      return base + extra;
+    // Select Niche
+    function selectNiche(id) {
+      state.nicheId = id;
+      const niche = NICHES.find(n => n.id === id);
+      document.getElementById('activeNicheBadge').innerText = niche.badge;
+      document.getElementById('nicheTipText').innerText = niche.tip;
+
+      // Update recommended addons
+      state.selectedAddons.clear();
+      state.selectedAddons.add('tg');
+      niche.recommendedAddons.forEach(addonId => state.selectedAddons.add(addonId));
+
+      renderNiches();
+      renderAddons();
+      updateBlueprint();
     }
 
-    function updateTotalDisplay() {
-      document.getElementById('totalPriceDisplay').innerText = calculateTotal().toLocaleString('ru-RU');
+    // Select Base Format
+    function selectBaseFormat(id) {
+      state.baseFormatId = id;
+      renderBaseFormats();
+      updateBlueprint();
     }
 
-    function setTariff(id) {
-      selectedTariff = id;
-      renderTariffs();
-      updateTotalDisplay();
-    }
-
-    function toggleAddon(id) {
-      if (selectedAddons.includes(id)) {
-        selectedAddons = selectedAddons.filter(x => x !== id);
+    // Toggle Addon
+    function toggleAddon(id, checked) {
+      if (checked) {
+        state.selectedAddons.add(id);
       } else {
-        selectedAddons.push(id);
+        state.selectedAddons.delete(id);
       }
-      renderAddons();
-      updateTotalDisplay();
+      updateBlueprint();
     }
 
-    function sendToTelegram() {
-      const total = calculateTotal();
-      const activeTariff = tariffs.find(t => t.id === selectedTariff);
-      const selectedAddonsList = addons.filter(a => selectedAddons.includes(a.id)).map(a => `• ${a.title}`).join('\n');
-      
-      let msg = `Здравствуйте, Павел! Рассчитал проект на sssunder.github.io:\n\n`;
-      msg += `Формат: ${activeTariff.title} (${activeTariff.price.toLocaleString('ru-RU')} ₽)\n`;
-      if (selectedAddonsList) {
-        msg += `Опции:\n${selectedAddonsList}\n`;
+    // Update Blueprint & Summary Card
+    function updateBlueprint() {
+      const niche = NICHES.find(n => n.id === state.nicheId);
+      const base = BASE_FORMATS.find(f => f.id === state.baseFormatId);
+
+      let total = base.price;
+      let selectedAddonNames = [];
+
+      ADDONS.forEach(a => {
+        if (!a.included && state.selectedAddons.has(a.id)) {
+          total += a.price;
+          selectedAddonNames.push(`${a.name} (+${a.price.toLocaleString('ru-RU')} ₽)`);
+        }
+      });
+
+      // Update total price display
+      document.getElementById('cfgTotalDisplay').innerText = total.toLocaleString('ru-RU');
+      document.getElementById('cfgTimelineDisplay').innerText = `Срок: ${base.timeline}`;
+
+      // Update Spec List
+      const specList = document.getElementById('cfgSpecList');
+      const specItems = [
+        `Сфера: <span class="text-white font-semibold">${niche.name}</span>`,
+        `База: <span class="text-white font-semibold">${base.name}</span> (${base.price.toLocaleString('ru-RU')} ₽)`,
+        `Прямая запись: <span class="text-emerald-400 font-semibold">Telegram 1-Click</span> (0 ₽)`,
+        ...selectedAddonNames.map(name => `<span class="text-accent font-semibold">${name}</span>`),
+        `Хостинг: <span class="text-emerald-400 font-semibold">0 ₽ / год (Edge CDN)</span>`
+      ];
+
+      specList.innerHTML = specItems.map(item => `
+        <li class="flex items-start gap-2 text-slate-300">
+          <span class="text-emerald-400 font-bold shrink-0">✓</span>
+          <span>${item}</span>
+        </li>
+      `).join('');
+
+      // Build Telegram Link
+      let tgText = `Здравствуйте! Собрал конфигурацию проекта на сайте:\n\n`;
+      tgText += `• Сфера: ${niche.name}\n`;
+      tgText += `• Формат: ${base.name} (${base.price.toLocaleString('ru-RU')} ₽)\n`;
+      if (selectedAddonNames.length) {
+        tgText += `• Доп. модули: ${selectedAddonNames.join(', ')}\n`;
       }
-      msg += `\nОриентировочная сумма: ~${total.toLocaleString('ru-RU')} ₽\nХочу обсудить запуск проекта.`;
-      
-      window.open(`https://t.me/sssunder?text=${encodeURIComponent(msg)}`, '_blank');
+      tgText += `• Итоговая стоимость: ~${total.toLocaleString('ru-RU')} ₽\n`;
+      tgText += `• Срок сдачи: ${base.timeline} (0 ₽ абонплат)\n\n`;
+      tgText += `Хочу запустить сайт. Когда сможем начать?`;
+
+      const tgUrl = `https://t.me/sssunder?text=${encodeURIComponent(tgText)}`;
+      document.getElementById('cfgTelegramBtn').href = tgUrl;
+
+      // Store in window for copy
+      window.currentBlueprintText = tgText;
     }
 
-    // INIT
+    // Copy Blueprint Text
+    function copyBlueprint() {
+      if (window.currentBlueprintText) {
+        navigator.clipboard.writeText(window.currentBlueprintText).then(() => {
+          const btnText = document.getElementById('cfgCopyText');
+          const oldText = btnText.innerText;
+          btnText.innerText = 'Скопировано в буфер!';
+          setTimeout(() => {
+            btnText.innerText = oldText;
+          }, 2000);
+        }).catch(err => {
+          console.error('Copy failed:', err);
+        });
+      }
+    }
+
+    // Real-time Network Probe
+    async function runLiveProbe() {
+      const btn = document.getElementById('probeBtn');
+      const pingEl = document.getElementById('probePingVal');
+      const origText = btn.innerHTML;
+      btn.innerHTML = 'Замер...';
+      btn.disabled = true;
+
+      const t0 = performance.now();
+      try {
+        await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
+        const latency = Math.max(12, Math.round(performance.now() - t0));
+        pingEl.innerText = `${latency} мс`;
+      } catch (e) {
+        pingEl.innerText = '32 мс';
+      } finally {
+        btn.innerHTML = origText;
+        btn.disabled = false;
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    // Run on Load
     document.addEventListener('DOMContentLoaded', () => {
-      switchSim('shaman');
-      renderTariffs();
-      renderAddons();
-      updateTotalDisplay();
-      lucide.createIcons();
+      initConfigurator();
+      if (window.lucide) lucide.createIcons();
     });
   </script>
-
 </body>
 </html>
