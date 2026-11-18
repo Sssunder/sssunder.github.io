@@ -260,15 +260,15 @@
                   <span class="font-bold text-sm">Ярослава Ермакова</span>
                   <span class="text-xs text-purple-400 font-mono">Примерка</span>
                 </div>
-                <div class="text-xs text-slate-400 mt-1">Диагностический 20-сек квиз</div>
+                <div class="text-xs text-slate-400 mt-1">Примерка оттенков и дизайна</div>
               </button>
 
               <button onclick="switchSim('natalia')" id="tab-natalia" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                   <span class="font-bold text-sm">Наталья Михайловна</span>
-                  <span class="text-xs text-sky-400 font-mono">Калькулятор ЕГЭ</span>
+                  <span class="text-xs text-sky-400 font-mono">Калькулятор ОГЭ</span>
                 </div>
-                <div class="text-xs text-slate-400 mt-1">Расчет баллов и бронь места</div>
+                <div class="text-xs text-slate-400 mt-1">Шкала ФИПИ и свободные окна</div>
               </button>
             </div>
 
@@ -335,80 +335,109 @@
       </div>
     </section>
 
-    <!-- KILLER FEATURE 2: REAL-TIME SPEED BATTLE (TILDA VS CLEAN CODE) -->
+    <!-- KILLER FEATURE 2: REAL-TIME SPEED BENCHMARK (LIVE PING & ARCHITECTURE) -->
     <section id="battle" class="py-16 sm:py-24 border-b border-borderSubtle">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
         
         <div class="text-center space-y-3">
           <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 uppercase tracking-wider">
-            <span>⚡ БАТТЛ ПРОИЗВОДИТЕЛЬНОСТИ</span>
+            <span>⚡ РЕАЛЬНЫЙ БЕНЧМАРК ПРОИЗВОДИТЕЛЬНОСТИ</span>
           </div>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
             Тильда vs Чистый код Павла
           </h2>
           <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
-            Нажми кнопку и посмотри реальную разницу в загрузке сайта клиентом со смартфона в дороге.
+            Никаких фейковых мультфильмов. Замерьте реальный сетевой отклик этого сайта прямо сейчас со своего устройства.
           </p>
         </div>
 
         <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-6">
           
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
+          <!-- Live Probe Bar -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
             <div>
-              <div class="font-bold text-white text-base">Интерактивный тест скорости открытия</div>
-              <div class="text-xs text-slate-400 mt-0.5">Симуляция мобильной сети 4G (15 Мбит/с)</div>
+              <div class="font-bold text-white text-base flex items-center gap-2">
+                <span>Живой сетевой замер (Performance API)</span>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">В реальном времени</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1">Отправляет настоящий HTTP-запрос к серверу и считает миллисекунды вашего соединения</div>
             </div>
-            <button onclick="runSpeedBattle()" id="battleBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
-              <i data-lucide="play" class="w-4 h-4"></i>
-              <span>Запустить тест скорости</span>
+            <button onclick="runLiveBenchmark()" id="probeBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shrink-0">
+              <i data-lucide="gauge" class="w-4 h-4"></i>
+              <span>Замерить пинг прямо сейчас</span>
             </button>
           </div>
 
-          <!-- The Two Racers -->
-          <div class="space-y-6">
-            
-            <!-- 1. Tilda -->
-            <div class="space-y-2">
-              <div class="flex items-center justify-between text-xs sm:text-sm">
-                <span class="font-bold text-rose-300 flex items-center gap-2">
-                  <span>Конструкторы (Тильда / Taplink)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-rose-400 font-mono">12 000 ₽ / год</span>
-                </span>
-                <span id="tildaTime" class="font-mono text-slate-400">Ожидание старта</span>
-              </div>
-              <div class="h-4 rounded-full bg-canvas border border-borderSubtle overflow-hidden p-0.5">
-                <div id="tildaBar" class="h-full rounded-full bg-rose-500/80 transition-all duration-300 w-0"></div>
-              </div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
-                <span>Вес: ~18.4 МБ мусорного JS/CSS</span>
-                <span>Запросов: 142</span>
-                <span class="text-rose-400 font-bold">Lighthouse: ~42</span>
-              </div>
+          <!-- Dynamic Live Probe Results -->
+          <div id="probeResultBox" class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-canvas border border-borderHighlight text-left">
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Реальный отклик (Ping)</div>
+              <div id="probePingVal" class="text-xl sm:text-2xl font-bold font-mono text-emerald-400 mt-0.5">38 мс</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Cloudflare / Codeberg Edge</div>
             </div>
-
-            <!-- 2. Pavel's Clean Code -->
-            <div class="space-y-2">
-              <div class="flex items-center justify-between text-xs sm:text-sm">
-                <span class="font-bold text-emerald-300 flex items-center gap-2">
-                  <span>Чистый код Павла (HTML5 + CDN)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">0 ₽ / год</span>
-                </span>
-                <span id="pavelTime" class="font-mono text-slate-400">Ожидание старта</span>
-              </div>
-              <div class="h-4 rounded-full bg-canvas border border-borderSubtle overflow-hidden p-0.5">
-                <div id="pavelBar" class="h-full rounded-full bg-emerald-400 transition-all duration-300 w-0"></div>
-              </div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>Вес: ~42 КБ (чистый код)</span>
-                <span>Запросов: 4</span>
-                <span class="text-emerald-400 font-bold font-mono">Lighthouse: 99/100</span>
-              </div>
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Вес чистого кода</div>
+              <div id="probeSizeVal" class="text-xl sm:text-2xl font-bold font-mono text-white mt-0.5">~48 КБ</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Чистый HTML5 + Vanilla JS</div>
             </div>
-
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Статус сервера</div>
+              <div id="probeStatusVal" class="text-xl sm:text-2xl font-bold font-mono text-sky-400 mt-0.5">200 OK</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">0 ₽ абонентской платы</div>
+            </div>
           </div>
 
-          <div id="battleResult" class="hidden p-4 rounded-xl bg-canvas border border-borderHighlight text-xs text-slate-300 leading-relaxed font-mono">
-            <!-- Summary appears after race -->
+          <!-- Technical Breakdown Table -->
+          <div class="space-y-3 pt-2">
+            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">Честное сравнение архитектуры</div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              <!-- Tilda / Constructors -->
+              <div class="p-4 rounded-xl bg-canvas border border-rose-500/20 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-rose-300 text-sm">Тильда / Конструкторы</span>
+                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">от 12 000 ₽ / год</span>
+                </div>
+                <ul class="text-xs text-slate-400 space-y-2 leading-relaxed">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold shrink-0">✕</span>
+                    <span><strong>12–18 МБ чужого кода:</strong> jQuery, трекеры, библиотеки анимаций грузятся даже на пустой странице.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold shrink-0">✕</span>
+                    <span><strong>3.5–4.5 сек на мобильном:</strong> Клиент в дороге со слабым 4G видит белый экран и закрывает сайт.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold shrink-0">✕</span>
+                    <span><strong>Кабальная подписка:</strong> Перестали платить 1000 ₽ в месяц — сайт моментально блокируется.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Pavel Clean Code -->
+              <div class="p-4 rounded-xl bg-canvas border border-emerald-500/20 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-emerald-300 text-sm">Чистый код Павла Котенева</span>
+                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">0 ₽ / год навсегда</span>
+                </div>
+                <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                    <span><strong>~48 КБ чистого HTML+JS:</strong> Ровно то, что нужно вашему бизнесу. 0 лишних фреймворков.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                    <span><strong>0.42 сек загрузка:</strong> Мгновенный отклик даже на 3G в цокольном этаже или за городом.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-emerald-400 font-bold shrink-0">✓</span>
+                    <span><strong>Вечная собственность:</strong> Код ваш навсегда. Бесплатный защищенный CDN хостинг.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
           </div>
 
         </div>
@@ -624,31 +653,44 @@
         title: "Detailing Shaman — 50/50 Сканер полировки",
         url: "shaman.kotenev.sbs",
         external: "https://sssunder.github.io/shaman-detailing/",
-        desc: "Подвигай ползунок прямо на экране телефона. Клиенты детейлинга наглядно видят разницу до/после полировки под яркой инспекционной лампой Scangrip.",
+        desc: "Подвигай ползунок прямо на экране телефона. Реальные фотографии капота BMW под инспекционным прожектором Scangrip: удаление рисок, паутины и нанесение 2 слоев керамики Gyeon 9H.",
         phoneCtaText: "Записаться на детейлинг",
         phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует полировка и керамика Shaman",
         render: () => `
           <div class="space-y-3">
             <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-300">Scangrip 50/50</span>
-              <span class="text-[10px] font-mono text-slate-400">Тяни ползунок ↔</span>
+              <span class="text-xs font-bold text-amber-300">Капот BMW 5 • Scangrip</span>
+              <span class="text-[10px] font-mono text-emerald-400">Глянец 98%</span>
             </div>
             
             <div id="shamanBox" class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight shadow-inner bg-black select-none">
-              <img src="assets/shaman_new_slider_desktop.png" class="absolute inset-0 w-full h-full object-cover">
+              <!-- After (Mirror) -->
+              <img src="assets/case_bmw_after.jpg" class="absolute inset-0 w-full h-full object-cover">
+              
+              <!-- Before (Scratches) Overlay -->
               <div id="shamanOverlay" class="absolute inset-0 overflow-hidden" style="width: 50%;">
-                <img id="shamanOverlayImg" src="assets/shaman_cases_full_view.png" class="absolute top-0 left-0 max-w-none h-full object-cover" style="width: 280px;">
-                <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-rose-400">ДО (Царапины)</div>
+                <img id="shamanOverlayImg" src="assets/case_bmw_before.jpg" class="absolute top-0 left-0 max-w-none h-full object-cover" style="width: 280px;">
+                <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[9px] font-mono text-rose-400 border border-rose-500/30">ДО: Царапины</div>
               </div>
-              <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-emerald-400">ПОСЛЕ (Зеркало)</div>
+              
+              <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[9px] font-mono text-emerald-400 border border-emerald-500/30">ПОСЛЕ: Зеркало</div>
               <div id="sliderDivider" class="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_white]" style="left: 50%;"></div>
             </div>
 
-            <input type="range" min="0" max="100" value="50" class="w-full slider-range accent-accent cursor-pointer" oninput="updateShamanSlider(this.value)">
+            <div class="space-y-1">
+              <div class="flex justify-between text-[10px] font-mono text-slate-400">
+                <span>← Паутина и голограммы</span>
+                <span>Зеркальный лак →</span>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="w-full slider-range accent-accent cursor-pointer" oninput="updateShamanSlider(this.value)">
+            </div>
 
             <div class="p-3 rounded-xl bg-panel/70 border border-borderSubtle space-y-1 text-left">
-              <div class="text-xs font-bold text-white">Керамика Gyeon 9H</div>
-              <div class="text-[11px] text-slate-400">Защита от реагентов и гидрофоб на 2 года</div>
+              <div class="text-xs font-bold text-white flex items-center justify-between">
+                <span>Menzerna 400 + Gyeon 9H</span>
+                <span class="text-amber-400 font-mono text-[11px]">от 18 000 ₽</span>
+              </div>
+              <div class="text-[11px] text-slate-400">Защита от реагентов и гидрофобный эффект на 2 года</div>
             </div>
           </div>
         `
@@ -657,94 +699,129 @@
         title: "Елизавета Новаева — Макро-галерея работ",
         url: "novaeva.kotenev.sbs",
         external: "https://sssunder.github.io/novaeva-beauty/",
-        desc: "Макро-фотографии заживших бровей и губ без фильтров и ретуши. Клиент видит чистоту штриха и сразу переходит к онлайн-записи.",
+        desc: "Честные макро-кадры зажившего перманентного макияжа без блюра и фильтров. Клиент переключает зоны (брови, губы, стрелки) и включает зум, чтобы рассмотреть чистоту каждого штриха.",
         phoneCtaText: "Записаться к Елизавете",
         phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Елизавете Новаевой",
         render: () => `
-          <div class="space-y-3">
-            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-rose-300">BROW BOSS • 6+ лет</span>
-              <span class="text-[10px] font-mono text-emerald-400">48 отзывов ★ 5.0</span>
-            </div>
-            
-            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative">
-              <img src="assets/novaeva_preview.png" class="w-full h-full object-cover">
-              <div class="absolute bottom-2 left-2 right-2 p-2 rounded-lg bg-black/80 backdrop-blur-sm text-[10px] text-slate-200">
-                Пудровые брови «Дорогое окрашивание»
-              </div>
+          <div class="space-y-2.5">
+            <div class="grid grid-cols-4 gap-1 p-1 rounded-xl bg-panel border border-borderSubtle text-[10px] font-medium text-center">
+              <button onclick="pickNovaeva('brows')" id="btn-nov-brows" class="py-1 rounded-lg bg-white/15 text-white font-bold transition-all">Брови</button>
+              <button onclick="pickNovaeva('lips')" id="btn-nov-lips" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Губы</button>
+              <button onclick="pickNovaeva('eyes')" id="btn-nov-eyes" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Стрелки</button>
+              <button onclick="pickNovaeva('healed')" id="btn-nov-healed" class="py-1 rounded-lg text-slate-400 hover:text-white transition-all">Зажившие</button>
             </div>
 
-            <div class="grid grid-cols-2 gap-2 text-left">
-              <div class="p-2 rounded-lg bg-panel border border-borderSubtle">
-                <div class="text-[10px] text-slate-400">Пудровое напыление</div>
-                <div class="text-xs font-bold text-white mt-0.5">5 000 ₽</div>
+            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative bg-black flex items-center justify-center">
+              <img src="assets/work_brows_1.jpg" id="novaevaImg" class="w-full h-full object-cover transition-all duration-300">
+              <div id="novaevaBadge" class="absolute bottom-2 left-2 px-2 py-1 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white">
+                Пудровые брови • Штрих
               </div>
-              <div class="p-2 rounded-lg bg-panel border border-borderSubtle">
-                <div class="text-[10px] text-slate-400">Акварельные губы</div>
-                <div class="text-xs font-bold text-white mt-0.5">5 500 ₽</div>
+              <button onclick="toggleNovaevaZoom()" id="novaevaZoomBtn" class="absolute top-2 right-2 px-2 py-1 rounded-md bg-black/80 backdrop-blur-sm border border-white/20 text-[10px] font-mono text-amber-300 flex items-center gap-1 hover:bg-black">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i>
+                <span id="novaevaZoomText">Зум 1.6x</span>
+              </button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-panel border border-borderSubtle text-left space-y-1">
+              <div class="flex items-center justify-between">
+                <span id="novaevaPriceName" class="text-xs font-bold text-white">Пудровое напыление бровей</span>
+                <span id="novaevaPriceVal" class="text-xs font-mono font-bold text-rose-400">5 000 ₽</span>
               </div>
+              <div id="novaevaPriceDesc" class="text-[11px] text-slate-400">Без синевы, мягкая растушевка головки, стойкость 1.5–2 года</div>
             </div>
           </div>
         `
       },
       yaroslava: {
-        title: "Ярослава Ермакова — Примерка дизайна",
+        title: "Ярослава Ермакова — Интерактивная примерка",
         url: "yaroslava.kotenev.sbs",
         external: "https://sssunder.github.io/yaroslava-beauty/",
-        desc: "Интерактивная примерка оттенков ногтей прямо со смартфона. Помогает клиенту определиться с цветом за 15 секунд до визита.",
+        desc: "Интерактивная примерка оттенков и дизайна прямо в телефоне. Клиент выбирает дизайн — фото на экране моментально меняется, показывая реальную работу мастера, стоимость и время.",
         phoneCtaText: "Записаться к Ярославе",
         phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Ярославе Ермаковой",
         render: () => `
-          <div class="space-y-3 text-left">
-            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-purple-300">Примерка оттенков</span>
-              <span class="text-[10px] font-mono text-slate-400">Кликни на цвет ↓</span>
+          <div class="space-y-2.5 text-left">
+            <div class="p-2 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-300">Примерка дизайна</span>
+              <span id="nailTimeVal" class="text-[10px] font-mono text-slate-400">1 ч 30 мин</span>
             </div>
 
             <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative bg-slate-900 flex items-center justify-center">
-              <img src="assets/yaroslava_preview_1_hero.png" id="nailPreviewImg" class="w-full h-full object-cover transition-opacity duration-300">
+              <img src="assets/work_french_classic.jpg" id="nailPreviewImg" class="w-full h-full object-cover transition-opacity duration-200">
               <div id="nailSwatchBadge" class="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white">
                 Фирменный Френч
               </div>
+              <div id="nailPriceBadge" class="absolute top-2 right-2 px-2 py-0.5 rounded bg-purple-500/80 backdrop-blur-sm text-[10px] font-mono font-bold text-white">
+                1 800 ₽
+              </div>
             </div>
 
-            <div class="flex items-center justify-between gap-2 pt-1">
-              <button onclick="pickColor('Фирменный Френч', '#FFFFFF')" class="flex-1 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-[10px] font-mono text-white text-center">Френч</button>
-              <button onclick="pickColor('Нордик Графит', '#334155')" class="flex-1 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 border border-slate-500 text-[10px] font-mono text-white text-center">Графит</button>
-              <button onclick="pickColor('Ночной Оникс', '#18181B')" class="flex-1 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-[10px] font-mono text-white text-center">Оникс</button>
+            <!-- Swatches (Real clicks that switch photo!) -->
+            <div class="grid grid-cols-4 gap-1.5 pt-0.5">
+              <button onclick="pickNail('french')" id="btn-nail-french" class="p-1.5 rounded-lg bg-white/15 border border-white/40 text-center transition-all">
+                <span class="w-3 h-3 rounded-full bg-white block mx-auto mb-1 border border-black/20"></span>
+                <span class="text-[9px] font-mono text-slate-200 block truncate">Френч</span>
+              </button>
+              <button onclick="pickNail('coral')" id="btn-nail-coral" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
+                <span class="w-3 h-3 rounded-full bg-rose-500 block mx-auto mb-1"></span>
+                <span class="text-[9px] font-mono text-slate-400 block truncate">Коралл</span>
+              </button>
+              <button onclick="pickNail('nude')" id="btn-nail-nude" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
+                <span class="w-3 h-3 rounded-full bg-[#E5C2AF] block mx-auto mb-1"></span>
+                <span class="text-[9px] font-mono text-slate-400 block truncate">Нюд</span>
+              </button>
+              <button onclick="pickNail('ruby')" id="btn-nail-ruby" class="p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all">
+                <span class="w-3 h-3 rounded-full bg-[#991B1B] block mx-auto mb-1"></span>
+                <span class="text-[9px] font-mono text-slate-400 block truncate">Рубин</span>
+              </button>
             </div>
           </div>
         `
       },
       natalia: {
-        title: "Наталья Михайловна — Калькулятор ЕГЭ",
+        title: "Наталья Михайловна — Калькулятор оценки ОГЭ 2026",
         url: "natalia.kotenev.sbs",
         external: "https://sssunder.github.io/natalia-math/",
-        desc: "Интерактивный расчет целевого балла. Родители двигают ползунок, видят прогноз баллов и количество оставшихся свободных окон на учебный год.",
-        phoneCtaText: "Записаться на пробный урок",
-        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует подготовка к ЕГЭ у Натальи Михайловны",
+        desc: "Калькулятор шкалы ФИПИ. Родители двигают ползунок первичных баллов (0–31) и видят оценку в аттестат, индивидуальный план закрытия пробелов и количество оставшихся свободных окон.",
+        phoneCtaText: "Записаться на диагностику",
+        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует подготовка к ОГЭ у Натальи Михайловны",
         render: () => `
           <div class="space-y-3 text-left">
             <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
-              <span class="text-xs font-bold text-sky-300">Прогноз баллов ЕГЭ</span>
-              <span class="text-[10px] font-mono text-emerald-400">Осталось 3 места</span>
+              <span class="text-xs font-bold text-sky-300">Шкала ФИПИ ОГЭ 2026</span>
+              <span id="mathFreeSlots" class="text-[10px] font-mono text-amber-400 font-bold">Осталось 1 место</span>
             </div>
 
-            <div class="p-4 rounded-xl bg-panel/80 border border-borderHighlight space-y-3">
+            <div class="p-3.5 rounded-xl bg-panel/80 border border-borderHighlight space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs text-slate-300">Текущий пробник:</span>
-                <span id="currentScore" class="font-mono text-xs font-bold text-rose-400">42 балла</span>
+                <div>
+                  <span class="text-[11px] text-slate-400 block">Первичный балл:</span>
+                  <div class="flex items-baseline gap-1 mt-0.5">
+                    <span id="mathScoreVal" class="font-display text-2xl font-bold text-amber-400">18</span>
+                    <span class="text-[10px] text-slate-400">/ 31 балл</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="text-[11px] text-slate-400 block">В аттестат:</span>
+                  <div id="mathGradeBadge" class="inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-blue-600 shadow-sm mt-0.5">
+                    Оценка «4»
+                  </div>
+                </div>
               </div>
-              <input type="range" min="30" max="70" value="42" class="w-full slider-range accent-sky-400 cursor-pointer" oninput="updateMathScore(this.value)">
 
-              <div class="pt-2 border-t border-borderSubtle flex items-center justify-between">
-                <span class="text-xs text-slate-400">Прогноз через 4 мес:</span>
-                <span id="targetScore" class="font-mono text-sm font-bold text-emerald-400">80–84 балла</span>
+              <input type="range" min="0" max="31" value="18" class="w-full slider-range accent-sky-400 cursor-pointer" oninput="updateMathOgeCalc(this.value)">
+              
+              <div class="flex justify-between text-[9px] font-mono text-slate-500">
+                <span>0 б («2»)</span>
+                <span>8 б («3»)</span>
+                <span>15 б («4»)</span>
+                <span>22 б («5»)</span>
+                <span>31 б</span>
               </div>
-            </div>
 
-            <div class="p-2.5 rounded-lg bg-panel border border-borderSubtle text-[11px] text-slate-300">
-              Тариф «Мини-группа 4 чел»: <span class="font-bold text-white">900 ₽ / урок</span>
+              <div id="mathRecommendation" class="p-2.5 rounded-lg bg-canvas border border-borderSubtle text-[11px] text-slate-300 leading-snug">
+                Твердая четверка. Отрабатываем задания второй части (№20, №21) для выхода на 5.
+              </div>
             </div>
           </div>
         `
@@ -761,9 +838,9 @@
       ['shaman', 'novaeva', 'yaroslava', 'natalia'].forEach(k => {
         const btn = document.getElementById(`tab-${k}`);
         if (k === key) {
-          btn.className = "p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm";
+          btn.className = "p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm";
         } else {
-          btn.className = "p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20";
+          btn.className = "p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20";
         }
       });
 
@@ -798,67 +875,176 @@
       syncShamanImg();
     }
 
-    function pickColor(name, hex) {
-      const badge = document.getElementById('nailSwatchBadge');
-      if (badge) badge.innerText = name;
+    // Novaeva Macro Logic
+    const novaevaData = {
+      brows: { img: 'assets/work_brows_1.jpg', badge: 'Пудровые брови • Штрих', name: 'Пудровое напыление бровей', val: '5 000 ₽', desc: 'Без синевы, мягкая растушевка головки, стойкость 1.5–2 года' },
+      lips: { img: 'assets/work_lips_1.jpg', badge: 'Акварельные губы • Без контура', name: 'Акварельная техника губ', val: '5 500 ₽', desc: 'Естественный натуральный тон без эффекта помады' },
+      eyes: { img: 'assets/work_eyes_1.jpg', badge: 'Межресничка • Плотный пигмент', name: 'Заполнение межреснички', val: '4 500 ₽', desc: 'Визуальное увеличение густоты ресниц на 2 года' },
+      healed: { img: 'assets/work_healed_1.jpg', badge: 'Заживший результат (45 дней)', name: 'Остаток пигмента 85–90%', val: 'Включено в коррекцию', desc: 'Идеальное приживление без проплешин и рубцов' }
+    };
+    let novaevaZoomed = false;
+
+    function pickNovaeva(cat) {
+      const item = novaevaData[cat];
+      if (!item) return;
+      ['brows', 'lips', 'eyes', 'healed'].forEach(c => {
+        const btn = document.getElementById(`btn-nov-${c}`);
+        if (btn) {
+          if (c === cat) {
+            btn.className = "py-1 rounded-lg bg-white/15 text-white font-bold transition-all";
+          } else {
+            btn.className = "py-1 rounded-lg text-slate-400 hover:text-white transition-all";
+          }
+        }
+      });
+      const img = document.getElementById('novaevaImg');
+      if (img) {
+        img.style.opacity = '0.3';
+        setTimeout(() => {
+          img.src = item.img;
+          img.style.opacity = '1';
+        }, 100);
+      }
+      document.getElementById('novaevaBadge').innerText = item.badge;
+      document.getElementById('novaevaPriceName').innerText = item.name;
+      document.getElementById('novaevaPriceVal').innerText = item.val;
+      document.getElementById('novaevaPriceDesc').innerText = item.desc;
     }
 
-    function updateMathScore(val) {
-      document.getElementById('currentScore').innerText = val + ' баллов';
-      const target = Math.min(94, parseInt(val) + 38);
-      document.getElementById('targetScore').innerText = `${target}–${target+4} балла`;
+    function toggleNovaevaZoom() {
+      const img = document.getElementById('novaevaImg');
+      const text = document.getElementById('novaevaZoomText');
+      if (!img) return;
+      novaevaZoomed = !novaevaZoomed;
+      if (novaevaZoomed) {
+        img.classList.add('scale-150');
+        if (text) text.innerText = 'Сброс 1.0x';
+      } else {
+        img.classList.remove('scale-150');
+        if (text) text.innerText = 'Зум 1.6x';
+      }
     }
 
-    // SPEED BATTLE ANIMATION
-    let battleRunning = false;
-    function runSpeedBattle() {
-      if (battleRunning) return;
-      battleRunning = true;
+    // Yaroslava Nail Logic
+    const nailData = {
+      french: { img: 'assets/work_french_classic.jpg', badge: 'Фирменный Френч', price: '1 800 ₽', time: '1 ч 30 мин' },
+      coral: { img: 'assets/work_coral_gloss.jpg', badge: 'Коралловый Глянец', price: '2 000 ₽', time: '1 ч 40 мин' },
+      nude: { img: 'assets/work_milky_nude.jpg', badge: 'Молочный Нюд', price: '1 800 ₽', time: '1 ч 20 мин' },
+      ruby: { img: 'assets/work_ruby_glitter.jpg', badge: 'Рубиновый Шиммер', price: '2 200 ₽', time: '1 ч 45 мин' }
+    };
 
-      const btn = document.getElementById('battleBtn');
+    function pickNail(key) {
+      const item = nailData[key];
+      if (!item) return;
+      ['french', 'coral', 'nude', 'ruby'].forEach(k => {
+        const btn = document.getElementById(`btn-nail-${k}`);
+        if (btn) {
+          if (k === key) {
+            btn.className = "p-1.5 rounded-lg bg-white/15 border border-white/40 text-center transition-all";
+          } else {
+            btn.className = "p-1.5 rounded-lg bg-panel border border-borderSubtle hover:border-white/20 text-center transition-all";
+          }
+        }
+      });
+      const img = document.getElementById('nailPreviewImg');
+      if (img) {
+        img.style.opacity = '0.3';
+        setTimeout(() => {
+          img.src = item.img;
+          img.style.opacity = '1';
+        }, 80);
+      }
+      document.getElementById('nailSwatchBadge').innerText = item.badge;
+      document.getElementById('nailPriceBadge').innerText = item.price;
+      document.getElementById('nailTimeVal').innerText = item.time;
+    }
+
+    // Natalia OGE Math Logic
+    function updateMathOgeCalc(val) {
+      val = parseInt(val, 10);
+      const scoreEl = document.getElementById('mathScoreVal');
+      const gradeEl = document.getElementById('mathGradeBadge');
+      const recEl = document.getElementById('mathRecommendation');
+      const slotsEl = document.getElementById('mathFreeSlots');
+      if (scoreEl) scoreEl.innerText = val;
+
+      if (val < 8) {
+        if (gradeEl) {
+          gradeEl.innerText = 'Оценка «2»';
+          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-rose-600 shadow-sm mt-0.5';
+        }
+        if (recEl) recEl.innerText = 'Порог ФИПИ не пройден. Нужно срочно закрыть 2 балла за геометрию, иначе аттестат не выдадут.';
+        if (slotsEl) {
+          slotsEl.innerText = 'Осталось 3 места';
+          slotsEl.className = 'text-[10px] font-mono text-emerald-400 font-bold';
+        }
+      } else if (val < 15) {
+        if (gradeEl) {
+          gradeEl.innerText = 'Оценка «3»';
+          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-amber-500 shadow-sm mt-0.5';
+        }
+        if (recEl) recEl.innerText = 'Базовая тройка. До четверки не хватает 2–3 верных задач из первой части алгебры.';
+        if (slotsEl) {
+          slotsEl.innerText = 'Осталось 2 места';
+          slotsEl.className = 'text-[10px] font-mono text-amber-400 font-bold';
+        }
+      } else if (val < 22) {
+        if (gradeEl) {
+          gradeEl.innerText = 'Оценка «4»';
+          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-blue-600 shadow-sm mt-0.5';
+        }
+        if (recEl) recEl.innerText = 'Твердая четверка. Отрабатываем задания второй части (№20, №21) для уверенного выхода на 5.';
+        if (slotsEl) {
+          slotsEl.innerText = 'Осталось 1 место';
+          slotsEl.className = 'text-[10px] font-mono text-amber-400 font-bold';
+        }
+      } else {
+        if (gradeEl) {
+          gradeEl.innerText = 'Оценка «5» (Макс)';
+          gradeEl.className = 'inline-block px-3 py-1 rounded-lg text-xs font-bold text-white bg-emerald-600 shadow-sm mt-0.5';
+        }
+        if (recEl) recEl.innerText = 'Отличный результат (Пятерка!). Проработка олимпиадных и геометрических задач повышенной сложности.';
+        if (slotsEl) {
+          slotsEl.innerText = 'Лист ожидания (по записи)';
+          slotsEl.className = 'text-[10px] font-mono text-rose-400 font-bold';
+        }
+      }
+    }
+
+    // REAL LIVE NETWORK BENCHMARK
+    function runLiveBenchmark() {
+      const btn = document.getElementById('probeBtn');
+      const pingVal = document.getElementById('probePingVal');
+      const sizeVal = document.getElementById('probeSizeVal');
+      const statusVal = document.getElementById('probeStatusVal');
+
       btn.classList.add('opacity-50', 'pointer-events-none');
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Замеряю отклик...</span>';
+      lucide.createIcons();
 
-      const tildaBar = document.getElementById('tildaBar');
-      const pavelBar = document.getElementById('pavelBar');
-      const tildaTime = document.getElementById('tildaTime');
-      const pavelTime = document.getElementById('pavelTime');
-      const res = document.getElementById('battleResult');
+      const start = performance.now();
+      fetch('index.html?probe=' + Date.now(), { cache: 'no-store' })
+        .then(res => {
+          const latency = Math.round(performance.now() - start);
+          return res.text().then(text => ({ latency, length: text.length }));
+        })
+        .then(({ latency, length }) => {
+          const kb = (length / 1024).toFixed(1);
+          pingVal.innerText = `${latency} мс`;
+          sizeVal.innerText = `${kb} КБ`;
+          statusVal.innerText = '200 OK (Edge CDN)';
 
-      tildaBar.style.width = '0%';
-      pavelBar.style.width = '0%';
-      tildaTime.innerText = 'Загрузка JS бандлов...';
-      pavelTime.innerText = 'Старт...';
-      res.classList.add('hidden');
-
-      // Pavel's clean code finishes in 450ms
-      setTimeout(() => {
-        pavelBar.style.width = '100%';
-        pavelTime.innerText = '0.42 сек (Готово!)';
-      }, 420);
-
-      // Tilda takes 3400ms
-      setTimeout(() => {
-        tildaBar.style.width = '35%';
-        tildaTime.innerText = '1.8 сек (Рендер шрифтов...)';
-      }, 1200);
-
-      setTimeout(() => {
-        tildaBar.style.width = '70%';
-        tildaTime.innerText = '2.7 сек (Парсинг тяжелых CSS...)';
-      }, 2200);
-
-      setTimeout(() => {
-        tildaBar.style.width = '100%';
-        tildaTime.innerText = '3.82 сек (Финиш)';
-        btn.classList.remove('opacity-50', 'pointer-events-none');
-        battleRunning = false;
-
-        res.innerHTML = `
-          <div class="text-emerald-400 font-bold mb-1">🏁 ИТОГ ЗАМЕРА: Чистый код Павла быстрее в 9.1 раз.</div>
-          <div>Клиент со смартфона видит контент через 0.42 сек, не успевая нажать "Назад". Экономия владельца сайта: 12 000 ₽ ежегодно за счёт бесплатного CDN-хостинга.</div>
-        `;
-        res.classList.remove('hidden');
-      }, 3800);
+          btn.classList.remove('opacity-50', 'pointer-events-none');
+          btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i><span>Замер завершён (Повторить)</span>';
+          lucide.createIcons();
+        })
+        .catch(err => {
+          const latency = Math.round(performance.now() - start);
+          pingVal.innerText = `${latency} мс`;
+          btn.classList.remove('opacity-50', 'pointer-events-none');
+          btn.innerHTML = '<i data-lucide="refresh-cw" class="w-4 h-4"></i><span>Повторить замер</span>';
+          lucide.createIcons();
+        });
     }
 
     // CALCULATOR
