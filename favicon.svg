@@ -1,12 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#6366F1" />
-      <stop offset="100%" stop-color="#1E1B4B" />
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#6366F1" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="url(#grad)" />
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
-  <text x="32" y="42" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#FFFFFF">PK</text>
-  <polygon points="52,10 46,20 50,20 48,28 56,17 51,17" fill="#38BDF8" />
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="rgba(56,189,248,0.3)" stroke-width="1.5" />
+  <text x="32" y="44" font-family="system-ui, -apple-system, 'Space Grotesk', sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#F8FAFC">S</text>
+  <circle cx="48" cy="16" r="3.5" fill="#38BDF8" />
 </svg>
