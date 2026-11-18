@@ -2,22 +2,21 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <!-- Standard & High-DPI Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SSSUNDER — Павел Котенев | Архитектура и разработка коммерческих сайтов</title>
-  <meta name="description" content="Разработка скоростных сайтов под ключ на чистом стеке без Tilda и ежемесячных абонентских плат. Запуск за 24–48 часов. Курган & Remote.">
+  <title>Павел Котенев (Sssunder) — Архитектура и разработка коммерческих сайтов</title>
+  <meta name="description" content="Разработка скоростных сайтов под ключ на чистом стеке без Tilda и абонентских плат. Запуск за 24–48 часов. Курган & Remote.">
 
-  <!-- Fonts: Space Grotesk + JetBrains Mono + Inter -->
+  <!-- Fonts: Inter + Space Grotesk + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,21 +24,17 @@
       theme: {
         extend: {
           colors: {
-            void: '#050608',
-            dark: {
-              950: '#07090D',
-              900: '#0B0F15',
-              850: '#111722',
-              800: '#17202F',
-              700: '#233045'
+            surface: {
+              950: '#090B0E',
+              900: '#0F1318',
+              850: '#151B22',
+              800: '#1C242E',
+              700: '#283341'
             },
-            crimson: {
-              900: '#450A0A',
-              800: '#7F1D1D',
-              700: '#991B1B',
-              600: '#DC2626',
-              500: '#EF4444',
-              400: '#F87171'
+            accent: {
+              500: '#E11D48', // subtle crimson ruby
+              400: '#FB7185',
+              glow: 'rgba(225, 29, 72, 0.15)'
             }
           },
           fontFamily: {
@@ -56,86 +51,72 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Glow & Crimson Dark Art Styles */
-    ::selection {
-      background: #DC2626;
-      color: #FFFFFF;
+    ::selection { background: #E11D48; color: #FFFFFF; }
+    .glass-card {
+      background: rgba(21, 27, 34, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .crimson-glow {
-      box-shadow: 0 0 40px -10px rgba(220, 38, 38, 0.35);
+    .glass-card:hover {
+      border-color: rgba(225, 29, 72, 0.3);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
     }
-    .crimson-border-glow:hover {
-      box-shadow: 0 0 25px -5px rgba(220, 38, 38, 0.4);
-      border-color: rgba(239, 68, 68, 0.6);
+    .btn-primary {
+      background: #E11D48;
+      box-shadow: 0 4px 16px -2px rgba(225, 29, 72, 0.4);
+      transition: all 0.2s ease;
     }
-    .eye-pulse {
-      animation: eyeGlow 3s ease-in-out infinite alternate;
-    }
-    @keyframes eyeGlow {
-      0% { filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)) drop-shadow(0 0 12px rgba(220,38,38,0.5)); }
-      100% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)) drop-shadow(0 0 30px rgba(239,68,68,0.9)); }
-    }
-    .scanline {
-      background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.25) 51%);
-      background-size: 100% 4px;
-    }
-    .btn-crimson {
-      background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
-      box-shadow: 0 4px 20px -2px rgba(220, 38, 38, 0.5);
-      transition: all 0.25s ease;
-    }
-    .btn-crimson:hover {
-      background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
-      box-shadow: 0 6px 25px 0 rgba(239, 68, 68, 0.65);
+    .btn-primary:hover {
+      background: #F43F5E;
+      box-shadow: 0 6px 20px 0 rgba(225, 29, 72, 0.6);
       transform: translateY(-1px);
     }
   </style>
 </head>
-<body class="bg-void text-slate-100 font-sans antialiased overflow-x-hidden w-full max-w-[100vw] selection:bg-crimson-600 selection:text-white">
+<body class="bg-surface-950 text-slate-100 font-sans antialiased overflow-x-hidden w-full max-w-[100vw] selection:bg-accent-500 selection:text-white">
 
-  <!-- Ambient Dark Red Atmosphere Glow -->
+  <!-- Subtle Ambient Glow -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden max-w-[100vw]">
-    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-crimson-900/20 rounded-full blur-[140px]"></div>
-    <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-red-950/15 rounded-full blur-[160px]"></div>
-    <div class="absolute -bottom-40 left-1/3 w-[600px] h-[600px] bg-crimson-950/20 rounded-full blur-[160px]"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-accent-glow rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-blue-950/20 rounded-full blur-[140px]"></div>
   </div>
 
   <div class="relative z-10 flex flex-col min-h-screen">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 backdrop-blur-2xl bg-void/85 border-b border-red-950/40">
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-surface-950/85 border-b border-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
         
-        <!-- Left: Logo & Sssunder Brand -->
-        <a href="#" class="flex items-center gap-3.5 group">
-          <div class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-crimson-600 via-red-900 to-slate-900 border border-crimson-500/40 group-hover:border-crimson-400 transition-all shadow-lg shadow-crimson-900/30 flex-shrink-0">
-            <img src="assets/user_art/logo_eye_art3.jpg" alt="Sssunder Logo" class="w-full h-full object-cover rounded-[10px] group-hover:scale-105 transition-transform duration-300">
-            <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-crimson-500 rounded-full border-2 border-void animate-pulse"></span>
+        <!-- Logo: Sleek compact avatar with subtle author eye badge -->
+        <a href="#" class="flex items-center gap-3 group min-w-0">
+          <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-accent-500 via-surface-800 to-surface-700 border border-white/10 group-hover:border-accent-400/60 transition-all flex-shrink-0">
+            <img src="assets/user_art/logo_eye_art3.jpg" alt="Logo" class="w-full h-full object-cover rounded-[9px] group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-surface-950"></span>
           </div>
           <div class="min-w-0">
             <div class="flex items-center gap-2">
-              <span class="font-display text-base sm:text-lg font-extrabold tracking-tight text-white group-hover:text-crimson-400 transition-colors">
-                SSSUNDER
+              <span class="font-display text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-accent-400 transition-colors">
+                Павел Котенев
               </span>
-              <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-crimson-950/60 text-crimson-300 border border-crimson-800/50 text-[10px] font-mono font-semibold">
-                ● ONLINE
+              <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono font-medium">
+                Sssunder
               </span>
             </div>
             <div class="text-[11px] text-slate-400 font-medium truncate max-w-[160px] sm:max-w-none">
-              Павел Котенев • Веб-разработка
+              Инженерная веб-разработка • Курган & Remote
             </div>
           </div>
         </a>
 
-        <!-- Right: Actions & Telegram Contact -->
+        <!-- Right: Nav & Direct Telegram CTA -->
         <div class="flex items-center gap-2 sm:gap-4">
-          <div class="hidden md:flex items-center gap-1.5 text-xs font-semibold text-slate-300 font-display">
+          <div class="hidden md:flex items-center gap-1.5 text-xs font-semibold text-slate-300">
             <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Проекты</a>
-            <a href="#radar" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Радар заказов</a>
+            <a href="#stack" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Стек & Преимущества</a>
             <a href="#calculator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Калькулятор</a>
           </div>
 
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-crimson px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap">
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-primary px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span class="hidden xs:inline">Написать в Telegram</span>
             <span class="xs:hidden">Связь</span>
@@ -145,7 +126,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-red-950/30 relative">
+    <section class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-white/5 relative">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -153,123 +134,117 @@
           <!-- Left Text Column (7 cols) -->
           <div class="lg:col-span-7 space-y-6">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-crimson-950/60 border border-crimson-800/40 text-xs text-crimson-300 font-mono">
-              <span class="w-2 h-2 rounded-full bg-crimson-500 animate-ping"></span>
-              0 ₽ абонентской платы • Запуск за 24–48 часов
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-900 border border-white/10 text-xs text-slate-300 font-mono">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Запуск за 24–48 часов • 0 ₽ ежемесячных подписок
             </div>
 
             <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
               Коммерческие сайты <br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson-400 via-red-300 to-white">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-rose-300 to-white">
                 на чистом коде
               </span>
             </h1>
 
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
-              Никаких тормозящих конструкторов и ежемесячных поборов за Тильду. Стек с моментальной загрузкой, встроенной базой заявок, интерактивными калькуляторами и закрытым PIN-кабинетом мастера.
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              Разрабатываю быстрые и конверсионные веб-системы для бизнеса и специалистов. Без неповоротливых конструкторов: чистая вёрстка, скорость &lt; 0.8с, калькуляторы и закрытый PIN-кабинет для управления ценами прямо со смартфона.
             </p>
 
-            <!-- Features Pills -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
-                <div class="font-mono text-crimson-400 font-bold text-xs">⚡ &lt; 0.8s</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Мгновенный отклик</div>
+            <!-- Metrics Pills -->
+            <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg">
+              <div class="p-3.5 rounded-xl bg-surface-900/80 border border-white/5">
+                <div class="font-mono text-accent-400 font-bold text-base">&lt; 0.8 сек</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Загрузка страниц</div>
               </div>
-              <div class="p-3 rounded-xl bg-dark-900 border border-white/5">
-                <div class="font-mono text-crimson-400 font-bold text-xs">0 ₽ / мес</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Без подписок</div>
+              <div class="p-3.5 rounded-xl bg-surface-900/80 border border-white/5">
+                <div class="font-mono text-emerald-400 font-bold text-base">0 ₽ / мес</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Без абонплат</div>
               </div>
-              <div class="p-3 rounded-xl bg-dark-900 border border-white/5 col-span-2 sm:col-span-1">
-                <div class="font-mono text-crimson-400 font-bold text-xs">PIN 1234</div>
-                <div class="text-[11px] text-slate-400 mt-0.5">Кабинет со смартфона</div>
+              <div class="p-3.5 rounded-xl bg-surface-900/80 border border-white/5">
+                <div class="font-mono text-white font-bold text-base">PIN 1234</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Кабинет мастера</div>
               </div>
             </div>
 
             <!-- CTAs -->
-            <div class="flex flex-wrap items-center gap-3 pt-4">
-              <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-crimson px-6 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2.5">
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-primary px-6 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2.5">
                 <i data-lucide="message-square" class="w-4 h-4"></i>
-                <span>Обсудить проект в Telegram</span>
+                <span>Обсудить задачу в Telegram</span>
               </a>
-              <a href="#projects" class="px-5 py-3.5 rounded-xl bg-dark-900 hover:bg-dark-850 border border-white/10 hover:border-crimson-600/40 text-slate-200 font-bold text-sm flex items-center gap-2 transition-all">
-                <span>Смотреть работы</span>
+              <a href="#projects" class="px-5 py-3.5 rounded-xl bg-surface-900 hover:bg-surface-850 border border-white/10 text-slate-200 font-bold text-sm flex items-center gap-2 transition-all">
+                <span>Готовые работы</span>
                 <i data-lucide="arrow-down" class="w-4 h-4 text-slate-400"></i>
               </a>
             </div>
 
           </div>
 
-          <!-- Right Column: Visual Artwork Artifact Card (5 cols) -->
-          <div class="lg:col-span-5 relative">
-            <div class="relative rounded-2xl p-1 bg-gradient-to-b from-crimson-600/40 via-red-950/20 to-transparent border border-crimson-900/50 shadow-2xl overflow-hidden group">
+          <!-- Right Column: Sleek Interactive Developer Terminal (5 cols) -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl bg-surface-900 border border-white/10 shadow-2xl overflow-hidden font-mono text-xs">
               
-              <!-- Artwork Image with Scanned Atmosphere -->
-              <div class="relative rounded-xl overflow-hidden aspect-[4/5] bg-dark-950 scanline">
-                <img src="assets/user_art/art_3.jpg" alt="Sssunder Signature Art" class="w-full h-full object-cover object-top filter brightness-90 contrast-125 group-hover:scale-105 transition-transform duration-700">
+              <!-- macOS Window Header -->
+              <div class="px-4 py-3 bg-surface-850 border-b border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                  <span class="ml-2 text-[11px] text-slate-400 font-medium">terminal — sssunder@engine</span>
+                </div>
+                <div class="text-[10px] text-slate-500">LIVE</div>
+              </div>
+
+              <!-- Terminal Body -->
+              <div class="p-5 space-y-3 text-slate-300 leading-relaxed bg-surface-950/70">
                 
-                <!-- Dark gradient vignette overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent"></div>
+                <div>
+                  <span class="text-emerald-400 font-bold">➜</span> <span class="text-accent-400">~</span> <span class="text-white">status --system</span>
+                </div>
 
-                <!-- Live Scanner Badge on Art -->
-                <div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-void/80 backdrop-blur-md border border-crimson-800/40 text-[10px] font-mono text-crimson-300">
-                    <span class="w-1.5 h-1.5 rounded-full bg-crimson-500 animate-ping"></span>
-                    CORE ARCHITECT
+                <div class="p-3 rounded-xl bg-surface-900/90 border border-white/5 space-y-1.5 text-[11px]">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Developer:</span>
+                    <span class="text-white font-bold">Павел Котенев (Sssunder)</span>
                   </div>
-                  <div class="text-[10px] font-mono text-slate-400 bg-void/80 px-2 py-0.5 rounded border border-white/10">
-                    ID: SSSUNDER
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Stack:</span>
+                    <span class="text-slate-200">HTML5 / Tailwind / Vanilla JS / Cloud Sync</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Monthly Fees:</span>
+                    <span class="text-emerald-400 font-bold">0 ₽ (Hosting & Storage)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Security:</span>
+                    <span class="text-slate-200">PIN 1234 + Anti-Spam Guard</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Delivery Time:</span>
+                    <span class="text-accent-400 font-bold">24 – 48 Hours</span>
                   </div>
                 </div>
 
-                <!-- Bottom Art Tag -->
-                <div class="absolute bottom-4 left-4 right-4">
-                  <div class="p-3 rounded-xl bg-void/85 backdrop-blur-md border border-white/10 space-y-1">
-                    <div class="flex items-center justify-between text-xs font-mono font-bold">
-                      <span class="text-white">ИНЖЕНЕРНЫЙ ПОДХОД</span>
-                      <span class="text-crimson-400">0 ₽ / SUB</span>
-                    </div>
-                    <div class="text-[11px] text-slate-300">
-                      Ручная архитектура без шаблонного шлака. От инспекционных сканеров до умных парсеров.
-                    </div>
-                  </div>
+                <div>
+                  <span class="text-emerald-400 font-bold">➜</span> <span class="text-accent-400">~</span> <span class="text-white">leads --active-radar</span>
+                </div>
+
+                <div class="text-[11px] text-slate-400 font-mono space-y-1">
+                  <div class="text-slate-300">● FL.ru &amp; Kwork: <span class="text-emerald-400 font-semibold">Мониторинг активен</span></div>
+                  <div>● Последний отклик: <span class="text-slate-200">Прямой чат в Telegram без посредников</span></div>
+                </div>
+
+                <div class="pt-2 flex items-center justify-between text-[11px] text-slate-500 border-t border-white/5">
+                  <span>telegram: @sssunder</span>
+                  <span class="text-emerald-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    готов к диалогу
+                  </span>
                 </div>
 
               </div>
 
             </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- LIVE HUNTER RADAR (Интерактивная плашка парсера заказов) -->
-    <section id="radar" class="py-12 bg-dark-950/60 border-b border-red-950/30 relative">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        <div class="rounded-2xl p-5 sm:p-6 bg-dark-900 border border-crimson-900/30 crimson-border-glow transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-          
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-crimson-950/80 border border-crimson-800/60 flex items-center justify-center text-crimson-400 flex-shrink-0">
-              <i data-lucide="radar" class="w-6 h-6 animate-spin" style="animation-duration: 8s;"></i>
-            </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="font-display font-bold text-white text-base sm:text-lg">РАДАР ЗАКАЗОВ В РЕАЛЬНОМ ВРЕМЕНИ</span>
-                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-crimson-950 text-crimson-400 border border-crimson-800/40">ДЕМОН АКТИВЕН</span>
-              </div>
-              <p class="text-xs text-slate-400 mt-0.5">
-                Мониторинг бирж (FL, Kwork, Telegram) в фоне: отслеживает задачи на вёрстку, лендинги и разработку.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-3 w-full md:w-auto">
-            <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-4 py-2.5 rounded-xl bg-dark-850 hover:bg-dark-800 border border-white/10 text-xs font-mono font-bold text-crimson-400 hover:text-crimson-300 flex items-center justify-center gap-2 transition-all">
-              <i data-lucide="terminal" class="w-4 h-4"></i>
-              <span>Заказать проект разработчику</span>
-            </a>
           </div>
 
         </div>
@@ -278,16 +253,16 @@
     </section>
 
     <!-- REAL PORTFOLIO PROJECTS SHOWCASE -->
-    <section id="projects" class="py-16 sm:py-24 border-b border-red-950/30">
+    <section id="projects" class="py-16 sm:py-24 border-b border-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-12">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div class="text-xs font-mono font-bold text-crimson-500 uppercase tracking-wider mb-2">РЕАЛЬНЫЕ ПРОЕКТЫ ПОД КЛЮЧ</div>
-            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Живая витрина готовых систем</h2>
+            <div class="text-xs font-mono font-bold text-accent-400 uppercase tracking-wider mb-2">РЕАЛЬНЫЕ ПРОЕКТЫ ПОД КЛЮЧ</div>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Живая витрина разработанных сайтов</h2>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 max-w-md">
-            Каждый сайт изолирован в своём репозитории, задеплоен на хостинг и работает автономно с живым бэкендом.
+            Каждый сайт изолирован в своём репозитории, задеплоен и полностью готов к демонстрации заказчикам.
           </p>
         </div>
 
@@ -295,10 +270,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 
           <!-- 1. DETAILING SHAMAN -->
-          <div class="rounded-2xl bg-dark-900 border border-white/10 hover:border-amber-500/50 transition-all overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-dark-950 border-b border-white/5">
+          <div class="rounded-2xl bg-surface-900 border border-white/10 hover:border-amber-500/50 transition-all overflow-hidden flex flex-col group">
+            <div class="relative aspect-[16/10] overflow-hidden bg-surface-950 border-b border-white/5">
               <img src="assets/shaman_new_slider_desktop.png" alt="Detailing Shaman Slider" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-void/80 backdrop-blur-md border border-amber-500/30 text-[10px] font-mono font-bold text-amber-400">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-950/80 backdrop-blur-md border border-amber-500/30 text-[10px] font-mono font-bold text-amber-400">
                 АВТОБИЗНЕС & ДЕТЕЙЛИНГ
               </div>
             </div>
@@ -308,7 +283,7 @@
                   DETAILING SHAMAN — Студия детейлинга
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Полноценная система для премиального автосервиса: интерактивный 50/50 сканер полировки под лампами Scangrip, карточки реальных кейсов (BMW, Cadillac) и онлайн-калькулятор с записью.
+                  Полноценная система для детейлинг-студии: интерактивный 50/50 сканер полировки под инспекционными лампами Scangrip, карточки реальных кейсов (BMW, Cadillac) и онлайн-калькулятор с записью.
                 </p>
               </div>
               <div class="pt-2 flex items-center justify-between border-t border-white/5">
@@ -322,10 +297,10 @@
           </div>
 
           <!-- 2. ЕЛИЗАВЕТА НОВАЕВА -->
-          <div class="rounded-2xl bg-dark-900 border border-white/10 hover:border-rose-500/50 transition-all overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-dark-950 border-b border-white/5">
+          <div class="rounded-2xl bg-surface-900 border border-white/10 hover:border-rose-500/50 transition-all overflow-hidden flex flex-col group">
+            <div class="relative aspect-[16/10] overflow-hidden bg-surface-950 border-b border-white/5">
               <img src="assets/novaeva_preview.png" alt="Novaeva Beauty Preview" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-void/80 backdrop-blur-md border border-rose-500/30 text-[10px] font-mono font-bold text-rose-400">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-950/80 backdrop-blur-md border border-rose-500/30 text-[10px] font-mono font-bold text-rose-400">
                 BEAUTY & ПЕРМАНЕНТ
               </div>
             </div>
@@ -349,10 +324,10 @@
           </div>
 
           <!-- 3. ЯРОСЛАВА ЕРМАКОВА -->
-          <div class="rounded-2xl bg-dark-900 border border-white/10 hover:border-purple-500/50 transition-all overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-dark-950 border-b border-white/5">
+          <div class="rounded-2xl bg-surface-900 border border-white/10 hover:border-purple-500/50 transition-all overflow-hidden flex flex-col group">
+            <div class="relative aspect-[16/10] overflow-hidden bg-surface-950 border-b border-white/5">
               <img src="assets/yaroslava_preview_1_hero.png" alt="Yaroslava Beauty Preview" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-void/80 backdrop-blur-md border border-purple-500/30 text-[10px] font-mono font-bold text-purple-400">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-950/80 backdrop-blur-md border border-purple-500/30 text-[10px] font-mono font-bold text-purple-400">
                 ЭСТЕТИКА НОГТЕЙ & ПОДОЛОГИЯ
               </div>
             </div>
@@ -362,7 +337,7 @@
                   Ярослава Ермакова — Студия эстетики
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Интерактивная примерка дизайнов и покрытий, диагностический квиз за 20 секунд, реальные отзывы клиенток и личный кабинет управления ценами.
+                  Интерактивная примерка дизайнов и оттенков, диагностический квиз за 20 секунд, реальные отзывы клиенток и личный кабинет управления ценами.
                 </p>
               </div>
               <div class="pt-2 flex items-center justify-between border-t border-white/5">
@@ -376,10 +351,10 @@
           </div>
 
           <!-- 4. НАТАЛЬЯ МИХАЙЛОВНА -->
-          <div class="rounded-2xl bg-dark-900 border border-white/10 hover:border-blue-500/50 transition-all overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-dark-950 border-b border-white/5">
+          <div class="rounded-2xl bg-surface-900 border border-white/10 hover:border-blue-500/50 transition-all overflow-hidden flex flex-col group">
+            <div class="relative aspect-[16/10] overflow-hidden bg-surface-950 border-b border-white/5">
               <img src="assets/natalia_preview.png" alt="Natalia Math Preview" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-void/80 backdrop-blur-md border border-blue-500/30 text-[10px] font-mono font-bold text-blue-400">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-surface-950/80 backdrop-blur-md border border-blue-500/30 text-[10px] font-mono font-bold text-blue-400">
                 EDTECH & РЕПЕТИТОРЫ
               </div>
             </div>
@@ -408,20 +383,20 @@
     </section>
 
     <!-- INTERACTIVE PRICING CALCULATOR -->
-    <section id="calculator" class="py-16 sm:py-24 border-b border-red-950/30">
+    <section id="calculator" class="py-16 sm:py-24 border-b border-white/5">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
         
         <div class="text-center space-y-3">
-          <div class="text-xs font-mono font-bold text-crimson-500 uppercase tracking-wider">ПРОЗРАЧНЫЙ РАСЧЕТ</div>
+          <div class="text-xs font-mono font-bold text-accent-400 uppercase tracking-wider">ПРОЗРАЧНЫЙ РАСЧЕТ</div>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Калькулятор стоимости разработки</h2>
-          <p class="text-xs sm:text-sm text-slate-400">Выберите базовый формат и необходимые опции для моментального расчета.</p>
+          <p class="text-xs sm:text-sm text-slate-400">Выберите базовый формат и необходимые модули для расчета сметы.</p>
         </div>
 
-        <div class="p-6 sm:p-8 rounded-2xl bg-dark-900 border border-white/10 space-y-8">
+        <div class="p-6 sm:p-8 rounded-2xl bg-surface-900 border border-white/10 space-y-8">
           
           <!-- Base Tariffs Switcher -->
           <div>
-            <div class="text-xs font-mono font-bold text-slate-300 uppercase mb-3">1. Базовый тариф проекта</div>
+            <div class="text-xs font-mono font-bold text-slate-300 uppercase mb-3">1. Базовый формат проекта</div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tariffSelector">
               <!-- Rendered via JS -->
             </div>
@@ -429,7 +404,7 @@
 
           <!-- Addons / Modules -->
           <div>
-            <div class="text-xs font-mono font-bold text-slate-300 uppercase mb-3">2. Дополнительные модули</div>
+            <div class="text-xs font-mono font-bold text-slate-300 uppercase mb-3">2. Дополнительные опции</div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addonsSelector">
               <!-- Rendered via JS -->
             </div>
@@ -440,12 +415,12 @@
             <div>
               <div class="text-xs text-slate-400 font-mono">Ориентировочная сумма под ключ:</div>
               <div class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-1">
-                <span id="totalPriceDisplay" class="text-crimson-400">15 000</span> ₽
+                <span id="totalPriceDisplay" class="text-accent-400">15 000</span> ₽
               </div>
               <div class="text-[11px] text-slate-500 mt-1">Срок сдачи: 24–48 часов • 0 ₽ абонентских плат</div>
             </div>
 
-            <button onclick="sendToTelegram()" class="w-full sm:w-auto btn-crimson px-8 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+            <button onclick="sendToTelegram()" class="w-full sm:w-auto btn-primary px-8 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
               <i data-lucide="send" class="w-4 h-4"></i>
               <span>Обсудить расчёт в Telegram</span>
             </button>
@@ -456,23 +431,23 @@
       </div>
     </section>
 
-    <!-- FOOTER & CONTACTS -->
-    <footer class="py-12 bg-void border-t border-red-950/40">
+    <!-- FOOTER -->
+    <footer class="py-12 bg-surface-950 border-t border-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg overflow-hidden border border-crimson-600/50 flex-shrink-0">
+          <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 flex-shrink-0">
             <img src="assets/user_art/logo_eye_art3.jpg" alt="Logo" class="w-full h-full object-cover">
           </div>
           <div>
-            <div class="font-display font-bold text-sm text-white">SSSUNDER • ПАВЕЛ КОТЕНЕВ</div>
+            <div class="font-display font-bold text-sm text-white">ПАВЕЛ КОТЕНЕВ • SSSUNDER</div>
             <div class="text-[11px] text-slate-500">Инженерная веб-разработка • 2026</div>
           </div>
         </div>
 
         <div class="flex items-center gap-4 text-xs font-mono">
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="text-crimson-400 hover:text-crimson-300 transition-colors">
-            @sssunder
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="text-accent-400 hover:text-accent-300 transition-colors">
+            Telegram: @sssunder
           </a>
           <span class="text-slate-700">•</span>
           <a href="https://github.com/Sssunder" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
@@ -490,7 +465,7 @@
     const tariffs = [
       { id: 'landing', title: 'Лендинг / Визитка', price: 15000, desc: 'Скоростной одностраничник под ключ' },
       { id: 'commercial', title: 'Коммерческий сервис', price: 25000, desc: 'Интерактив + калькулятор + база заявок' },
-      { id: 'custom', title: 'Платформа под ключ', price: 40000, desc: 'PIN-кабинет мастера + слоты + парсер' }
+      { id: 'custom', title: 'Платформа под ключ', price: 40000, desc: 'PIN-кабинет мастера + слоты + база' }
     ];
 
     const addons = [
@@ -508,10 +483,10 @@
       container.innerHTML = tariffs.map(t => {
         const isSel = t.id === selectedTariff;
         return `
-          <div onclick="setTariff('${t.id}')" class="p-4 rounded-xl cursor-pointer border transition-all ${isSel ? 'bg-crimson-950/40 border-crimson-500/60 shadow-lg shadow-crimson-950/30' : 'bg-dark-850/60 border-white/5 hover:border-white/10'}">
+          <div onclick="setTariff('${t.id}')" class="p-4 rounded-xl cursor-pointer border transition-all ${isSel ? 'bg-accent-500/10 border-accent-500/60 shadow-lg shadow-accent-500/10' : 'bg-surface-850 border-white/5 hover:border-white/10'}">
             <div class="flex items-center justify-between">
               <span class="font-bold text-sm ${isSel ? 'text-white' : 'text-slate-300'}">${t.title}</span>
-              <span class="font-mono text-xs font-bold text-crimson-400">${t.price.toLocaleString('ru-RU')} ₽</span>
+              <span class="font-mono text-xs font-bold text-accent-400">${t.price.toLocaleString('ru-RU')} ₽</span>
             </div>
             <div class="text-[11px] text-slate-400 mt-1">${t.desc}</div>
           </div>
@@ -524,9 +499,9 @@
       container.innerHTML = addons.map(a => {
         const isSel = selectedAddons.includes(a.id);
         return `
-          <div onclick="toggleAddon('${a.id}')" class="p-3.5 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${isSel ? 'bg-crimson-950/30 border-crimson-500/50' : 'bg-dark-850/40 border-white/5 hover:border-white/10'}">
+          <div onclick="toggleAddon('${a.id}')" class="p-3.5 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${isSel ? 'bg-accent-500/10 border-accent-500/40' : 'bg-surface-850/60 border-white/5 hover:border-white/10'}">
             <div class="flex items-center gap-2.5">
-              <div class="w-4 h-4 rounded border flex items-center justify-center ${isSel ? 'bg-crimson-600 border-crimson-500 text-white' : 'border-slate-600'}">
+              <div class="w-4 h-4 rounded border flex items-center justify-center ${isSel ? 'bg-accent-500 border-accent-500 text-white' : 'border-slate-600'}">
                 ${isSel ? '<i data-lucide="check" class="w-3 h-3"></i>' : ''}
               </div>
               <span class="text-xs font-medium ${isSel ? 'text-white' : 'text-slate-300'}">${a.title}</span>
@@ -580,7 +555,6 @@
       window.open(`https://t.me/sssunder?text=${encoded}`, '_blank');
     }
 
-    // Init
     renderTariffs();
     renderAddons();
     updateTotalDisplay();
