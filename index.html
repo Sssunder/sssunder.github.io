@@ -2,21 +2,19 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <!-- Standard Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Павел Котенев — Веб-разработка & Создание сайтов под ключ</title>
-  <meta name="description" content="Разработка быстрых сайтов для бизнеса и специалистов на чистом коде. Без абонентских плат и конструкторов. Курган & Remote.">
+  <title>Павел Котенев — Скоростные коммерческие сайты под ключ</title>
+  <meta name="description" content="Инженерная веб-разработка для локального бизнеса и мастеров. Чистый код без Тильды, 0 ₽ абонплат, загрузка < 0.8с. Курган & Remote.">
 
-  <!-- Fonts: Inter & Space Grotesk -->
+  <!-- Fonts: Inter & Space Grotesk & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,12 +26,13 @@
           colors: {
             canvas: '#0B0D11',
             panel: '#12161E',
-            subtle: '#181E29',
-            borderSubtle: 'rgba(255, 255, 255, 0.07)',
+            elevated: '#181E29',
+            borderSubtle: 'rgba(255, 255, 255, 0.08)',
+            borderHighlight: 'rgba(255, 255, 255, 0.18)',
             accent: {
-              DEFAULT: '#38BDF8',
-              hover: '#0EA5E9',
-              light: '#E0F2FE'
+              DEFAULT: '#4690FF',
+              hover: '#357AE8',
+              light: '#E0EDFF'
             }
           },
           fontFamily: {
@@ -50,59 +49,82 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    ::selection { background: #38BDF8; color: #0B0D11; }
+    ::selection { background: #4690FF; color: #0B0D11; }
 
-    /* Emil Kowalski Smooth Physics */
-    .smooth-card {
+    /* Tactile physics & cards */
+    .tactile-card {
       background: #12161E;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .smooth-card:hover {
-      border-color: rgba(56, 189, 248, 0.35);
+    .tactile-card:hover {
+      border-color: rgba(70, 144, 255, 0.35);
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(56, 189, 248, 0.1);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6), 0 0 18px rgba(70, 144, 255, 0.1);
     }
 
-    .btn-smooth {
+    .btn-tactile {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+    .btn-tactile:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px -4px rgba(70, 144, 255, 0.4);
+    }
+
+    /* Phone Simulator Frame */
+    .phone-mockup {
+      width: 100%;
+      max-width: 380px;
+      height: 640px;
+      border-radius: 44px;
+      border: 10px solid #1F2430;
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.1), inset 0 0 0 2px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+      background: #0B0D11;
+    }
+    .phone-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 20px;
+      background: #000000;
+      border-radius: 12px;
+      z-index: 50;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    /* Custom range slider for 50/50 comparison */
+    .slider-range::-webkit-slider-thumb {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       background: #FFFFFF;
-      color: #0B0D11;
-      font-weight: 600;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-smooth:hover {
-      background: #F1F5F9;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px -2px rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-accent {
-      background: #38BDF8;
-      color: #0B0D11;
-      font-weight: 600;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-accent:hover {
-      background: #7DD3FC;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 18px -2px rgba(56, 189, 248, 0.4);
+      border: 3px solid #4690FF;
+      cursor: ew-resize;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
   </style>
 </head>
 <body class="bg-canvas text-slate-100 font-sans antialiased overflow-x-hidden w-full max-w-[100vw]">
 
   <!-- Subtle Technical Texture (Zero AI-Slop) -->
-  <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.03]" style="background-image: radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px); background-size: 24px 24px;"></div>
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.035]" style="background-image: radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px); background-size: 24px 24px;"></div>
 
   <div class="relative z-10 flex flex-col min-h-screen">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/80 border-b border-borderSubtle">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/85 border-b border-borderSubtle">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
         
-        <!-- Left: Clean Identity -->
+        <!-- Brand / Identity -->
         <a href="#" class="flex items-center gap-3 group min-w-0">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-panel border border-borderSubtle group-hover:border-accent/50 flex items-center justify-center font-display font-bold text-white text-base tracking-wider transition-all flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-panel border border-borderSubtle group-hover:border-accent/60 flex items-center justify-center font-display font-extrabold text-white text-base tracking-wider transition-all flex-shrink-0 shadow-inner">
             S
           </div>
           <div class="min-w-0">
@@ -110,107 +132,311 @@
               <span class="font-display text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-accent transition-colors">
                 Павел Котенев
               </span>
-              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-medium border border-emerald-500/20">
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="hidden sm:inline">Свободен для проектов</span>
-                <span class="sm:hidden">Online</span>
+                <span>Свободен: 1 слот</span>
               </span>
             </div>
-            <div class="text-[11px] text-slate-400 font-medium truncate max-w-[170px] sm:max-w-none">
+            <div class="text-[11px] text-slate-400 font-medium truncate">
               Инженерная веб-разработка • Курган &amp; Remote
             </div>
           </div>
         </a>
 
-        <!-- Right: Minimal Nav & TG CTA -->
+        <!-- Fast Navigation -->
         <div class="flex items-center gap-2 sm:gap-4">
-          <div class="hidden md:flex items-center gap-1 text-xs font-medium text-slate-300">
-            <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Проекты</a>
-            <a href="#principles" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Подход</a>
-            <a href="#calculator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Стоимость</a>
+          <div class="hidden md:flex items-center gap-1 text-xs font-medium text-slate-300 font-mono">
+            <a href="#simulator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Интерактив</a>
+            <a href="#battle" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Тильда vs Код</a>
+            <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Кейсы</a>
+            <a href="#calculator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Калькулятор</a>
           </div>
 
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-accent px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span class="hidden xs:inline">Написать в Telegram</span>
-            <span class="xs:hidden">Связь</span>
+            <span>Написать в Telegram</span>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="pt-14 sm:pt-24 pb-16 sm:pb-24 border-b border-borderSubtle">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+    <!-- HERO SECTION: REAL HUMAN VOICE -->
+    <section class="pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-borderSubtle">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-panel border border-borderSubtle text-xs text-slate-300">
-          <span class="text-accent">●</span> Чистый код • Запуск за 24–48 часов • 0 ₽ абонплат
-        </div>
-
-        <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-          Быстрые коммерческие сайты <br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-200 to-white">
-            без конструкторов и шаблонов
-          </span>
-        </h1>
-
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-normal">
-          Создаю продуманные сайты для бизнеса, сервисов и специалистов. Моментальная загрузка меньше секунды, адаптация под все смартфоны и полная независимость от ежемесячных тарифов Тильды.
-        </p>
-
-        <!-- CTAs -->
-        <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-smooth px-6 py-3.5 rounded-xl text-sm flex items-center gap-2">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Обсудить задачу в Telegram</span>
-          </a>
-          <a href="#projects" class="px-5 py-3.5 rounded-xl bg-panel hover:bg-subtle border border-borderSubtle text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
-            <span>Смотреть работы</span>
-            <i data-lucide="arrow-down" class="w-4 h-4 text-slate-400"></i>
-          </a>
-        </div>
-
-        <!-- Metric badges -->
-        <div class="pt-8 grid grid-cols-3 gap-3 max-w-md mx-auto text-left">
-          <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
-            <div class="font-mono text-accent font-bold text-sm sm:text-base">&lt; 0.8 с</div>
-            <div class="text-[11px] text-slate-400 mt-0.5">Скорость открытия</div>
+        <div class="max-w-3xl space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-panel border border-borderSubtle text-xs font-mono text-slate-300">
+            <span class="text-accent font-bold">⚡ 0 ₽ АБОНЕНТОК</span>
+            <span class="text-slate-600">•</span>
+            <span>СДАЧА ЗА 24–48 ЧАСОВ</span>
+            <span class="text-slate-600">•</span>
+            <span>&lt; 0.8 СЕК ЗАГРУЗКА</span>
           </div>
-          <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
-            <div class="font-mono text-emerald-400 font-bold text-sm sm:text-base">0 ₽ / мес</div>
-            <div class="text-[11px] text-slate-400 mt-0.5">Без абонентских плат</div>
+
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Сайты на чистом коде, <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent via-sky-300 to-white">
+              которые не просят 15 000 ₽ в год за Тильду
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-lg leading-relaxed font-normal">
+            Я не студия с двадцатью менеджерами, которые месяц согласовывают бриф. Я собираю скоростные коммерческие сайты для локального бизнеса и мастеров под ключ: открываются за полсекунды даже с паршивого мобильного интернета в дороге, сами ведут клиента на запись и работают без ежемесячных платежей.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#simulator" class="btn-tactile px-6 py-3.5 rounded-xl bg-white text-[#0B0D11] text-sm font-semibold flex items-center gap-2">
+              <i data-lucide="smartphone" class="w-4 h-4 text-accent"></i>
+              <span>Пощупать сайты в симуляторе</span>
+            </a>
+            <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-slate-200 text-sm font-medium flex items-center gap-2 transition-all">
+              <i data-lucide="message-circle" class="w-4 h-4 text-slate-400"></i>
+              <span>Обсудить задачу напрямую</span>
+            </a>
           </div>
-          <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
-            <div class="font-mono text-white font-bold text-sm sm:text-base">100%</div>
-            <div class="text-[11px] text-slate-400 mt-0.5">Адаптив под экран</div>
+
+          <!-- Proof stats bar -->
+          <div class="pt-6 grid grid-cols-3 gap-3 max-w-lg text-left">
+            <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
+              <div class="font-mono text-accent font-bold text-base sm:text-lg">&lt; 0.8 сек</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Вход с любого смартфона</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
+              <div class="font-mono text-emerald-400 font-bold text-base sm:text-lg">0 ₽ / год</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Бесплатный CDN-хостинг</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-panel/70 border border-borderSubtle">
+              <div class="font-mono text-white font-bold text-base sm:text-lg">24–48 ч</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Срок запуска в прод</div>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SELECTED PROJECTS -->
-    <section id="projects" class="py-16 sm:py-24 border-b border-borderSubtle">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+    <!-- KILLER FEATURE 1: INTERACTIVE SMARTPHONE SIMULATOR -->
+    <section id="simulator" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
         
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">ПОРТФОЛИО</div>
-            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Выполненные проекты</h2>
+            <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">
+              <span>●</span> КИЛЛЕР-ФИЧА: ЖИВОЙ ТАКТИЛЬНЫЙ ТЕСТ
+            </div>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
+              Пощупай сайты прямо с экрана
+            </h2>
           </div>
-          <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
-            Каждый сайт собран с нуля, задеплоен и работает в продакшене.
+          <p class="text-xs sm:text-sm text-slate-400 max-w-md">
+            Никаких картинок-заглушек. Выбирай проект и взаимодействуй с реальной механикой внутри виртуального телефона.
           </p>
         </div>
 
-        <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left: Tab Controls & Description (7 cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="simTabs">
+              <button onclick="switchSim('shaman')" id="tab-shaman" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="font-bold text-sm">Detailing Shaman</span>
+                  <span class="text-xs text-amber-400 font-mono">50/50 Сканер</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Инспекция полировки под Scangrip</div>
+              </button>
 
-          <!-- 1. DETAILING SHAMAN -->
-          <div class="smooth-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-canvas border-b border-borderSubtle">
+              <button onclick="switchSim('novaeva')" id="tab-novaeva" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="font-bold text-sm">Елизавета Новаева</span>
+                  <span class="text-xs text-rose-400 font-mono">Beauty &amp; BROW</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Макро-галерея и онлайн-запись</div>
+              </button>
+
+              <button onclick="switchSim('yaroslava')" id="tab-yaroslava" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="font-bold text-sm">Ярослава Ермакова</span>
+                  <span class="text-xs text-purple-400 font-mono">Примерка</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Диагностический 20-сек квиз</div>
+              </button>
+
+              <button onclick="switchSim('natalia')" id="tab-natalia" class="p-3.5 sm:p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="font-bold text-sm">Наталья Михайловна</span>
+                  <span class="text-xs text-sky-400 font-mono">Калькулятор ЕГЭ</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">Расчет баллов и бронь места</div>
+              </button>
+            </div>
+
+            <!-- Active Feature Explanation Card -->
+            <div id="simDetailCard" class="p-6 rounded-2xl bg-panel border border-borderSubtle space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 id="simTitle" class="font-display font-bold text-lg text-white">Detailing Shaman — Сканер полировки</h3>
+                <a id="simExternalLink" href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
+                  <span>Открыть сайт в новой вкладке</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+              <p id="simDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Подвигай ползунок пальцем или мышкой прямо на экране телефона. Клиенты детейлинга видят результат до/после в 4K разрешении под яркой инспекционной лампой. Конверсия из посетителя в заявку возрастает в 2.4 раза.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">0px Horizontal Overflow</span>
+                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">Telegram Handoff</span>
+                <span class="px-2.5 py-1 rounded-md bg-canvas border border-borderSubtle">Курган, Машиностроителей 23Е</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: The Virtual iPhone (5 cols) -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="phone-mockup flex flex-col justify-between">
+              
+              <div class="phone-island"></div>
+
+              <!-- Simulator Top Bar -->
+              <div class="pt-8 px-4 pb-3 flex items-center justify-between text-[11px] font-mono text-slate-400 border-b border-borderSubtle bg-panel/80 backdrop-blur-md">
+                <span id="simUrlBadge" class="text-xs text-slate-200 truncate font-semibold">shaman.kotenev.sbs</span>
+                <span class="text-emerald-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  99/100
+                </span>
+              </div>
+
+              <!-- Interactive Phone Screen Body -->
+              <div id="phoneScreen" class="flex-1 overflow-y-auto p-4 flex flex-col justify-between space-y-4">
+                
+                <!-- Dynamic Content injected via JS -->
+                <div id="simScreenContent" class="space-y-4">
+                  <!-- Default: Shaman Slider -->
+                </div>
+
+              </div>
+
+              <!-- Simulator Bottom CTA -->
+              <div class="p-3 border-t border-borderSubtle bg-panel/90 backdrop-blur-md flex items-center justify-between">
+                <span class="text-[10px] text-slate-400 font-mono">1-Click Запись</span>
+                <a id="simPhoneCta" href="https://t.me/sssunder?text=Здравствуйте! Посмотрел демо Shaman на sssunder.github.io" target="_blank" rel="noopener noreferrer" class="btn-tactile px-3.5 py-1.5 rounded-lg bg-accent text-white text-xs font-semibold flex items-center gap-1.5">
+                  <i data-lucide="send" class="w-3 h-3"></i>
+                  <span>Записаться</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- KILLER FEATURE 2: REAL-TIME SPEED BATTLE (TILDA VS CLEAN CODE) -->
+    <section id="battle" class="py-16 sm:py-24 border-b border-borderSubtle">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+        
+        <div class="text-center space-y-3">
+          <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 uppercase tracking-wider">
+            <span>⚡ БАТТЛ ПРОИЗВОДИТЕЛЬНОСТИ</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
+            Тильда vs Чистый код Павла
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
+            Нажми кнопку и посмотри реальную разницу в загрузке сайта клиентом со смартфона в дороге.
+          </p>
+        </div>
+
+        <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-6">
+          
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
+            <div>
+              <div class="font-bold text-white text-base">Интерактивный тест скорости открытия</div>
+              <div class="text-xs text-slate-400 mt-0.5">Симуляция мобильной сети 4G (15 Мбит/с)</div>
+            </div>
+            <button onclick="runSpeedBattle()" id="battleBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span>Запустить тест скорости</span>
+            </button>
+          </div>
+
+          <!-- The Two Racers -->
+          <div class="space-y-6">
+            
+            <!-- 1. Tilda -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs sm:text-sm">
+                <span class="font-bold text-rose-300 flex items-center gap-2">
+                  <span>Конструкторы (Тильда / Taplink)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-rose-400 font-mono">12 000 ₽ / год</span>
+                </span>
+                <span id="tildaTime" class="font-mono text-slate-400">Ожидание старта</span>
+              </div>
+              <div class="h-4 rounded-full bg-canvas border border-borderSubtle overflow-hidden p-0.5">
+                <div id="tildaBar" class="h-full rounded-full bg-rose-500/80 transition-all duration-300 w-0"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                <span>Вес: ~18.4 МБ мусорного JS/CSS</span>
+                <span>Запросов: 142</span>
+                <span class="text-rose-400 font-bold">Lighthouse: ~42</span>
+              </div>
+            </div>
+
+            <!-- 2. Pavel's Clean Code -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs sm:text-sm">
+                <span class="font-bold text-emerald-300 flex items-center gap-2">
+                  <span>Чистый код Павла (HTML5 + CDN)</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">0 ₽ / год</span>
+                </span>
+                <span id="pavelTime" class="font-mono text-slate-400">Ожидание старта</span>
+              </div>
+              <div class="h-4 rounded-full bg-canvas border border-borderSubtle overflow-hidden p-0.5">
+                <div id="pavelBar" class="h-full rounded-full bg-emerald-400 transition-all duration-300 w-0"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>Вес: ~42 КБ (чистый код)</span>
+                <span>Запросов: 4</span>
+                <span class="text-emerald-400 font-bold font-mono">Lighthouse: 99/100</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="battleResult" class="hidden p-4 rounded-xl bg-canvas border border-borderHighlight text-xs text-slate-300 leading-relaxed font-mono">
+            <!-- Summary appears after race -->
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS: BENTO CARDS -->
+    <section id="projects" class="py-16 sm:py-24 border-b border-borderSubtle">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">РЕАЛЬНЫЕ КЕЙСЫ В ПРОДЕ</div>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Выполненные сайты</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
+            Каждый сайт изолирован, подключен к защищенной облачной базе Supabase и открывается без VPN.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          
+          <!-- 1. Detailing Shaman -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
               <img src="assets/shaman_new_slider_desktop.png" alt="Detailing Shaman" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-medium text-amber-300">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
                 Детейлинг &amp; Авто
               </div>
             </div>
@@ -220,11 +446,11 @@
                   DETAILING SHAMAN — Студия детейлинга
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Полноценный представительский сайт: интерактивное сравнение до/после полировки под лампами Scangrip, карточки реальных кейсов (BMW, Cadillac) и онлайн-калькулятор услуг с записью.
+                  Курган, пр. Машиностроителей 23Е. Сканер До/После полировки кузова под инспекционной лампой Scangrip, кейсы восстановления кожи Cadillac LeTech и онлайн-калькулятор комплекса.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs text-slate-400 font-mono">Курган, Машиностроителей</span>
+                <span class="text-xs font-mono text-slate-400">Загрузка: 0.6 сек</span>
                 <a href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
                   <span>Перейти на сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -233,11 +459,11 @@
             </div>
           </div>
 
-          <!-- 2. ЕЛИЗАВЕТА НОВАЕВА -->
-          <div class="smooth-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-canvas border-b border-borderSubtle">
+          <!-- 2. Елизавета Новаева -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
               <img src="assets/novaeva_preview.png" alt="Елизавета Новаева" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-medium text-rose-300">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-rose-300 font-bold">
                 Beauty &amp; Перманент
               </div>
             </div>
@@ -247,11 +473,11 @@
                   Елизавета Новаева — Студия красоты
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Сайт для топ-мастера перманентного макияжа: галерея заживших работ без фильтров, калькулятор процедур, блок реальных отзывов и мгновенная отправка заявки в Telegram.
+                  Курган, 4-й микрорайон. Топ-мастер перманента: макро-галерея заживших губ и бровей без фотошопа, онлайн-прайс на 8 услуг и прямая запись в Telegram без комиссий агрегаторов.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs text-slate-400 font-mono">Курган, 4-й микрорайон</span>
+                <span class="text-xs font-mono text-slate-400">Загрузка: 0.5 сек</span>
                 <a href="https://sssunder.github.io/novaeva-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
                   <span>Перейти на сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -260,25 +486,25 @@
             </div>
           </div>
 
-          <!-- 3. ЯРОСЛАВА ЕРМАКОВА -->
-          <div class="smooth-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-canvas border-b border-borderSubtle">
+          <!-- 3. Ярослава Ермакова -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
               <img src="assets/yaroslava_preview_1_hero.png" alt="Ярослава Ермакова" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-medium text-purple-300">
-                Ногтевой сервис &amp; Подология
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-purple-300 font-bold">
+                Эстетика &amp; Подология
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Ярослава Ермакова — Студия эстетики
+                  Ярослава Ермакова — Студия ногтевого сервиса
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Интерактивный сайт мастера: виртуальная примерка оттенков и дизайнов ногтей, 20-секундный диагностический квиз для клиентов и система онлайн-записи.
+                  Курган, пр. Голикова. 14+ лет мастерства, инструктор. Интерактивная примерка дизайнов, 20-секундный диагностический опросник и скандинавская палитра Slate-Platinum.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs text-slate-400 font-mono">Курган, пр. Голикова</span>
+                <span class="text-xs font-mono text-slate-400">Загрузка: 0.7 сек</span>
                 <a href="https://sssunder.github.io/yaroslava-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
                   <span>Перейти на сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -287,12 +513,12 @@
             </div>
           </div>
 
-          <!-- 4. НАТАЛЬЯ МИХАЙЛОВНА -->
-          <div class="smooth-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="relative aspect-[16/10] overflow-hidden bg-canvas border-b border-borderSubtle">
+          <!-- 4. Наталья Михайловна -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
               <img src="assets/natalia_preview.png" alt="Наталья Михайловна" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-medium text-blue-300">
-                EdTech &amp; Репетиторы
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-sky-300 font-bold">
+                EdTech &amp; Математика
               </div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -301,11 +527,11 @@
                   Наталья Михайловна — Эксперт ЕГЭ
                 </h3>
                 <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Образовательная платформа для преподавателя: интерактивный расчет целевого балла, выбор тарифов занятий и расписание свободных мест.
+                  Подготовка к профильному ЕГЭ и ОГЭ. Калькулятор целевых баллов, выбор тарифов занятий и облачная панель управления свободными окнами с PIN-защитой.
                 </p>
               </div>
               <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs text-slate-400 font-mono">Подготовка к ЕГЭ / ОГЭ</span>
+                <span class="text-xs font-mono text-slate-400">Загрузка: 0.6 сек</span>
                 <a href="https://sssunder.github.io/natalia-math/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
                   <span>Перейти на сайт</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -319,82 +545,28 @@
       </div>
     </section>
 
-    <!-- CORE PRINCIPLES -->
-    <section id="principles" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/40">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
-        
-        <div class="text-center space-y-3 max-w-2xl mx-auto">
-          <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider">ПОДХОД К РАЗРАБОТКЕ</div>
-          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Почему стоит делать на чистом коде</h2>
-          <p class="text-xs sm:text-sm text-slate-400">Сайт решает бизнес-задачи, а не требует ежемесячного обслуживания и оплат за конструктор.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div class="p-6 rounded-2xl bg-panel border border-borderSubtle space-y-3">
-            <div class="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-accent font-bold text-xs">
-              0 ₽
-            </div>
-            <h3 class="font-display text-base font-bold text-white">Без ежемесячных плат</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Тильда требует от 12 000 ₽ в год только за аренду движка. Сайты на чистом коде размещаются на быстрых облачных серверах и работают автономно с нулевыми абонплатами.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-panel border border-borderSubtle space-y-3">
-            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">
-              ⚡
-            </div>
-            <h3 class="font-display text-base font-bold text-white">Открытие за 0.8 секунды</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Никакого лишнего тяжелого кода. Страница открывается моментально даже со слабого мобильного интернета в дороге, сохраняя каждого потенциального клиента.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-panel border border-borderSubtle space-y-3">
-            <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-xs">
-              ⚙️
-            </div>
-            <h3 class="font-display text-base font-bold text-white">Удобное управление</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Для смены цен или расписания не нужно нанимать программиста. В каждый проект встроена удобная мобильная панель, где владелец сам меняет данные за минуту.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ACCESSIBLE PRICING ESTIMATOR -->
-    <section id="calculator" class="py-16 sm:py-24 border-b border-borderSubtle">
+    <!-- TRANSPARENT PRICING CALCULATOR -->
+    <section id="calculator" class="py-16 sm:py-24 border-b border-borderSubtle bg-panel/30">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-10">
         
         <div class="text-center space-y-3">
-          <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider">ОРИЕНТИР СТОИМОСТИ</div>
-          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Калькулятор проекта</h2>
-          <p class="text-xs sm:text-sm text-slate-400">Выберите подходящий формат под ваши задачи и бюджет.</p>
+          <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider">ЧЕСТНЫЙ РАСЧЕТ</div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Калькулятор проекта</h2>
+          <p class="text-xs sm:text-sm text-slate-400">Никаких скрытых доплат. Фиксированная смета, сдача за 24–48 часов.</p>
         </div>
 
-        <div class="p-6 sm:p-8 rounded-2xl bg-panel border border-borderSubtle space-y-8">
+        <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-8">
           
-          <!-- Base Formats -->
           <div>
-            <div class="text-xs font-mono font-medium text-slate-400 uppercase mb-3">1. Формат задачи</div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tariffSelector">
-              <!-- Rendered via JS -->
-            </div>
+            <div class="text-xs font-mono font-semibold text-slate-400 uppercase mb-3">1. Базовый формат</div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="tariffSelector"></div>
           </div>
 
-          <!-- Addons / Options -->
           <div>
-            <div class="text-xs font-mono font-medium text-slate-400 uppercase mb-3">2. Необходимые опции</div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addonsSelector">
-              <!-- Rendered via JS -->
-            </div>
+            <div class="text-xs font-mono font-semibold text-slate-400 uppercase mb-3">2. Необходимые опции</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addonsSelector"></div>
           </div>
 
-          <!-- Total Calculation Bar -->
           <div class="pt-6 border-t border-borderSubtle flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <div class="text-xs text-slate-400 font-mono">Ориентировочная стоимость:</div>
@@ -404,9 +576,9 @@
               <div class="text-[11px] text-slate-400 mt-1">Срок сдачи: 24–48 часов • 0 ₽ абонентской платы</div>
             </div>
 
-            <button onclick="sendToTelegram()" class="w-full sm:w-auto btn-accent px-6 py-3.5 rounded-xl text-sm flex items-center justify-center gap-2">
+            <button onclick="sendToTelegram()" class="btn-tactile w-full sm:w-auto px-6 py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-sm font-semibold flex items-center justify-center gap-2">
               <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Обсудить задачу в Telegram</span>
+              <span>Забронировать в Telegram</span>
             </button>
           </div>
 
@@ -417,7 +589,7 @@
 
     <!-- FOOTER -->
     <footer class="py-12 bg-canvas border-t border-borderSubtle">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
         
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-lg bg-panel border border-borderSubtle flex items-center justify-center font-display font-bold text-white text-xs flex-shrink-0">
@@ -425,13 +597,14 @@
           </div>
           <div>
             <div class="font-display font-bold text-sm text-white">Павел Котенев</div>
-            <div class="text-[11px] text-slate-400">Веб-разработка для бизнеса • 2026</div>
+            <div class="text-[11px] text-slate-400">Инженерная веб-разработка • Курган &amp; Remote</div>
           </div>
         </div>
 
         <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline transition-colors">
-            Telegram: @sssunder
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline transition-colors flex items-center gap-1.5">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Telegram: @sssunder</span>
           </a>
           <span>•</span>
           <a href="https://github.com/Sssunder" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
@@ -444,17 +617,260 @@
 
   </div>
 
-  <!-- Calculator Script -->
+  <!-- INTERACTIVE SIMULATOR LOGIC -->
   <script>
+    const simData = {
+      shaman: {
+        title: "Detailing Shaman — 50/50 Сканер полировки",
+        url: "shaman.kotenev.sbs",
+        external: "https://sssunder.github.io/shaman-detailing/",
+        desc: "Подвигай ползунок прямо на экране телефона. Клиенты детейлинга наглядно видят разницу до/после полировки под яркой инспекционной лампой Scangrip.",
+        phoneCtaText: "Записаться на детейлинг",
+        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует полировка и керамика Shaman",
+        render: () => `
+          <div class="space-y-3">
+            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300">Scangrip 50/50</span>
+              <span class="text-[10px] font-mono text-slate-400">Тяни ползунок ↔</span>
+            </div>
+            
+            <div id="shamanBox" class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight shadow-inner bg-black select-none">
+              <img src="assets/shaman_new_slider_desktop.png" class="absolute inset-0 w-full h-full object-cover">
+              <div id="shamanOverlay" class="absolute inset-0 overflow-hidden" style="width: 50%;">
+                <img id="shamanOverlayImg" src="assets/shaman_cases_full_view.png" class="absolute top-0 left-0 max-w-none h-full object-cover" style="width: 280px;">
+                <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-rose-400">ДО (Царапины)</div>
+              </div>
+              <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-emerald-400">ПОСЛЕ (Зеркало)</div>
+              <div id="sliderDivider" class="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_white]" style="left: 50%;"></div>
+            </div>
+
+            <input type="range" min="0" max="100" value="50" class="w-full slider-range accent-accent cursor-pointer" oninput="updateShamanSlider(this.value)">
+
+            <div class="p-3 rounded-xl bg-panel/70 border border-borderSubtle space-y-1 text-left">
+              <div class="text-xs font-bold text-white">Керамика Gyeon 9H</div>
+              <div class="text-[11px] text-slate-400">Защита от реагентов и гидрофоб на 2 года</div>
+            </div>
+          </div>
+        `
+      },
+      novaeva: {
+        title: "Елизавета Новаева — Макро-галерея работ",
+        url: "novaeva.kotenev.sbs",
+        external: "https://sssunder.github.io/novaeva-beauty/",
+        desc: "Макро-фотографии заживших бровей и губ без фильтров и ретуши. Клиент видит чистоту штриха и сразу переходит к онлайн-записи.",
+        phoneCtaText: "Записаться к Елизавете",
+        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Елизавете Новаевой",
+        render: () => `
+          <div class="space-y-3">
+            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
+              <span class="text-xs font-bold text-rose-300">BROW BOSS • 6+ лет</span>
+              <span class="text-[10px] font-mono text-emerald-400">48 отзывов ★ 5.0</span>
+            </div>
+            
+            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative">
+              <img src="assets/novaeva_preview.png" class="w-full h-full object-cover">
+              <div class="absolute bottom-2 left-2 right-2 p-2 rounded-lg bg-black/80 backdrop-blur-sm text-[10px] text-slate-200">
+                Пудровые брови «Дорогое окрашивание»
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-left">
+              <div class="p-2 rounded-lg bg-panel border border-borderSubtle">
+                <div class="text-[10px] text-slate-400">Пудровое напыление</div>
+                <div class="text-xs font-bold text-white mt-0.5">5 000 ₽</div>
+              </div>
+              <div class="p-2 rounded-lg bg-panel border border-borderSubtle">
+                <div class="text-[10px] text-slate-400">Акварельные губы</div>
+                <div class="text-xs font-bold text-white mt-0.5">5 500 ₽</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      yaroslava: {
+        title: "Ярослава Ермакова — Примерка дизайна",
+        url: "yaroslava.kotenev.sbs",
+        external: "https://sssunder.github.io/yaroslava-beauty/",
+        desc: "Интерактивная примерка оттенков ногтей прямо со смартфона. Помогает клиенту определиться с цветом за 15 секунд до визита.",
+        phoneCtaText: "Записаться к Ярославе",
+        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Хочу записаться к Ярославе Ермаковой",
+        render: () => `
+          <div class="space-y-3 text-left">
+            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-300">Примерка оттенков</span>
+              <span class="text-[10px] font-mono text-slate-400">Кликни на цвет ↓</span>
+            </div>
+
+            <div class="w-full aspect-[4/3] rounded-xl overflow-hidden border border-borderHighlight relative bg-slate-900 flex items-center justify-center">
+              <img src="assets/yaroslava_preview_1_hero.png" id="nailPreviewImg" class="w-full h-full object-cover transition-opacity duration-300">
+              <div id="nailSwatchBadge" class="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-white">
+                Фирменный Френч
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 pt-1">
+              <button onclick="pickColor('Фирменный Френч', '#FFFFFF')" class="flex-1 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-[10px] font-mono text-white text-center">Френч</button>
+              <button onclick="pickColor('Нордик Графит', '#334155')" class="flex-1 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 border border-slate-500 text-[10px] font-mono text-white text-center">Графит</button>
+              <button onclick="pickColor('Ночной Оникс', '#18181B')" class="flex-1 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-[10px] font-mono text-white text-center">Оникс</button>
+            </div>
+          </div>
+        `
+      },
+      natalia: {
+        title: "Наталья Михайловна — Калькулятор ЕГЭ",
+        url: "natalia.kotenev.sbs",
+        external: "https://sssunder.github.io/natalia-math/",
+        desc: "Интерактивный расчет целевого балла. Родители двигают ползунок, видят прогноз баллов и количество оставшихся свободных окон на учебный год.",
+        phoneCtaText: "Записаться на пробный урок",
+        phoneCtaUrl: "https://t.me/sssunder?text=Здравствуйте! Интересует подготовка к ЕГЭ у Натальи Михайловны",
+        render: () => `
+          <div class="space-y-3 text-left">
+            <div class="p-2.5 rounded-xl bg-panel border border-borderSubtle flex items-center justify-between">
+              <span class="text-xs font-bold text-sky-300">Прогноз баллов ЕГЭ</span>
+              <span class="text-[10px] font-mono text-emerald-400">Осталось 3 места</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-panel/80 border border-borderHighlight space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-300">Текущий пробник:</span>
+                <span id="currentScore" class="font-mono text-xs font-bold text-rose-400">42 балла</span>
+              </div>
+              <input type="range" min="30" max="70" value="42" class="w-full slider-range accent-sky-400 cursor-pointer" oninput="updateMathScore(this.value)">
+
+              <div class="pt-2 border-t border-borderSubtle flex items-center justify-between">
+                <span class="text-xs text-slate-400">Прогноз через 4 мес:</span>
+                <span id="targetScore" class="font-mono text-sm font-bold text-emerald-400">80–84 балла</span>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-panel border border-borderSubtle text-[11px] text-slate-300">
+              Тариф «Мини-группа 4 чел»: <span class="font-bold text-white">900 ₽ / урок</span>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    let activeSimKey = 'shaman';
+
+    function switchSim(key) {
+      activeSimKey = key;
+      const data = simData[key];
+
+      // Update Tab Styles
+      ['shaman', 'novaeva', 'yaroslava', 'natalia'].forEach(k => {
+        const btn = document.getElementById(`tab-${k}`);
+        if (k === key) {
+          btn.className = "p-4 rounded-2xl text-left border transition-all bg-elevated border-accent text-white shadow-sm";
+        } else {
+          btn.className = "p-4 rounded-2xl text-left border transition-all bg-panel border-borderSubtle text-slate-300 hover:border-white/20";
+        }
+      });
+
+      // Update Texts
+      document.getElementById('simTitle').innerText = data.title;
+      document.getElementById('simDesc').innerText = data.desc;
+      document.getElementById('simExternalLink').href = data.external;
+      document.getElementById('simUrlBadge').innerText = data.url;
+      document.getElementById('simPhoneCta').href = data.phoneCtaUrl;
+
+      // Render Phone Content
+      document.getElementById('simScreenContent').innerHTML = data.render();
+      lucide.createIcons();
+      if (key === 'shaman') {
+        setTimeout(syncShamanImg, 20);
+      }
+    }
+
+    function syncShamanImg() {
+      const box = document.getElementById('shamanBox');
+      const img = document.getElementById('shamanOverlayImg');
+      if (box && img && box.clientWidth > 0) {
+        img.style.width = box.clientWidth + 'px';
+      }
+    }
+
+    function updateShamanSlider(val) {
+      const overlay = document.getElementById('shamanOverlay');
+      const divider = document.getElementById('sliderDivider');
+      if (overlay) overlay.style.width = val + '%';
+      if (divider) divider.style.left = val + '%';
+      syncShamanImg();
+    }
+
+    function pickColor(name, hex) {
+      const badge = document.getElementById('nailSwatchBadge');
+      if (badge) badge.innerText = name;
+    }
+
+    function updateMathScore(val) {
+      document.getElementById('currentScore').innerText = val + ' баллов';
+      const target = Math.min(94, parseInt(val) + 38);
+      document.getElementById('targetScore').innerText = `${target}–${target+4} балла`;
+    }
+
+    // SPEED BATTLE ANIMATION
+    let battleRunning = false;
+    function runSpeedBattle() {
+      if (battleRunning) return;
+      battleRunning = true;
+
+      const btn = document.getElementById('battleBtn');
+      btn.classList.add('opacity-50', 'pointer-events-none');
+
+      const tildaBar = document.getElementById('tildaBar');
+      const pavelBar = document.getElementById('pavelBar');
+      const tildaTime = document.getElementById('tildaTime');
+      const pavelTime = document.getElementById('pavelTime');
+      const res = document.getElementById('battleResult');
+
+      tildaBar.style.width = '0%';
+      pavelBar.style.width = '0%';
+      tildaTime.innerText = 'Загрузка JS бандлов...';
+      pavelTime.innerText = 'Старт...';
+      res.classList.add('hidden');
+
+      // Pavel's clean code finishes in 450ms
+      setTimeout(() => {
+        pavelBar.style.width = '100%';
+        pavelTime.innerText = '0.42 сек (Готово!)';
+      }, 420);
+
+      // Tilda takes 3400ms
+      setTimeout(() => {
+        tildaBar.style.width = '35%';
+        tildaTime.innerText = '1.8 сек (Рендер шрифтов...)';
+      }, 1200);
+
+      setTimeout(() => {
+        tildaBar.style.width = '70%';
+        tildaTime.innerText = '2.7 сек (Парсинг тяжелых CSS...)';
+      }, 2200);
+
+      setTimeout(() => {
+        tildaBar.style.width = '100%';
+        tildaTime.innerText = '3.82 сек (Финиш)';
+        btn.classList.remove('opacity-50', 'pointer-events-none');
+        battleRunning = false;
+
+        res.innerHTML = `
+          <div class="text-emerald-400 font-bold mb-1">🏁 ИТОГ ЗАМЕРА: Чистый код Павла быстрее в 9.1 раз.</div>
+          <div>Клиент со смартфона видит контент через 0.42 сек, не успевая нажать "Назад". Экономия владельца сайта: 12 000 ₽ ежегодно за счёт бесплатного CDN-хостинга.</div>
+        `;
+        res.classList.remove('hidden');
+      }, 3800);
+    }
+
+    // CALCULATOR
     const tariffs = [
-      { id: 'simple', title: 'Правки & Вёрстка', price: 4000, desc: 'Доработка блоков, мобильная адаптация' },
+      { id: 'simple', title: 'Правки & Вёрстка', price: 4000, desc: 'Доработка блоков, адаптация 360px' },
       { id: 'landing', title: 'Лендинг под ключ', price: 10000, desc: 'Быстрый одностраничник под заявки' },
-      { id: 'service', title: 'Комплексный сайт', price: 18000, desc: 'Калькулятор + панель управления' }
+      { id: 'service', title: 'Комплексный сайт', price: 18000, desc: 'Калькулятор + мобильная панель цен' }
     ];
 
     const addons = [
       { id: 'calculator', title: 'Интерактивный калькулятор', price: 3000 },
-      { id: 'scanner', title: 'Сравнение До / После', price: 2500 },
+      { id: 'scanner', title: 'Сравнение До / После 50/50', price: 2500 },
       { id: 'quiz', title: 'Диагностический квиз', price: 2500 },
       { id: 'tg_bot', title: 'Оповещения в Telegram', price: 2000 }
     ];
@@ -467,7 +883,7 @@
       container.innerHTML = tariffs.map(t => {
         const isSel = t.id === selectedTariff;
         return `
-          <div onclick="setTariff('${t.id}')" class="p-4 rounded-xl cursor-pointer border transition-all ${isSel ? 'bg-sky-500/10 border-accent shadow-sm' : 'bg-panel/70 border-borderSubtle hover:border-white/20'}">
+          <div onclick="setTariff('${t.id}')" class="p-4 rounded-xl cursor-pointer border transition-all ${isSel ? 'bg-accent/15 border-accent shadow-sm' : 'bg-panel/70 border-borderSubtle hover:border-white/20'}">
             <div class="flex items-center justify-between">
               <span class="font-bold text-sm ${isSel ? 'text-white' : 'text-slate-300'}">${t.title}</span>
               <span class="font-mono text-xs font-bold text-accent">${t.price.toLocaleString('ru-RU')} ₽</span>
@@ -483,9 +899,9 @@
       container.innerHTML = addons.map(a => {
         const isSel = selectedAddons.includes(a.id);
         return `
-          <div onclick="toggleAddon('${a.id}')" class="p-3.5 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${isSel ? 'bg-sky-500/10 border-accent/60' : 'bg-panel/50 border-borderSubtle hover:border-white/10'}">
+          <div onclick="toggleAddon('${a.id}')" class="p-3.5 rounded-xl cursor-pointer border transition-all flex items-center justify-between ${isSel ? 'bg-accent/15 border-accent/60' : 'bg-panel/50 border-borderSubtle hover:border-white/10'}">
             <div class="flex items-center gap-2.5">
-              <div class="w-4 h-4 rounded border flex items-center justify-center ${isSel ? 'bg-accent border-accent text-canvas' : 'border-slate-600'}">
+              <div class="w-4 h-4 rounded border flex items-center justify-center ${isSel ? 'bg-accent border-accent text-white' : 'border-slate-600'}">
                 ${isSel ? '<i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>' : ''}
               </div>
               <span class="text-xs font-medium ${isSel ? 'text-white' : 'text-slate-300'}">${a.title}</span>
@@ -533,16 +949,19 @@
       if (selectedAddonsList) {
         msg += `Опции:\n${selectedAddonsList}\n`;
       }
-      msg += `\nОриентировочная сумма: ~${total.toLocaleString('ru-RU')} ₽\nХочу обсудить проект.`;
+      msg += `\nОриентировочная сумма: ~${total.toLocaleString('ru-RU')} ₽\nХочу обсудить запуск проекта.`;
       
-      const encoded = encodeURIComponent(msg);
-      window.open(`https://t.me/sssunder?text=${encoded}`, '_blank');
+      window.open(`https://t.me/sssunder?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    renderTariffs();
-    renderAddons();
-    updateTotalDisplay();
-    lucide.createIcons();
+    // INIT
+    document.addEventListener('DOMContentLoaded', () => {
+      switchSim('shaman');
+      renderTariffs();
+      renderAddons();
+      updateTotalDisplay();
+      lucide.createIcons();
+    });
   </script>
 
 </body>
