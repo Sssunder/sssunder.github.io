@@ -8,8 +8,44 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@sssunder — Живой конструктор коммерческого сайта под ключ</title>
-  <meta name="description" content="Соберите ваш сайт в интерактивном конструкторе прямо сейчас. Чистый код без конструкторов, честная инфраструктура ~190 ₽/мес, сдача за 24–48 часов.">
+  <title>Сайты для бизнеса на чистом коде под ключ — от 4 000 ₽ | @sssunder</title>
+  <meta name="description" content="Разработка скоростных коммерческих сайтов для бизнеса в Кургане и онлайн. Чистый код без конструкторов, от 4 000 ₽, сдача за 24–48 часов. Интерактивный расчет сметы.">
+  <link rel="canonical" href="https://sssunder.github.io/">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Павел Котенев (@sssunder) — Скоростные коммерческие сайты">
+  <meta property="og:description" content="Интерактивный конструктор: рассчитайте точную смету сайта за 30 секунд. Чистый код, сдача за 24–48 часов.">
+  <meta property="og:image" content="https://sssunder.github.io/assets/yaroslava_preview_clean.png">
+  <meta property="og:url" content="https://sssunder.github.io/">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Павел Котенев (@sssunder) — Скоростные сайты для бизнеса">
+  <meta name="twitter:description" content="Чистый код, моментальный отклик, прямая запись в Telegram.">
+  <meta name="twitter:image" content="https://sssunder.github.io/assets/yaroslava_preview_clean.png">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Инженерная веб-разработка @sssunder",
+    "founder": "Павел Котенев",
+    "url": "https://sssunder.github.io/",
+    "priceRange": "4000 - 18000 RUB",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Курган",
+      "addressCountry": "RU"
+    },
+    "sameAs": [
+      "https://t.me/sssunder",
+      "https://github.com/Sssunder"
+    ]
+  }
+  </script>
 
   <!-- Fonts: Inter & Space Grotesk & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,8 +95,8 @@
       transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .tactile-card:hover {
-      border-color: rgba(70, 144, 255, 0.3);
-      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.5), 0 0 16px rgba(70, 144, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
     .btn-tactile {
@@ -69,7 +105,7 @@
     }
     .btn-tactile:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px -4px rgba(70, 144, 255, 0.35);
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.6);
     }
     .btn-tactile:active {
       transform: translateY(0);
@@ -89,7 +125,7 @@
     .option-pill.active {
       border-color: #4690FF;
       background: rgba(70, 144, 255, 0.12);
-      box-shadow: 0 0 12px rgba(70, 144, 255, 0.2);
+      box-shadow: inset 0 0 0 1px rgba(70, 144, 255, 0.35);
     }
 
     /* Wireframe preview frame */
@@ -109,25 +145,77 @@
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    /* The preview reads as a website rather than a settings panel. */
+    #wireframeContent { --preview-accent: #4690FF; padding: 0; background: #10151c; }
+    #wireframeContent > .module-card { margin: 20px; }
+    #wireframeContent > .module-card:first-child { margin: 0; padding: 18px 24px; border: 0; border-radius: 0; background: transparent; gap: 12px; }
+    #wireframeContent > .module-card:first-child > div { min-width: 0; }
+    #mockBrandName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #mockLogo { flex-shrink: 0; width: 32px; height: 32px; background: var(--preview-accent); }
+    #wireframeContent > .module-card:nth-child(2) { position: relative; isolation: isolate; margin: 0; border: 0; border-radius: 0; padding: 40px 28px; min-height: 280px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 16px; background: #18212c; }
+    #wireframeContent > .module-card:nth-child(2)::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #10151cf5 8%, #10151c90), var(--preview-image, none) center/cover; }
+    #mockTag { padding: 0; background: transparent; color: #b6cbe6; font-size: 10px; letter-spacing: .08em; max-width: 100%; overflow-wrap: anywhere; }
+    #mockHeadline { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; letter-spacing: -.035em; max-width: 18ch; }
+    #mockSubline { font-size: 13px; line-height: 1.6; max-width: 45ch; color: #c1ccda; }
+    #wireframeContent[data-niche="beauty"] { --preview-accent: #b76f85; background: #20191d; }
+    #wireframeContent[data-niche="beauty"] > .module-card:nth-child(2)::before { background: linear-gradient(90deg, #20191df5, #20191d99), var(--preview-image) center/cover; }
+    #wireframeContent[data-niche="tutor"] { --preview-accent: #5aa88a; }
+    #wireframeContent[data-niche="services"] { --preview-accent: #ca9c55; }
+    #modTg { margin: 0 !important; padding: 24px; border: 0; border-top: 1px solid #ffffff18; border-radius: 0; background: #ffffff05; }
+    #modTg > span { background: var(--preview-accent); }
+    #modCrm { gap: 12px; flex-wrap: wrap; }
+    #modScanner > div:first-child, #modCalc > div:first-child, #modQuiz > div:first-child { gap: 8px; flex-wrap: wrap; }
+    #modScanner input[type="range"] { min-height: 44px; }
+    #miniCalcPills button, #mockQuizOptions button { min-height: 44px; }
+    .preview-caption { display: flex; justify-content: space-between; gap: 12px; color: #a9b6c9; font-size: 12px; margin-bottom: 12px; }
+    #blueprintSummary > div:first-child { flex-direction: column; align-items: stretch; }
+    #blueprintSummary > div:last-child { gap: 12px; flex-wrap: wrap; }
+    #cfgCopyBtn, #codeToggleBtn { min-height: 44px; }
+    #baseFormatGrid button > div { flex-wrap: wrap; gap: 6px; }
+    #baseFormatGrid button span, #addonsList label div { white-space: normal; }
+    @media (max-width: 639px) {
+      header > div { gap: 8px !important; }
+      header a[href="https://t.me/sssunder"] { padding: 12px; min-height: 44px; }
+      header a[href="https://t.me/sssunder"] span { display: none; }
+      #workbench > div > div:first-child > div:first-child > div:first-child { flex-wrap: wrap; border-radius: 12px; line-height: 1.5; }
+      #wireframeUrl { display: block; max-width: 130px; overflow: hidden; text-overflow: ellipsis; }
+      .wireframe-screen > div:first-child > div:nth-child(2) > span:last-child { display: none; }
+      .wireframe-screen > div:first-child > div:nth-child(2) { padding: 6px; }
+      .wireframe-screen > div:first-child > div:last-child { gap: 4px; }
+      .wireframe-screen > div:first-child { padding: 8px; gap: 8px; flex-wrap: wrap; }
+      #wireframeContent { max-height: 620px; }
+      #wireframeContent > .module-card:first-child { padding: 16px; }
+      #wireframeContent > .module-card:first-child > span { display: none; }
+      #wireframeContent > .module-card:nth-child(2) { padding: 32px 20px; min-height: 300px; }
+      #mockHeadline { font-size: 28px; }
+      #wireframeContent > .module-card { margin: 16px; }
+      #modTg { padding: 20px; flex-wrap: wrap; }
+      #blueprintSummary { padding: 20px 16px; }
+      #cfgMathBreakdown { line-height: 1.8; }
+      #cfgTelegramBtn { white-space: normal; text-align: center; }
+      #addonsList label { gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+
     *:focus-visible {
       outline: 2px solid #4690FF;
       outline-offset: 2px;
     }
   </style>
 </head>
-<body class="bg-canvas text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
-
-  <!-- TOP NOTICE -->
-  <div class="bg-accent/15 border-b border-accent/25 py-1.5 px-4 text-center text-xs font-mono text-sky-200 flex items-center justify-center gap-2">
-    <span class="w-2 h-2 rounded-full bg-accent animate-ping"></span>
-    <span><strong>КИЛЛЕР-ИНТЕРАКТИВ:</strong> Конструктор сайта вынесен прямо на 1-й экран. Включайте модули — смотрите живую сборку справа!</span>
-  </div>
+<body class="bg-canvas text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-[#0B0D11]">
+  <!-- Skip to content -->
+  <a href="#workbench" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:text-xs focus:font-mono focus:rounded-lg">
+    Перейти к конфигуратору (Skip to content)
+  </a>
 
   <div class="min-h-screen flex flex-col justify-between">
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-canvas/90 border-b border-borderSubtle">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+    <header class="sticky top-0 z-50 bg-canvas border-b border-borderSubtle">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between gap-4">
         
         <!-- Brand / Identity -->
         <a href="#" class="flex items-center gap-3 group min-w-0">
@@ -136,12 +224,12 @@
           </div>
           <div class="min-w-0">
             <div class="flex items-center gap-2">
-              <span class="font-display text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-accent transition-colors font-mono">
+              <span class="font-display text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-accent transition-colors">
                 @sssunder
               </span>
-              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono border border-emerald-500/20">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>1 слот свободен</span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-panel text-slate-300 text-[11px] font-mono border border-borderSubtle">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>Приём заказов открыт</span>
               </span>
             </div>
             <div class="text-[11px] text-slate-400 font-medium truncate">
@@ -152,14 +240,14 @@
 
         <!-- Fast Navigation -->
         <div class="flex items-center gap-2 sm:gap-4">
-          <div class="hidden md:flex items-center gap-1 text-xs font-medium text-slate-300 font-mono">
-            <a href="#workbench" class="px-3 py-1.5 rounded-lg text-accent font-bold hover:bg-white/5 transition-all">Конструктор</a>
-            <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Кейсы</a>
-            <a href="#economics" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Экономика</a>
-            <a href="#pricing" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-all">Тарифы</a>
+          <div class="hidden md:flex items-center gap-1 text-sm text-slate-300">
+            <a href="#projects" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Кейсы</a>
+            <a href="#workbench" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Калькулятор</a>
+            <a href="#pricing" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Тарифы</a>
+            <a href="#faq" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/5 transition-colors">Вопросы</a>
           </div>
 
-          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-tactile px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" aria-label="Обсудить в Telegram" class="btn-tactile px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center gap-2 whitespace-nowrap">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>Обсудить в Telegram</span>
           </a>
@@ -167,38 +255,233 @@
       </div>
     </header>
 
+    <!-- HERO -->
+    <section id="top" class="pt-10 sm:pt-16 pb-12 sm:pb-16 border-b border-borderSubtle">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <p class="text-xs font-mono text-slate-400">Павел Котенёв — веб-инженер, Курган &amp; remote</p>
+        <h1 class="mt-4 font-display text-3xl sm:text-[44px] font-bold tracking-tight text-white leading-[1.08] max-w-3xl">
+          Сайты для локального бизнеса на чистом коде — без конструкторов и абонплаты
+        </h1>
+        <p class="mt-5 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
+          Пять проектов в продакшене: детейлинг, бьюти-студии, репетиторы. HTML5, Tailwind и Vanilla JS без тяжёлых CMS — сборка за 24–48 часов, статика на CDN, заявки сразу в Telegram.
+        </p>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="btn-tactile px-5 py-3 rounded-xl bg-accent hover:bg-accent-hover text-white text-sm font-semibold flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Обсудить проект в Telegram</span>
+          </a>
+          <a href="#projects" class="px-5 py-3 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-slate-200 hover:text-white text-sm font-medium text-center transition-colors">
+            Смотреть кейсы ↓
+          </a>
+        </div>
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-y-5 gap-x-6 border-t border-borderSubtle pt-6 max-w-3xl">
+          <div>
+            <dt class="font-display text-xl font-bold text-white">5</dt>
+            <dd class="text-[11px] font-mono text-slate-400 mt-1">сайтов в продакшене</dd>
+          </div>
+          <div>
+            <dt class="font-display text-xl font-bold text-white">24–48 ч</dt>
+            <dd class="text-[11px] font-mono text-slate-400 mt-1">от брифа до релиза</dd>
+          </div>
+          <div>
+            <dt class="font-display text-xl font-bold text-white">0 ₽</dt>
+            <dd class="text-[11px] font-mono text-slate-400 mt-1">абонплаты платформам</dd>
+          </div>
+          <div>
+            <dt class="font-display text-xl font-bold text-white">360–1440</dt>
+            <dd class="text-[11px] font-mono text-slate-400 mt-1">px проверенный адаптив</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- REAL CASE STUDIES IN PRODUCTION (INCLUDES MARIA DRUZHININA) -->
+    <section id="projects" class="py-16 sm:py-24 border-b border-borderSubtle">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">ПРОЕКТЫ В ПРОДАКШЕНЕ</div>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Что уже работает</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
+            Каждый — отдельный проект со своим дизайном, доменом и продакшеном. Все ссылки живые, можно открыть и потрогать.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          
+          <!-- 1. Detailing Shaman -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col md:flex-row group sm:col-span-2 lg:col-span-4">
+            <div class="aspect-[16/10] md:aspect-[16/9] md:w-[54%] shrink-0 overflow-hidden bg-canvas relative">
+              <img src="assets/shaman_new_slider_desktop.png" loading="lazy" decoding="async" width="1200" height="750" alt="Detailing Shaman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
+                Детейлинг &amp; Авто
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/20">
+                HTML5 · Tailwind
+              </div>
+            </div>
+            <div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  DETAILING SHAMAN — Премиум детейлинг
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Курган, пр. Машиностроителей 23Е. Сканер 50/50 До/После полировки кузова под инспекционной лампой Scangrip, кейсы восстановления кожи Cadillac LeTech и онлайн-калькулятор комплекса по классу авто.
+                </p>
+              </div>
+              <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
+                <span class="text-xs font-mono text-slate-400">GitHub Pages · 0 ₽/мес</span>
+                <a href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Мария Дружинина (REPLACED AS REQUESTED) -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group border-accent/20">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
+              <img src="assets/maria_preview.png" loading="lazy" decoding="async" width="1200" height="750" alt="Мария Дружинина" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
+                Обучение &amp; 5–9 классы
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/20">
+                Supabase · SQL
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  Мария Дружинина — Математика &amp; ОГЭ
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Курган &amp; Онлайн. Уютный образовательный сайт с котом Саяном, личный кабинет расписания учеников на защищённой базе Supabase, интерактивный тест пробелов в знаниях и прямая запись в Telegram.
+                </p>
+              </div>
+              <div class="pt-3 flex flex-col items-start gap-1.5 border-t border-borderSubtle">
+                <span class="text-xs font-mono text-slate-400">Codeberg Pages · Supabase</span>
+                <a href="https://maria.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Ярослава Ермакова -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
+              <img src="assets/yaroslava_preview_clean.png" loading="lazy" decoding="async" width="1200" height="750" alt="Ярослава Ермакова — Студия ногтевого сервиса" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-purple-300 font-bold">
+                Эстетика &amp; Подология
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/20">
+                Vanilla JS
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  Ярослава Ермакова — Ногтевой сервис
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Курган, пр. Голикова. 14+ лет мастерства, инструктор. Интерактивная палитра оттенков, 20-секундный диагностический квиз для сложных стоп и скандинавская сдержанная палитра.
+                </p>
+              </div>
+              <div class="pt-3 flex flex-col items-start gap-1.5 border-t border-borderSubtle">
+                <span class="text-xs font-mono text-slate-400">GitHub Pages · 0 ₽/мес</span>
+                <a href="https://sssunder.github.io/yaroslava-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Наталья Михайловна -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
+              <img src="assets/natalia_preview.png" loading="lazy" decoding="async" width="1200" height="750" alt="Наталья Михайловна" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-sky-300 font-bold">
+                Обучение &amp; ЕГЭ
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/20">
+                Supabase · RLS
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  Наталья Дружинина — Математика ОГЭ/ЕГЭ
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Курган &amp; РФ. Высшая категория, эксперт ФИПИ. Калькулятор баллов ОГЭ с мгновенной оценкой уровня ученика, закрытая сетка расписания на 24 ученика и отзывы родителей.
+                </p>
+              </div>
+              <div class="pt-3 flex flex-col items-start gap-1.5 border-t border-borderSubtle">
+                <span class="text-xs font-mono text-slate-400">Codeberg Pages · 0 ₽/мес</span>
+                <a href="https://natalia.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Елена Латыпова / Elen Beauty -->
+          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
+            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
+              <img src="assets/case_elena.png" loading="lazy" decoding="async" width="1200" height="750" alt="Elen Beauty — студия Елены Латыповой" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-rose-300 font-bold">
+                Бьюти &amp; Студия
+              </div>
+              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/20">
+                Codeberg Pages
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  Elen Beauty — Латыпова Елена
+                </h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                  Курган. Ногти и ресницы: галерея студии, отзывы гостей, калькулятор услуг с выбором окна и онлайн-запись в Telegram.
+                </p>
+              </div>
+              <div class="pt-3 flex flex-col items-start gap-1.5 border-t border-borderSubtle">
+                <span class="text-xs font-mono text-slate-400">Codeberg Pages · 0 ₽/мес</span>
+                <a href="https://elena.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
+                  <span>Открыть живой сайт</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- HERO WORKBENCH: THE CONSTRUCTOR IS FRONT AND CENTER -->
     <section id="workbench" class="pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-borderSubtle bg-gradient-to-b from-panel/30 via-canvas to-canvas">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
         
         <!-- Header Info Bar -->
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
-          <div class="space-y-2 max-w-3xl">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-panel border border-borderSubtle text-xs font-mono text-slate-300">
-              <span class="text-accent font-bold">⚡ ЖИВОЙ КОНСТРУКТОР САЙТА</span>
-              <span class="text-slate-600">•</span>
-              <span>СДАЧА ЗА 24–48 ЧАСОВ</span>
-              <span class="text-slate-600">•</span>
-              <span class="text-emerald-400">ИНФРАСТРУКТУРА ~190 ₽/МЕС</span>
-            </div>
-            <h1 class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
-              Соберите архитектуру вашего сайта за 30 секунд
-            </h1>
-            <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl">
-              Включайте нужные модули в панели управления слева — макет справа <strong>моментально собирается вживую</strong> под вашу нишу с честным расчётом сметы и сроков.
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+          <div class="space-y-2 max-w-2xl">
+            <div class="text-[11px] font-mono text-accent uppercase tracking-[0.14em]">Калькулятор</div>
+            <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white">Смета и структура сайта — за пару минут</h2>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Выберите сферу и модули: сумма и предпросмотр пересчитываются сразу. Это оценка, а не оферта — финальную смету фиксируем в Telegram до старта.
             </p>
           </div>
-
-          <!-- Quick Simulation Actions -->
-          <div class="flex items-center gap-2.5 shrink-0">
-            <button onclick="triggerWaterfallSim()" id="waterfallBtn" class="btn-tactile px-3.5 py-2.5 rounded-xl bg-panel hover:bg-elevated border border-borderHighlight text-xs font-mono text-sky-300 hover:text-white flex items-center gap-2">
-              <i data-lucide="gauge" class="w-4 h-4 text-accent"></i>
-              <span>Тест скорости Edge CDN</span>
-            </button>
-            <a href="#projects" class="px-3.5 py-2.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-xs font-mono text-slate-300 hover:text-white transition-all">
-              Боевые кейсы ↓
-            </a>
-          </div>
+          <a href="#pricing" class="shrink-0 px-4 py-2.5 rounded-xl bg-panel hover:bg-elevated border border-borderSubtle text-xs font-mono text-slate-300 hover:text-white transition-colors">
+            Тарифы ↓
+          </a>
         </div>
 
         <!-- MAIN 2-COLUMN WORKBENCH GRID -->
@@ -211,24 +494,24 @@
             <div class="tactile-card rounded-2xl p-4 sm:p-5 space-y-3.5">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide flex items-center gap-1.5">
-                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[10px] font-bold">1</span>
+                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[11px] font-bold">1</span>
                   <span>Сфера бизнеса &amp; Название</span>
                 </span>
-                <span class="text-[10px] font-mono text-accent" id="activeNicheBadge">Детейлинг &amp; Авто</span>
+                <span class="text-[11px] font-mono text-accent" id="activeNicheBadge">Детейлинг &amp; Авто</span>
               </div>
 
               <!-- Interactive Project / Brand Name Input -->
               <div>
-                <label for="projectNameInput" class="block text-[11px] font-mono text-slate-300 mb-1.5 flex items-center justify-between">
+                <label for="projectNameInput" class="block text-[11px] text-slate-300 mb-1.5 flex items-center justify-between">
                   <span>Название вашего проекта / бизнеса:</span>
-                  <span class="text-[9px] text-accent font-normal">меняет макет на лету</span>
+                  <span class="text-[11px] text-accent font-normal">меняет макет на лету</span>
                 </label>
                 <div class="relative">
                   <input type="text" id="projectNameInput" 
                     placeholder="Например: Мой Бизнес или Студия..." 
                     oninput="handleCustomProjectName(this.value)" 
                     class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-borderSubtle focus:border-accent text-xs text-white placeholder-slate-500 font-sans outline-none transition-all shadow-inner">
-                  <div class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-mono text-slate-400 pointer-events-none">
+                  <div class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-mono text-slate-400 pointer-events-none">
                     .ru
                   </div>
                 </div>
@@ -251,10 +534,10 @@
             <div class="tactile-card rounded-2xl p-4 sm:p-5 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide flex items-center gap-1.5">
-                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[10px] font-bold">2</span>
+                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[11px] font-bold">2</span>
                   <span>Базовый формат</span>
                 </span>
-                <span class="text-[10px] font-mono text-slate-400">Сдача 24–48 ч</span>
+                <span class="text-[11px] text-slate-400">Сдача 24–48 ч</span>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="baseFormatGrid">
@@ -263,14 +546,14 @@
 
               <!-- What is included in Base Format -->
               <div class="p-2.5 rounded-xl bg-canvas border border-borderSubtle text-[11px] font-mono text-slate-300 space-y-1.5">
-                <div class="text-[10px] text-accent font-bold uppercase tracking-wider">В базовый формат входит:</div>
-                <div class="grid grid-cols-2 gap-1 text-[10px] text-slate-400">
+                <div class="text-[11px] text-accent font-bold uppercase tracking-wider">В базовый формат входит:</div>
+                <div class="grid grid-cols-2 gap-1 text-[11px] text-slate-400">
                   <div>✓ Адаптив 360–1440px</div>
                   <div>✓ Hero-оффер + структура</div>
                   <div>✓ Сетка услуг и прайс</div>
                   <div>✓ Кнопка в Telegram</div>
-                  <div>✓ Вечный CDN (0 ₽ абонплат)</div>
-                  <div>✓ Скорость &lt; 0.5с (99/100)</div>
+                  <div>✓ Хостинг: CDN 0 ₽ / свой VPS ~150 ₽/мес</div>
+                  <div>✓ Скорость и вес под мобильные</div>
                 </div>
               </div>
             </div>
@@ -279,10 +562,10 @@
             <div class="tactile-card rounded-2xl p-4 sm:p-5 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wide flex items-center gap-1.5">
-                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[10px] font-bold">3</span>
+                  <span class="w-4 h-4 rounded-full bg-accent/20 text-accent flex items-center justify-center text-[11px] font-bold">3</span>
                   <span>Модули (включайте в макет)</span>
                 </span>
-                <span class="text-[10px] font-mono text-emerald-400">Сборка на лету</span>
+                <span class="text-[11px] font-mono text-emerald-400">Сборка на лету</span>
               </div>
 
               <div class="space-y-2" id="addonsList">
@@ -293,11 +576,11 @@
             <!-- INFRASTRUCTURE COSTS DISCLOSURE -->
             <div class="p-3.5 rounded-xl bg-canvas border border-borderSubtle space-y-1.5 text-xs font-mono">
               <div class="flex items-center justify-between">
-                <span class="text-slate-400 uppercase text-[10px]">Инфраструктура по себестоимости:</span>
-                <span class="text-emerald-400 font-bold">~190 ₽ / мес</span>
+                <span class="text-slate-400 uppercase text-[11px]">Инфраструктура:</span>
+                <span class="text-emerald-400 font-bold">0 ₽ / мес</span>
               </div>
               <p class="text-[11px] text-slate-400 leading-relaxed font-sans">
-                Домен .ru (~290 ₽/год) + выделенный быстрый сервер (~150 ₽/мес). Итого <strong>~2 200 ₽ в год</strong> за всю систему вместо 15 000+ ₽ у Тильды. Чистая экономия: ~13 000 ₽ каждый год.
+                Хостинг статики на Codeberg / GitHub Pages — 0 ₽. Домен .ru — около 290 ₽ в год (~24 ₽/мес). Выделенный VPS под закрытую базу — от 150 ₽/мес, только если он реально нужен.
               </p>
             </div>
 
@@ -306,6 +589,7 @@
           <!-- RIGHT CANVAS: 7 COLUMNS (THE LIVE ASSEMBLED WIREFRAME) -->
           <div class="lg:col-span-7 sticky top-20 space-y-4">
             
+            <div class="preview-caption"><span>Предпросмотр вашего сайта</span><span>Демонстрационный макет</span></div>
             <!-- Live Mock Browser Window -->
             <div class="wireframe-screen rounded-2xl overflow-hidden border border-borderHighlight shadow-2xl">
               
@@ -322,53 +606,15 @@
                     <i data-lucide="lock" class="w-3 h-3 text-emerald-400 shrink-0"></i>
                     <span id="wireframeUrl">vash-detailing.ru</span>
                   </span>
-                  <span class="text-[9px] text-emerald-400 font-bold shrink-0">0.38с • 42 КБ</span>
+                  <span class="text-[11px] text-emerald-400 font-mono shrink-0">TLS 1.3 • HTTPS</span>
                 </div>
 
                 <div class="flex items-center gap-2">
-                  <button id="codeToggleBtn" onclick="toggleCleanCodeView()" class="px-2 py-0.5 rounded text-[10px] font-mono bg-panel border border-borderSubtle text-slate-300 hover:text-white hover:border-accent flex items-center gap-1 transition-all">
+                  <button id="codeToggleBtn" onclick="toggleCleanCodeView()" class="px-2 py-0.5 rounded text-[11px] font-mono bg-panel border border-borderSubtle text-slate-300 hover:text-white hover:border-accent flex items-center gap-1 transition-all">
                     <i data-lucide="code" class="w-3 h-3 text-accent"></i>
                     <span id="codeToggleText">Чистый код</span>
                   </button>
-                  <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">99/100</span>
-                  <i data-lucide="rotate-cw" class="w-3.5 h-3.5 cursor-pointer text-slate-400 hover:text-white" onclick="triggerWaterfallSim()" title="Перезагрузить страницу"></i>
-                </div>
-              </div>
-
-              <!-- Animated Network Waterfall Stream (Triggerable) -->
-              <div id="waterfallSimBox" class="hidden p-3 bg-black/95 border-b border-borderSubtle text-[11px] font-mono space-y-2">
-                <div class="flex items-center justify-between text-slate-400 text-[10px]">
-                  <span>СЕТЕВОЙ WATERFALL (РЕАЛЬНАЯ ПОДГРУЗКА БЛОКОВ)</span>
-                  <span class="text-emerald-400 font-bold" id="waterfallStatus">Загрузка...</span>
-                </div>
-                <div class="space-y-1.5">
-                  <div>
-                    <div class="flex justify-between text-[10px] text-slate-300">
-                      <span>1. HTML5 Document (12 KB)</span>
-                      <span class="text-emerald-400 font-bold">24 ms [200 OK]</span>
-                    </div>
-                    <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div id="wfBar1" class="waterfall-bar bg-emerald-400 h-full w-0"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex justify-between text-[10px] text-slate-300">
-                      <span>2. Tailwind Stylesheet (16 KB)</span>
-                      <span class="text-emerald-400 font-bold">12 ms [200 OK]</span>
-                    </div>
-                    <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div id="wfBar2" class="waterfall-bar bg-sky-400 h-full w-0"></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex justify-between text-[10px] text-slate-300">
-                      <span>3. Interactive App Core (8 KB)</span>
-                      <span class="text-emerald-400 font-bold">8 ms [200 OK]</span>
-                    </div>
-                    <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div id="wfBar3" class="waterfall-bar bg-accent h-full w-0"></div>
-                    </div>
-                  </div>
+                  <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[11px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">HTML5</span>
                 </div>
               </div>
 
@@ -378,15 +624,15 @@
                 <!-- Mock Nav -->
                 <div class="p-2.5 rounded-xl bg-panel/80 border border-borderSubtle flex items-center justify-between text-xs module-card">
                   <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-lg bg-accent text-white flex items-center justify-center font-bold text-[10px]" id="mockLogo">ВД</div>
+                    <div class="w-6 h-6 rounded-lg bg-accent text-white flex items-center justify-center font-bold text-[11px]" id="mockLogo">ВД</div>
                     <span class="font-bold text-white text-xs truncate" id="mockBrandName">Ваш Детейлинг</span>
                   </div>
-                  <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-mono">Онлайн-запись</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[11px] font-mono">Онлайн-запись</span>
                 </div>
 
                 <!-- Mock Hero Banner -->
                 <div class="p-4 rounded-xl bg-gradient-to-br from-panel via-panel to-canvas border border-borderSubtle space-y-1.5 text-left module-card">
-                  <div class="inline-block px-2 py-0.5 rounded text-[9px] font-mono bg-accent/20 text-accent font-bold" id="mockTag">
+                  <div class="inline-block px-2 py-0.5 rounded text-[11px] font-mono bg-accent/20 text-accent font-bold" id="mockTag">
                     ПРЕМИУМ УХОД • КУРГАН & РФ
                   </div>
                   <h3 class="font-display font-bold text-sm sm:text-base text-white leading-tight" id="mockHeadline">
@@ -404,7 +650,7 @@
                       <i data-lucide="split-square-vertical" class="w-3.5 h-3.5 text-accent"></i>
                       <span id="mockScannerTitle">Сканер полировки 50/50 Scangrip</span>
                     </span>
-                    <span class="text-[10px] text-emerald-400 font-bold">Интерактивно (двигайте)</span>
+                    <span class="text-[11px] text-emerald-400 font-bold">Интерактивно (двигайте)</span>
                   </div>
 
                   <!-- Real working mini-slider (Pixel-perfect 1:1 aligned) -->
@@ -412,12 +658,12 @@
                     <img id="miniImgAfter" src="assets/slider_paint_after.jpg" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
                     <div id="miniSliderOverlay" class="absolute inset-0 overflow-hidden" style="width: 50%;">
                       <img id="miniImgBefore" src="assets/slider_paint_before.jpg" class="absolute top-0 left-0 max-w-none h-full object-cover pointer-events-none">
-                      <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[8px] font-mono text-rose-400 border border-rose-500/30">ДО: Царапины</div>
+                      <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-rose-400 border border-rose-500/30">ДО: Царапины</div>
                     </div>
-                    <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[8px] font-mono text-emerald-400 border border-emerald-500/30">ПОСЛЕ: Зеркало</div>
+                    <div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[11px] font-mono text-emerald-400 border border-emerald-500/30">ПОСЛЕ: Зеркало</div>
                     <div id="miniSliderLine" class="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_white]" style="left: 50%;"></div>
                   </div>
-                  <input type="range" min="0" max="100" value="50" oninput="updateMiniSlider(this.value)" class="w-full accent-accent cursor-pointer">
+                  <input type="range" aria-label="Доля изображения до обработки" min="0" max="100" value="50" oninput="updateMiniSlider(this.value)" class="w-full accent-accent cursor-pointer">
                 </div>
 
                 <!-- LIVE MODULE: INTERACTIVE CALCULATOR (DEMO WIDGET FOR CLIENT) -->
@@ -427,9 +673,9 @@
                       <i data-lucide="calculator" class="w-3.5 h-3.5 text-accent"></i>
                       <span>Калькулятор услуг клиента</span>
                     </span>
-                    <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-bold" id="miniCalcSum">14 500 ₽</span>
+                    <span class="text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-bold" id="miniCalcSum">14 500 ₽</span>
                   </div>
-                  <div class="text-[10px] text-amber-300/90 font-mono bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
+                  <div class="text-[11px] text-amber-300/90 font-mono bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
                     ⚠ Пример виджета для клиентов студии (не стоимость сайта):
                   </div>
 
@@ -445,7 +691,7 @@
                       <i data-lucide="help-circle" class="w-3.5 h-3.5 text-accent"></i>
                       <span>Квиз-диагностика за 20 сек</span>
                     </span>
-                    <span class="text-[10px] text-sky-400">Шаг 1 из 3</span>
+                    <span class="text-[11px] text-sky-400">Шаг 1 из 3</span>
                   </div>
                   <div class="text-[11px] text-slate-300 font-medium" id="mockQuizQuestion">
                     Какая задача для вашего авто сейчас в приоритете?
@@ -459,17 +705,17 @@
                 <div id="modTg" class="p-3.5 rounded-xl bg-gradient-to-r from-accent/20 via-sky-500/10 to-transparent border border-accent/30 flex items-center justify-between gap-3 text-left module-card">
                   <div>
                     <div class="text-xs font-bold text-white">Прямая запись в Telegram</div>
-                    <div class="text-[10px] text-slate-400">Без посредников и комиссий</div>
+                    <div class="text-[11px] text-slate-400">Без посредников и комиссий</div>
                   </div>
-                  <span class="px-3 py-1.5 rounded-lg bg-accent text-white text-[10px] font-bold font-mono">
+                  <span class="px-3 py-1.5 rounded-lg bg-accent text-white text-[11px] font-bold font-mono">
                     Записаться ↗
                   </span>
                 </div>
 
                 <!-- LIVE MODULE: SUPABASE CRM BADGE -->
-                <div id="modCrm" class="p-2.5 rounded-xl bg-canvas border border-emerald-500/30 flex items-center justify-between text-[10px] font-mono module-card">
+                <div id="modCrm" class="p-2.5 rounded-xl bg-canvas border border-emerald-500/30 flex items-center justify-between text-[11px] font-mono module-card">
                   <span class="flex items-center gap-1.5 text-emerald-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 "></span>
                     <span>Supabase Cloud Database &amp; CRM подключена</span>
                   </span>
                   <span class="text-slate-400">PostgreSQL</span>
@@ -479,9 +725,9 @@
 
               <!-- CLEAN CODE VIEW PANEL (TOGGLED ON DEMAND) -->
               <div id="cleanCodeView" class="hidden p-4 bg-canvas/95 font-mono text-xs text-slate-300 max-h-[560px] overflow-y-auto space-y-3 select-all border border-borderSubtle">
-                <div class="flex items-center justify-between text-[10px] text-accent pb-2 border-b border-borderSubtle">
+                <div class="flex items-center justify-between text-[11px] text-accent pb-2 border-b border-borderSubtle">
                   <span>// ЧИСТЫЙ КОД (HTML5 + TAILWIND) • 0 КБ БИБЛИОТЕК И ПЛАГИНОВ</span>
-                  <span class="text-emerald-400 font-bold">100/100 Lighthouse</span>
+                  <span class="text-emerald-400 font-bold">Zero-Bloat HTML5</span>
                 </div>
                 <pre id="cleanCodePre" class="text-slate-300 whitespace-pre-wrap leading-relaxed text-[11px] font-mono"></pre>
               </div>
@@ -492,15 +738,15 @@
             <div id="blueprintSummary" class="tactile-card rounded-2xl p-5 space-y-4 border-accent/40 shadow-xl bg-gradient-to-b from-panel to-canvas">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3.5 border-b border-borderSubtle">
                 <div>
-                  <div class="text-[10px] font-mono text-slate-400 uppercase">Итоговая смета под ключ:</div>
+                  <div class="text-[11px] font-mono text-slate-400 uppercase">Итоговая смета под ключ:</div>
                   <div class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-0.5">
-                    <span id="cfgTotalDisplay" class="text-accent">10 000</span> ₽
+                    <span id="cfgTotalDisplay" class="text-white tabular-nums" aria-live="polite">10 000</span> ₽
                   </div>
                   <div class="text-[11px] text-slate-300 font-mono mt-1" id="cfgMathBreakdown">
                     Базовый тариф: 10 000 ₽ + Модули: 0 ₽
                   </div>
-                  <div class="text-[10px] text-slate-400 font-mono mt-0.5">
-                    Срок запуска: <span id="cfgTimelineDisplay" class="text-emerald-400 font-bold">24–48 часов</span> • Инфраструктура: ~190 ₽/мес
+                  <div class="text-[11px] text-slate-400 font-mono mt-0.5">
+                    Срок запуска: <span id="cfgTimelineDisplay" class="text-emerald-400 font-bold">24–48 часов</span> • Хостинг: CDN 0 ₽, домен ~290 ₽/год
                   </div>
                 </div>
 
@@ -520,149 +766,10 @@
                   <span id="cfgCopyText">Скопировать смету</span>
                 </button>
               </div>
+              <p id="copyStatus" role="status" class="text-xs text-slate-300"></p>
+              <textarea id="copyFallback" hidden readonly aria-label="Смета для ручного копирования" class="w-full bg-canvas text-slate-100 p-3 rounded-xl" rows="8"></textarea>
             </div>
 
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- REAL CASE STUDIES IN PRODUCTION (INCLUDES MARIA DRUZHININA) -->
-    <section id="projects" class="py-16 sm:py-24 border-b border-borderSubtle">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
-        
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <div class="text-xs font-mono font-medium text-accent uppercase tracking-wider mb-2">РЕАЛЬНЫЕ САЙТЫ В ПРОДАКШЕНЕ</div>
-            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Выполненные боевые проекты</h2>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
-            Каждый сайт изолирован, оптимизирован под мобильные экраны и открывается без VPN из любой точки за полсекунды.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          
-          <!-- 1. Detailing Shaman -->
-          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
-              <img src="assets/shaman_new_slider_desktop.png" alt="Detailing Shaman" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
-                Детейлинг &amp; Авто
-              </div>
-              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
-                0.4с загрузка
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  DETAILING SHAMAN — Премиум детейлинг
-                </h3>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган, пр. Машиностроителей 23Е. Сканер 50/50 До/После полировки кузова под инспекционной лампой Scangrip, кейсы восстановления кожи Cadillac LeTech и онлайн-калькулятор комплекса по классу авто.
-                </p>
-              </div>
-              <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Свой VPS • 99/100</span>
-                <a href="https://sssunder.github.io/shaman-detailing/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Открыть живой сайт</span>
-                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. Мария Дружинина (REPLACED AS REQUESTED) -->
-          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group border-accent/20">
-            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
-              <img src="assets/maria_preview.png" alt="Мария Дружинина" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-amber-300 font-bold">
-                Обучение &amp; 5–9 классы
-              </div>
-              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
-                0.39с загрузка
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Мария Дружинина — Математика &amp; ОГЭ
-                </h3>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган &amp; Онлайн. Уютный образовательный сайт с котом Саяном, личный кабинет расписания учеников на защищённой базе Supabase, интерактивный тест пробелов в знаниях и прямая запись в Telegram.
-                </p>
-              </div>
-              <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Supabase CRM • 100/100</span>
-                <a href="https://maria.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Открыть живой сайт</span>
-                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Ярослава Ермакова -->
-          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
-              <img src="assets/yaroslava_preview_clean.png" alt="Ярослава Ермакова — Студия ногтевого сервиса" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-purple-300 font-bold">
-                Эстетика &amp; Подология
-              </div>
-              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
-                0.45с загрузка
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Ярослава Ермакова — Ногтевой сервис
-                </h3>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган, пр. Голикова. 14+ лет мастерства, инструктор. Интерактивная палитра оттенков, 20-секундный диагностический квиз для сложных стоп и скандинавская сдержанная палитра.
-                </p>
-              </div>
-              <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Свой VPS • 99/100</span>
-                <a href="https://sssunder.github.io/yaroslava-beauty/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Открыть живой сайт</span>
-                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Наталья Михайловна -->
-          <div class="tactile-card rounded-2xl overflow-hidden flex flex-col group">
-            <div class="aspect-[16/10] overflow-hidden bg-canvas relative">
-              <img src="assets/natalia_preview.png" alt="Наталья Михайловна" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-canvas/80 backdrop-blur-md border border-borderSubtle text-[11px] font-mono text-sky-300 font-bold">
-                Обучение &amp; ЕГЭ
-              </div>
-              <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-emerald-400 border border-emerald-500/20">
-                0.41с загрузка
-              </div>
-            </div>
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 class="font-display text-lg sm:text-xl font-bold text-white group-hover:text-accent transition-colors">
-                  Наталья Дружинина — Математика ОГЭ/ЕГЭ
-                </h3>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                  Курган &amp; РФ. Высшая категория, эксперт ФИПИ. Калькулятор баллов ОГЭ с мгновенной оценкой уровня ученика, закрытая сетка расписания на 24 ученика и отзывы родителей.
-                </p>
-              </div>
-              <div class="pt-3 flex items-center justify-between border-t border-borderSubtle">
-                <span class="text-xs font-mono text-slate-400">Свой VPS • 100/100</span>
-                <a href="https://natalia.kotenev.sbs/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-accent hover:text-sky-300 flex items-center gap-1.5 transition-colors">
-                  <span>Открыть живой сайт</span>
-                  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -676,99 +783,52 @@
         
         <div class="text-center space-y-3">
           <div class="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 uppercase tracking-wider">
-            <span>⚡ ЧЕСТНАЯ АРХИТЕКТУРА И ЭКОНОМИКА</span>
+            <span>ЭКОНОМИКА ПРОЕКТА</span>
           </div>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">
-            Конструкторы vs Чистый код
+            Что вы получаете за свои деньги
           </h2>
           <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
-            Сравнение на цифрах: почему чистый код экономит бюджет бизнеса и окупается уже в первый год.
+            Что входит в цену, чем вы владеете и за что платите каждый месяц.
           </p>
         </div>
 
         <div class="tactile-card rounded-2xl p-6 sm:p-8 space-y-6">
           
-          <!-- Live Network Latency Probe -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-borderSubtle">
-            <div>
-              <div class="font-bold text-white text-base flex items-center gap-2">
-                <span>Замер реального отклика вашего соединения</span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Realtime</span>
-              </div>
-              <div class="text-xs text-slate-400 mt-1">Отправляет проверочный запрос к серверу и фиксирует точное время ответа в миллисекундах.</div>
+          <!-- What you get / own / pay -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            <div class="p-5 rounded-xl bg-canvas border border-borderSubtle space-y-2.5">
+              <div class="text-sm font-semibold text-white">Что входит</div>
+              <ul class="text-sm text-slate-400 space-y-2 leading-relaxed">
+                <li>Дизайн под нишу, а не готовый шаблон</li>
+                <li>Адаптив 360–1440px без горизонтального скролла</li>
+                <li>Семантика, Open Graph, Schema.org</li>
+                <li>Заявки напрямую в Telegram</li>
+              </ul>
             </div>
-            <button onclick="runLiveProbe()" id="probeBtn" class="btn-tactile w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shrink-0">
-              <i data-lucide="gauge" class="w-4 h-4"></i>
-              <span>Замерить пинг</span>
-            </button>
-          </div>
-
-          <!-- Dynamic Live Probe Results -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-canvas border border-borderHighlight text-left">
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Сетевой отклик (Ping)</div>
-              <div id="probePingVal" class="text-xl sm:text-2xl font-bold font-mono text-emerald-400 mt-0.5">34 мс</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">Выделенный Edge VPS</div>
+            <div class="p-5 rounded-xl bg-canvas border border-borderSubtle space-y-2.5">
+              <div class="text-sm font-semibold text-white">Чем вы владеете</div>
+              <ul class="text-sm text-slate-400 space-y-2 leading-relaxed">
+                <li>Исходный код в вашем Git-репозитории</li>
+                <li>Домен оформлен на ваши данные</li>
+                <li>Панель на Supabase, если она нужна</li>
+                <li>Никакой привязки к платформе и подписке</li>
+              </ul>
             </div>
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Вес страницы</div>
-              <div class="text-xl sm:text-2xl font-bold font-mono text-white mt-0.5">&lt; 45 КБ</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">Чистый HTML5 + Vanilla JS</div>
-            </div>
-            <div>
-              <div class="text-[10px] font-mono text-slate-400 uppercase">Инфраструктура</div>
-              <div class="text-xl sm:text-2xl font-bold font-mono text-sky-400 mt-0.5">~190 ₽ / мес</div>
-              <div class="text-[10px] text-slate-500 mt-0.5">Домен + скоростной сервер</div>
+            <div class="p-5 rounded-xl bg-canvas border border-borderSubtle space-y-2.5">
+              <div class="text-sm font-semibold text-white">Что платите потом</div>
+              <ul class="text-sm text-slate-400 space-y-2 leading-relaxed">
+                <li>Домен — около 290 ₽ в год</li>
+                <li>Хостинг статики — 0 ₽</li>
+                <li>VPS от 150 ₽/мес, только если реально нужен</li>
+                <li>Абонплаты разработчику — нет</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Comparison Columns -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            
-            <!-- Tilda / Constructors -->
-            <div class="p-5 rounded-xl bg-canvas border border-rose-500/20 space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-rose-300 text-sm">Tilda / Конструкторы</span>
-                <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">от 15 000 ₽ / год</span>
-              </div>
-              <ul class="text-xs text-slate-400 space-y-2.5 leading-relaxed">
-                <li class="flex items-start gap-2">
-                  <span class="text-rose-400 font-bold shrink-0">✕</span>
-                  <span><strong>15–20 МБ стороннего кода:</strong> скрипты, трекеры и лишние плагины тормозят сайт даже на пустой странице.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-rose-400 font-bold shrink-0">✕</span>
-                  <span><strong>3.5–4.5 сек загрузка:</strong> клиент со слабым 4G в машине видит белый экран и уходит к конкурентам.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-rose-400 font-bold shrink-0">✕</span>
-                  <span><strong>Арендная зависимость:</strong> перестали платить за подписку — сайт мгновенно выключается.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Clean Code -->
-            <div class="p-5 rounded-xl bg-canvas border border-emerald-500/20 space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-emerald-300 text-sm">Чистый код + Свой VPS</span>
-                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">~2 200 ₽ / год (себестоимость)</span>
-              </div>
-              <ul class="text-xs text-slate-300 space-y-2.5 leading-relaxed">
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                  <span><strong>&lt; 50 КБ чистого HTML:</strong> открывается за 0.4с с любого телефона даже на трассе за городом.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                  <span><strong>Ваша собственность:</strong> исходный код в вашем Git, выделенный сервер под вашим контролем.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-emerald-400 font-bold shrink-0">✓</span>
-                  <span><strong>Прямая интеграция:</strong> заявки моментально летят в Telegram без посредников и платных коннекторов.</span>
-                </li>
-              </ul>
-            </div>
-
+          <!-- Methodology footnote -->
+          <div class="pt-4 border-t border-borderSubtle text-[11px] text-slate-500 font-sans leading-relaxed">
+            Цены на разработку фиксируются до старта и не меняются по ходу. Инфраструктура оплачивается напрямую провайдеру по себестоимости, без наценки.
           </div>
 
         </div>
@@ -797,10 +857,10 @@
               </div>
               <div>
                 <h3 class="font-display text-xl font-bold text-white">Правки &amp; Вёрстка</h3>
-                <div class="text-2xl font-extrabold text-white font-mono mt-2">от 4 000 ₽</div>
-                <p class="text-xs text-slate-400 mt-1">Ремонт верстки, устранение багов, ускорение до 99/100, перенос с конструкторов.</p>
+                <div class="text-2xl font-display font-extrabold text-white mt-2">от 4 000 ₽</div>
+                <p class="text-xs text-slate-400 mt-1">Ремонт верстки, устранение багов, скорость и вес под мобильные, перенос с конструкторов.</p>
               </div>
-              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4">
                 <li><span class="text-accent font-bold">✓</span> Устранение горизонтального скролла</li>
                 <li><span class="text-accent font-bold">✓</span> Оптимизация скорости до &lt; 0.6с</li>
                 <li><span class="text-accent font-bold">✓</span> Настройка кнопок в Telegram</li>
@@ -813,7 +873,7 @@
 
           <!-- Tier 2: Лендинг под ключ (Featured) -->
           <div class="tactile-card rounded-2xl p-6 flex flex-col justify-between space-y-6 border-accent/40 shadow-xl relative bg-gradient-to-b from-panel to-canvas">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-accent text-[10px] font-mono font-bold text-white uppercase tracking-wider">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-accent text-[11px] font-mono font-bold text-white uppercase tracking-wider">
               Выбор большинства
             </div>
             <div class="space-y-4">
@@ -823,14 +883,14 @@
               </div>
               <div>
                 <h3 class="font-display text-xl font-bold text-white">Лендинг под ключ</h3>
-                <div class="text-3xl font-extrabold text-accent font-mono mt-2">10 000 ₽</div>
-                <p class="text-xs text-slate-400 mt-1">Полноценный конверсионный сайт для услуг или студии с вечным бесплатным хостингом.</p>
+                <div class="text-3xl font-display font-extrabold text-white mt-2">10 000 ₽</div>
+                <p class="text-xs text-slate-400 mt-1">Полноценный конверсионный сайт для услуг или студии с нулевыми расходами на хостинг.</p>
               </div>
-              <ul class="text-xs text-slate-200 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+              <ul class="text-xs text-slate-200 space-y-2 border-t border-borderSubtle pt-4">
                 <li><span class="text-emerald-400 font-bold">✓</span> Уникальный дизайн без шаблонов</li>
                 <li><span class="text-emerald-400 font-bold">✓</span> Адаптив 360–1440px без багов</li>
                 <li><span class="text-emerald-400 font-bold">✓</span> Прямая запись в Telegram</li>
-                <li><span class="text-emerald-400 font-bold">✓</span> Инфраструктура ~190 ₽/мес</li>
+                <li><span class="text-emerald-400 font-bold">✓</span> Хостинг: CDN 0 ₽ или VPS от 150 ₽/мес</li>
               </ul>
             </div>
             <a href="https://t.me/sssunder?text=Здравствуйте! Хочу заказать 'Лендинг под ключ' (10 000 ₽)" target="_blank" rel="noopener noreferrer" class="btn-tactile w-full py-3.5 rounded-xl bg-accent hover:bg-accent-hover text-center text-xs font-bold text-white transition-all shadow-md">
@@ -847,10 +907,10 @@
               </div>
               <div>
                 <h3 class="font-display text-xl font-bold text-white">Сайт с CRM-панелью</h3>
-                <div class="text-2xl font-extrabold text-white font-mono mt-2">от 18 000 ₽</div>
+                <div class="text-2xl font-display font-extrabold text-white mt-2">от 18 000 ₽</div>
                 <p class="text-xs text-slate-400 mt-1">Сайт с подключенной облачной базой данных Supabase, админкой цен и калькулятором.</p>
               </div>
-              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4 font-mono">
+              <ul class="text-xs text-slate-300 space-y-2 border-t border-borderSubtle pt-4">
                 <li><span class="text-accent font-bold">✓</span> Всё из тарифа «Лендинг»</li>
                 <li><span class="text-accent font-bold">✓</span> Калькулятор стоимости комплекса</li>
                 <li><span class="text-accent font-bold">✓</span> Защищенная админка цен (Supabase)</li>
@@ -867,6 +927,67 @@
       </div>
     </section>
 
+    <!-- ABOUT + FAQ -->
+    <section id="faq" class="py-16 sm:py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-12">
+
+        <div class="md:col-span-2" id="about">
+          <div class="text-[11px] font-mono text-accent uppercase tracking-[0.14em]">Об авторе</div>
+          <h2 class="font-display text-2xl font-bold text-white mt-2">Павел Котенёв</h2>
+          <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+            Пишу сайты руками: HTML5, Tailwind, Vanilla JS, Supabase. Без конструкторов, плагинов и лишних зависимостей — заказчик получает код, который открывается мгновенно и остаётся у него.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-mono">
+            <a href="https://t.me/sssunder" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-sky-300 transition-colors">Telegram @sssunder</a>
+            <a href="https://github.com/Sssunder" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">GitHub Sssunder</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="text-[11px] font-mono text-accent uppercase tracking-[0.14em]">Вопросы</div>
+          <h2 class="font-display text-2xl font-bold text-white mt-2">Что обычно спрашивают</h2>
+          <div class="mt-5 border-t border-borderSubtle">
+            <details class="group border-b border-borderSubtle py-4">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+                Кому принадлежит сайт и домен после сдачи?
+                <span class="text-slate-500 group-open:rotate-45 transition-transform font-mono">+</span>
+              </summary>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Вам. Исходный код лежит в вашем Git-репозитории, домен оформляется на ваши данные. Никакой привязки к моему аккаунту или платформе.</p>
+            </details>
+            <details class="group border-b border-borderSubtle py-4">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+                Смогу сам менять цены и фото без знания кода?
+                <span class="text-slate-500 group-open:rotate-45 transition-transform font-mono">+</span>
+              </summary>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Да, в тарифе с панелью: цены, услуги и слоты меняются со смартфона в защищённом кабинете на Supabase. PIN проверяется на сервере, в HTML не хранится.</p>
+            </details>
+            <details class="group border-b border-borderSubtle py-4">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+                Почему нет ежемесячной абонплаты?
+                <span class="text-slate-500 group-open:rotate-45 transition-transform font-mono">+</span>
+              </summary>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Сайт статический и живёт на CDN с бесплатным тарифом. Платите только за домен — около 290 ₽ в год. VPS нужен лишь если требуется изолированная база.</p>
+            </details>
+            <details class="group border-b border-borderSubtle py-4">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+                Что входит в правки после релиза?
+                <span class="text-slate-500 group-open:rotate-45 transition-transform font-mono">+</span>
+              </summary>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">14 дней технической поддержки: текст, цены, фото, мелкие правки вёрстки. Дальше — по тарифу «Правки и вёрстка» от 4 000 ₽.</p>
+            </details>
+            <details class="group border-b border-borderSubtle py-4">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none text-sm font-semibold text-white marker:content-none">
+                Как происходит оплата?
+                <span class="text-slate-500 group-open:rotate-45 transition-transform font-mono">+</span>
+              </summary>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">30% после согласования состава, 70% — после утверждения сайта на тестовом адресе. Смета фиксируется до старта и не меняется по ходу.</p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="py-12 bg-canvas border-t border-borderSubtle">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
@@ -876,7 +997,7 @@
             S
           </div>
           <div>
-            <div class="font-display font-bold text-sm text-white font-mono">@sssunder</div>
+            <div class="font-display font-bold text-sm text-white">@sssunder</div>
             <div class="text-[11px] text-slate-400">Инженерная веб-разработка • Чистый код • Курган &amp; Remote</div>
           </div>
         </div>
@@ -892,6 +1013,9 @@
           </a>
         </div>
 
+      </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-4 mt-4 border-t border-borderSubtle/40 text-[11px] font-mono text-slate-500 text-center sm:text-left">
+        © 2026 @sssunder. Все клиентские проекты являются собственностью заказчиков.
       </div>
     </footer>
 
@@ -1120,12 +1244,24 @@
     // Custom Project Name Input Handler
     function handleCustomProjectName(val) {
       state.customProjectName = val;
-      updateLiveWireframe();
+      updateLiveWireframe(true);
       updateBlueprint();
     }
 
     // Initialize View
     function initConfigurator() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('portfolio_calc_state'));
+        if (saved && saved.nicheId) {
+          state.nicheId = saved.nicheId;
+          state.baseFormatId = saved.baseFormatId || 'landing';
+          state.selectedAddons = new Set(saved.selectedAddons || ['tg']);
+          state.customProjectName = saved.customProjectName || '';
+          const nameInput = document.getElementById('projectNameInput');
+          if (nameInput) nameInput.value = state.customProjectName;
+        }
+      } catch(e) {}
+
       renderNiches();
       renderBaseFormats();
       renderAddons();
@@ -1138,7 +1274,7 @@
     function renderNiches() {
       const container = document.getElementById('nicheGrid');
       container.innerHTML = NICHES.map(n => `
-        <button type="button" onclick="selectNiche('${n.id}')" 
+        <button type="button" onclick="selectNiche('${n.id}')" aria-pressed="${state.nicheId === n.id}" 
           class="option-pill p-2.5 rounded-xl text-left flex flex-col justify-between gap-1 transition-all ${state.nicheId === n.id ? 'active' : ''}">
           <div class="flex items-center justify-between">
             <i data-lucide="${n.icon}" class="w-3.5 h-3.5 ${state.nicheId === n.id ? 'text-accent' : 'text-slate-400'}"></i>
@@ -1154,13 +1290,13 @@
     function renderBaseFormats() {
       const container = document.getElementById('baseFormatGrid');
       container.innerHTML = BASE_FORMATS.map(f => `
-        <button type="button" onclick="selectBaseFormat('${f.id}')" 
+        <button type="button" onclick="selectBaseFormat('${f.id}')" aria-pressed="${state.baseFormatId === f.id}" 
           class="option-pill p-2.5 rounded-xl text-left flex flex-col justify-between gap-1 transition-all ${state.baseFormatId === f.id ? 'active' : ''}">
           <div class="flex items-center justify-between">
             <span class="text-[11px] font-bold ${state.baseFormatId === f.id ? 'text-white' : 'text-slate-200'} truncate">${f.name}</span>
-            <span class="text-[10px] font-mono ${state.baseFormatId === f.id ? 'text-accent font-bold' : 'text-slate-400'}">${f.price.toLocaleString('ru-RU')} ₽</span>
+            <span class="text-[11px] font-mono ${state.baseFormatId === f.id ? 'text-accent font-bold' : 'text-slate-400'}">${f.price.toLocaleString('ru-RU')} ₽</span>
           </div>
-          <span class="text-[10px] text-slate-400 leading-tight truncate">${f.desc}</span>
+          <span class="text-[11px] text-slate-400 leading-tight truncate">${f.desc}</span>
         </button>
       `).join('');
     }
@@ -1169,8 +1305,9 @@
     function renderAddons() {
       const container = document.getElementById('addonsList');
       container.innerHTML = ADDONS.map(a => {
-        const isChecked = a.included || state.selectedAddons.has(a.id);
-        const isDisabled = a.included;
+        const bundled = a.included || ((a.id === 'crm' || a.id === 'calc') && state.baseFormatId === 'complex');
+        const isChecked = bundled || state.selectedAddons.has(a.id);
+        const isDisabled = bundled;
         return `
           <label class="p-2.5 rounded-xl bg-canvas border border-borderSubtle hover:border-borderHighlight flex items-center justify-between gap-3 cursor-pointer select-none transition-all">
             <div class="flex items-center gap-2.5 min-w-0">
@@ -1184,19 +1321,27 @@
                 <div class="text-xs font-bold ${isChecked ? 'text-white' : 'text-slate-300'} truncate">
                   ${a.name}
                 </div>
-                <div class="text-[10px] text-slate-400 truncate">
+                <div class="text-[11px] text-slate-400 truncate">
                   ${a.desc}
                 </div>
               </div>
             </div>
             <div class="text-right shrink-0">
               <span class="text-xs font-mono font-bold ${a.price === 0 ? 'text-emerald-400' : 'text-accent'}">
-                ${a.price === 0 ? 'Включено' : `+${a.price.toLocaleString('ru-RU')} ₽`}
+                ${bundled ? 'Включено' : `+${a.price.toLocaleString('ru-RU')} ₽`}
               </span>
             </div>
           </label>
         `;
       }).join('');
+    }
+
+    // Re-rendering a choice must not send keyboard focus back to the page body.
+    function refreshChoices(render, containerId) {
+      const container = document.getElementById(containerId);
+      const index = Array.from(container.querySelectorAll('button')).indexOf(document.activeElement);
+      render();
+      if (index >= 0) container.querySelectorAll('button')[index]?.focus({ preventScroll: true });
     }
 
     // Select Niche
@@ -1206,7 +1351,7 @@
       document.getElementById('activeNicheBadge').innerText = niche.badge;
       document.getElementById('nicheTipText').innerText = niche.tip;
 
-      renderNiches();
+      refreshChoices(renderNiches, 'nicheGrid');
       updateLiveWireframe();
       updateBlueprint();
     }
@@ -1214,10 +1359,8 @@
     // Select Base Format
     function selectBaseFormat(id) {
       state.baseFormatId = id;
-      if (id === 'complex') {
-        state.selectedAddons.add('crm');
-      }
-      renderBaseFormats();
+      // CRM is included in the complex base; preserve only explicit addon choices.
+      refreshChoices(renderBaseFormats, 'baseFormatGrid');
       renderAddons();
       updateLiveWireframe();
       updateBlueprint();
@@ -1235,7 +1378,7 @@
     }
 
     // Update Live Wireframe Mockup based on State
-    function updateLiveWireframe() {
+    function updateLiveWireframe(preserveDemo = false) {
       const niche = NICHES.find(n => n.id === state.nicheId);
 
       // Determine active brand name, logo, and domain
@@ -1243,6 +1386,12 @@
       let brandName = customName || niche.defaultBrand;
       let brandLogo = customName ? getInitials(customName) : niche.defaultLogo;
       let domainUrl = customName ? `${slugifyDomain(customName)}.ru` : niche.defaultUrl;
+
+      const preview = document.getElementById('wireframeContent');
+      preview.dataset.niche = niche.id;
+      const previewImage = niche.id === 'detailing' ? 'assets/slider_paint_after.jpg'
+        : niche.id === 'beauty' ? 'assets/work_brows_1.jpg' : null;
+      preview.style.setProperty('--preview-image', previewImage ? `url("${previewImage}")` : 'none');
 
       // 1. Update Mock Nav & Hero
       document.getElementById('wireframeUrl').innerText = domainUrl;
@@ -1267,15 +1416,17 @@
       const modCalc = document.getElementById('modCalc');
       if (state.selectedAddons.has('calc')) {
         modCalc.classList.remove('hidden');
+        if (!preserveDemo) {
         const calcContainer = document.getElementById('miniCalcPills');
         calcContainer.innerHTML = niche.calcServices.map((srv, idx) => `
           <button type="button" onclick="pickMiniCalcService(${srv.price}, this)" 
-            class="p-2 rounded-lg ${idx === 0 ? 'bg-accent/20 border border-accent text-white font-bold' : 'bg-canvas border border-borderSubtle text-slate-300'} text-left text-[10px] transition-all">
+            class="p-2 rounded-lg ${idx === 0 ? 'bg-accent/20 border border-accent text-white font-bold' : 'bg-canvas border border-borderSubtle text-slate-300'} text-left text-[11px] transition-all">
             <div class="truncate">${srv.name}</div>
             <div class="font-mono text-accent font-bold mt-0.5">${srv.price.toLocaleString('ru-RU')} ₽</div>
           </button>
         `).join('');
         document.getElementById('miniCalcSum').innerText = `${niche.calcServices[0].price.toLocaleString('ru-RU')} ₽`;
+        }
       } else {
         modCalc.classList.add('hidden');
       }
@@ -1285,13 +1436,15 @@
       if (state.selectedAddons.has('quiz')) {
         modQuiz.classList.remove('hidden');
         document.getElementById('mockQuizQuestion').innerText = niche.quizQuestion;
+        if (!preserveDemo) {
         const quizContainer = document.getElementById('mockQuizOptions');
         quizContainer.innerHTML = niche.quizOptions.map((opt, i) => `
           <button type="button" onclick="selectMiniQuizOption(this)" 
-            class="p-2 rounded-lg ${i === 0 ? 'bg-accent/20 border border-accent text-white font-bold' : 'bg-canvas border border-borderSubtle text-slate-300'} text-left text-[10px] transition-all">
+            class="p-2 rounded-lg ${i === 0 ? 'bg-accent/20 border border-accent text-white font-bold' : 'bg-canvas border border-borderSubtle text-slate-300'} text-left text-[11px] transition-all">
             ${opt}
           </button>
         `).join('');
+        }
       } else {
         modQuiz.classList.add('hidden');
       }
@@ -1304,6 +1457,7 @@
         modCrm.classList.add('hidden');
       }
 
+      if (isCodeView) updateCleanCodeSnippet();
       if (window.lucide) lucide.createIcons();
       setTimeout(syncSliderWidth, 50);
     }
@@ -1334,9 +1488,9 @@
     function pickMiniCalcService(price, btn) {
       const parent = btn.parentElement;
       Array.from(parent.children).forEach(b => {
-        b.className = 'p-2 rounded-lg bg-canvas border border-borderSubtle text-slate-300 text-left text-[10px] transition-all';
+        b.className = 'p-2 rounded-lg bg-canvas border border-borderSubtle text-slate-300 text-left text-[11px] transition-all';
       });
-      btn.className = 'p-2 rounded-lg bg-accent/20 border border-accent text-white font-bold text-left text-[10px] transition-all';
+      btn.className = 'p-2 rounded-lg bg-accent/20 border border-accent text-white font-bold text-left text-[11px] transition-all';
       document.getElementById('miniCalcSum').innerText = `${price.toLocaleString('ru-RU')} ₽`;
     }
 
@@ -1344,9 +1498,9 @@
     function selectMiniQuizOption(btn) {
       const parent = btn.parentElement;
       Array.from(parent.children).forEach(b => {
-        b.className = 'p-2 rounded-lg bg-canvas border border-borderSubtle text-slate-300 text-left text-[10px] transition-all';
+        b.className = 'p-2 rounded-lg bg-canvas border border-borderSubtle text-slate-300 text-left text-[11px] transition-all';
       });
-      btn.className = 'p-2 rounded-lg bg-accent/20 border border-accent text-white font-bold text-left text-[10px] transition-all';
+      btn.className = 'p-2 rounded-lg bg-accent/20 border border-accent text-white font-bold text-left text-[11px] transition-all';
     }
 
     // Update Blueprint & Summary Card
@@ -1359,7 +1513,7 @@
       let selectedAddonNames = [];
 
       ADDONS.forEach(a => {
-        if (!a.included && state.selectedAddons.has(a.id)) {
+        if (!a.included && !((a.id === 'crm' || a.id === 'calc') && base.id === 'complex') && state.selectedAddons.has(a.id)) {
           total += a.price;
           addonSum += a.price;
           selectedAddonNames.push(`${a.name} (+${a.price.toLocaleString('ru-RU')} ₽)`);
@@ -1394,7 +1548,7 @@
       }
       tgText += `• Итоговая смета: ~${total.toLocaleString('ru-RU')} ₽\n`;
       tgText += `• Срок сдачи: ${base.timeline}\n`;
-      tgText += `• Инфраструктура: ~190 ₽/мес (домен + VPS)\n\n`;
+      tgText += `• Инфраструктура: 0 ₽ / мес (домен + VPS)\n\n`;
       tgText += `Хочу запустить сайт. Когда сможем начать?`;
 
       const tgUrl = `https://t.me/sssunder?text=${encodeURIComponent(tgText)}`;
@@ -1402,53 +1556,32 @@
 
       // Store in window for copy
       window.currentBlueprintText = tgText;
+
+      // Persist in localStorage
+      try {
+        localStorage.setItem('portfolio_calc_state', JSON.stringify({
+          nicheId: state.nicheId,
+          baseFormatId: state.baseFormatId,
+          selectedAddons: Array.from(state.selectedAddons),
+          customProjectName: state.customProjectName
+        }));
+      } catch(e) {}
     }
 
-    // Trigger Visual Waterfall Simulation
-    function triggerWaterfallSim() {
-      const box = document.getElementById('waterfallSimBox');
-      const b1 = document.getElementById('wfBar1');
-      const b2 = document.getElementById('wfBar2');
-      const b3 = document.getElementById('wfBar3');
-      const status = document.getElementById('waterfallStatus');
 
-      box.classList.remove('hidden');
-      status.innerText = 'Загрузка Edge CDN...';
-      b1.style.width = '0%';
-      b2.style.width = '0%';
-      b3.style.width = '0%';
-
-      setTimeout(() => {
-        b1.style.width = '100%';
-      }, 50);
-
-      setTimeout(() => {
-        b2.style.width = '100%';
-      }, 120);
-
-      setTimeout(() => {
-        b3.style.width = '100%';
-        status.innerText = '✓ Страница полностью готова за 0.38с!';
-      }, 200);
-
-      setTimeout(() => {
-        box.classList.add('hidden');
-      }, 4000);
-    }
-
-    // Copy Blueprint Text
-    function copyBlueprint() {
-      if (window.currentBlueprintText) {
-        navigator.clipboard.writeText(window.currentBlueprintText).then(() => {
-          const btnText = document.getElementById('cfgCopyText');
-          const oldText = btnText.innerText;
-          btnText.innerText = 'Скопировано в буфер!';
-          setTimeout(() => {
-            btnText.innerText = oldText;
-          }, 2000);
-        }).catch(err => {
-          console.error('Copy failed:', err);
-        });
+    async function copyBlueprint() {
+      const status = document.getElementById('copyStatus');
+      const fallback = document.getElementById('copyFallback');
+      fallback.hidden = true;
+      try {
+        await navigator.clipboard.writeText(window.currentBlueprintText);
+        status.textContent = 'Скопировано в буфер!';
+      } catch {
+        status.textContent = 'Буфер недоступен. Выделите текст ниже и скопируйте вручную.';
+        fallback.value = window.currentBlueprintText;
+        fallback.hidden = false;
+        fallback.focus();
+        fallback.select();
       }
     }
 
@@ -1471,15 +1604,21 @@
       }
     }
 
+    function escapePreviewHtml(value) {
+      return value.replace(/[&<>"']/g, ch => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[ch]));
+    }
+
     function updateCleanCodeSnippet() {
       const niche = NICHES.find(n => n.id === state.nicheId);
-      const modules = Array.from(state.selectedAddons).join(', ');
+      const activeModules = new Set(state.selectedAddons);
+      if (state.baseFormatId === 'complex') activeModules.add('crm');
+      const modules = Array.from(activeModules).join(', ');
       const code = `<!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${niche.brand} — ${niche.headline}</title>
+  <title>${escapePreviewHtml((state.customProjectName || '').trim() || niche.defaultBrand)} — ${niche.headline}</title>
   <!-- 0 KB jQuery, 0 trackers. Pure HTML5 + Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></` + `script>
   <script src="https://unpkg.com/lucide@latest"></` + `script>
@@ -1487,7 +1626,7 @@
 <body class="bg-[#0B0D11] text-slate-100 font-sans antialiased">
   <!-- 1. Header & Direct Telegram -->
   <header class="p-4 border-b border-white/10 flex justify-between items-center">
-    <div class="font-bold text-white">${niche.brand}</div>
+    <div class="font-bold text-white">${escapePreviewHtml((state.customProjectName || '').trim() || niche.defaultBrand)}</div>
     <a href="https://t.me/sssunder" class="px-4 py-2 bg-[#4690FF] rounded-xl text-white text-xs font-semibold">
       Записаться в Telegram
     </a>
@@ -1503,35 +1642,13 @@
   <!-- Active Modules: [${modules}] -->
   ${state.selectedAddons.has('scanner') ? `<!-- 3. Module: 50/50 Scanner (${niche.scannerTitle}) -->\n  <section id="scanner" class="py-8 px-4">\n    <div class="aspect-[16/9] rounded-xl overflow-hidden relative">...</div>\n  </section>` : ''}
   ${state.selectedAddons.has('calc') ? `<!-- 4. Module: Live Online Calculator -->\n  <section id="calculator" class="py-8 px-4">\n    <!-- Clickable service pills with instant pricing calculation -->\n  </section>` : ''}
-  ${state.selectedAddons.has('crm') ? `<!-- 5. Module: Supabase Cloud Database Client -->\n  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></` + `script>` : ''}
+  ${activeModules.has('crm') ? `<!-- 5. Module: Supabase Cloud Database Client -->\n  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></` + `script>` : ''}
 </body>
 </html>`;
       document.getElementById('cleanCodePre').innerText = code;
     }
 
-    // Real-time Network Probe
-    async function runLiveProbe() {
-      const btn = document.getElementById('probeBtn');
-      const pingEl = document.getElementById('probePingVal');
-      const origText = btn.innerHTML;
-      btn.innerHTML = 'Замер...';
-      btn.disabled = true;
 
-      const t0 = performance.now();
-      try {
-        await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
-        const latency = Math.max(12, Math.round(performance.now() - t0));
-        pingEl.innerText = `${latency} мс`;
-      } catch (e) {
-        pingEl.innerText = '32 мс';
-      } finally {
-        btn.innerHTML = origText;
-        btn.disabled = false;
-        if (window.lucide) lucide.createIcons();
-      }
-    }
-
-    // Run on Load
     document.addEventListener('DOMContentLoaded', () => {
       initConfigurator();
       if (window.lucide) lucide.createIcons();
